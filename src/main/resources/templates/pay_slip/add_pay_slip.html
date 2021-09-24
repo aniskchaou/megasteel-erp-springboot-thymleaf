@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	Employee employee;
+	String firstName;
+	String lastName;
+	String workedHours;
+	String leaves;
+	String attendanceBonus;
+	String grossSalary;
+	String delayHours;
+	
+				<form th:fragment="add_pay_slip_form" th:action="@{/addpayslip}" method="post">
+
+				<!-- Name  -->
+				 <input name="employee" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="employee">
+						
+				 <input name="firstName" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="firstName">
+						
+				 <input name="lastName" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="lastName">
+						
+						 <input name="workedHours" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="workedHours">
+						
+						 <input name="leaves" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="leaves">
+						
+						 <input name="attendanceBonus" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="attendanceBonus">
+						
+						 <input name="grossSalary" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="grossSalary">
+						
+						 <input name="delayHours" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delayHours">
+
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

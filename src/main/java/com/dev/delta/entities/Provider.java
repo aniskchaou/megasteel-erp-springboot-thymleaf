@@ -6,7 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+/**
+ * @author Admin
+ *
+ */
 @Entity
 public class Provider implements Serializable {
 
@@ -19,8 +25,11 @@ public class Provider implements Serializable {
 	private String code;
 	private String name;
 	private String address;
-	private String vat;
+	@ManyToOne
+	@JoinColumn(name="vat_id")
+	private VAT vat;
 	private String phone;
+	
 	private String responsable;
 	private String fax;
 
@@ -28,7 +37,8 @@ public class Provider implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Provider(String code, String name, String address, String vat, String phone, String responsable,
+	public Provider(String code, String name, String address, VAT vat, String phone,
+			String responsable,
 			String fax) {
 		super();
 		this.code = code;
@@ -72,11 +82,11 @@ public class Provider implements Serializable {
 		this.address = address;
 	}
 
-	public String getVat() {
+	public VAT getVat() {
 		return vat;
 	}
 
-	public void setVat(String vat) {
+	public void setVat(VAT vat) {
 		this.vat = vat;
 	}
 

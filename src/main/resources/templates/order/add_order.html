@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+			<form th:fragment="add_order_form" th:action="@{/addorder}" method="post">
+
+				<!-- Name  -->
+				 <input name="orderNumber" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="orderNumber">
+						
+				 <input name="dateCreation" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dateCreation">
+						
+				 <input name="dateLimit" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dateLimit">
+						
+						 <input name="state" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="state">
+						
+						
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

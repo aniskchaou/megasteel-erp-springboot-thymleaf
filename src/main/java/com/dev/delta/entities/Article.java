@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Article  implements Serializable{
@@ -18,7 +20,9 @@ public class Article  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String code;
-	private String unity;
+	@ManyToOne
+	@JoinColumn(name="unit_id")
+	private Unit unity;
 	private String height;
 	private String width;
 	private String dimension;
@@ -28,7 +32,7 @@ public class Article  implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Article(String code, String unity, String height, String width, String dimension, String weight) {
+	public Article(String code, Unit unity, String height, String width, String dimension, String weight) {
 		super();
 		this.code = code;
 		this.unity = unity;
@@ -54,11 +58,11 @@ public class Article  implements Serializable{
 		this.code = code;
 	}
 
-	public String getUnity() {
+	public Unit getUnity() {
 		return unity;
 	}
 
-	public void setUnity(String unity) {
+	public void setUnity(Unit unity) {
 		this.unity = unity;
 	}
 

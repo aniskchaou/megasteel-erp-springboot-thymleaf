@@ -10,14 +10,14 @@ public class Contact implements Serializable {
 
 	private static final long serialVersionUID = -3129893792842559949L;
 	
-	private String firstName;
-	private String lastName;
-	private String code;
-	private String tva;
-	private String adresse;
-	private String telephone;
-	private String fax;
-	private String email;
+	protected String firstName;
+	protected String lastName;
+	protected String code;
+	protected String tva;
+	protected String adresse;
+	protected String telephone;
+	protected String fax;
+	protected String email;
 
 	public Contact() {
 		// TODO Auto-generated constructor stub

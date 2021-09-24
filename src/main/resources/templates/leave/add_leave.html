@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+				<form th:fragment="add_leave_form" th:action="@{/addleave}" method="post">
+
+				<!-- Name  -->
+				
+					
+					<select name="employee" >
+			 <option th:value="${employee.id}" th:each="employee:${employees}"  th:text="${employee.firstName}">
+			 </option>
+			
+			</select>
+				
+				 <input name="firstName" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="firstName">
+						
+				 <input name="lastName" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="lastName">
+						
+						 <input name="startDate" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="startDate">
+						
+						 <input name="endDate" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="endDate">
+						
+						 <input name="requestedDays" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="requestedDays">
+						
+						<input name="remainingDays" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="remainingDays">
+						
+						<input name="TypeLeave" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="TypeLeave">
+
+                       <select name="TypeLeave" >
+			 <option th:value="${typeLeave.id}" th:each="typeLeave:${typeLeaves}"  th:text="${typeLeave.name}">
+			 </option>
+			
+			</select>
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

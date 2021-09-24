@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -16,17 +17,22 @@ public class Termination implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	String employee;
+	@ManyToOne
+	@JoinColumn(name="employee_id")
+	Employee employee;
 	String firstName;
 	String lastName;
 	String date;
-	String cause;
+	@ManyToOne
+	@JoinColumn(name="type_termination")
+	TypeTermination cause;
 
 	public Termination() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Termination(String employee, String firstName, String lastName, String date, String cause) {
+	public Termination(Employee employee, String firstName, String lastName, String date, 
+			TypeTermination cause) {
 		super();
 		this.employee = employee;
 		this.firstName = firstName;
@@ -43,11 +49,11 @@ public class Termination implements Serializable {
 		this.id = id;
 	}
 
-	public String getEmployee() {
+	public Employee getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(String employee) {
+	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
 
@@ -75,11 +81,11 @@ public class Termination implements Serializable {
 		this.date = date;
 	}
 
-	public String getCause() {
+	public TypeTermination getCause() {
 		return cause;
 	}
 
-	public void setCause(String cause) {
+	public void setCause(TypeTermination cause) {
 		this.cause = cause;
 	}
 

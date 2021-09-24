@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	private String phone;
+	private String responsable;
+	private String fax;
+	
+				<form th:fragment="add_provider_form" th:action="@{/addprovider}" method="post">
+
+				<!-- Name  -->
+				 <input name="name" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
+						
+				 <input name="address" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="address">
+						
+				 <input name="code" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="code">
+						
+						 <input name="vat" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="vat">
+						
+						 <input name="phone" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="phone">
+						
+						 <input name="responsable" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="responsable">
+						
+						 <input name="fax" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="fax">
+
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

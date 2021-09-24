@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+<form th:fragment="add_job_applicant_form" th:action="@{/addjob_applicant}"
+		method="post">
+
+		<!-- Name  -->
+		<input name="lastName" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name">
+			
+			 
+			<select name="jobStatus" >
+			 <option th:value="${j.id}" th:each="j:${jobStatus}"  th:text="${j.name}">
+			 </option>
+			
+			</select>
+			
+	
+			
+			
+			
+			<input name="FirstName"
+			type="number" class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="job_applicantNumber" /> 
+			
+			
+			<input
+			name="EmailFixed" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+			
+			
+			<input
+			name="phoneMobile" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+			
+			
+			<input
+			name="phoneApplied" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+
+
+
+
+		<button type="submit" class="btn btn-primary">Create</button>
+
+
+	</form>
+</body>
+</html>

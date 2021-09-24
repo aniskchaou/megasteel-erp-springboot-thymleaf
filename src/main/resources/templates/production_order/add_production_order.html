@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+private String ;
+    private String quantiteRealise;
+    private String quantiteRestant;
+    @ManyToOne
+	@JoinColumn(name="machine_id")
+    private Machine codeMachine;
+    @ManyToOne
+	@JoinColumn(name="article_in_id")
+    private Article articleSortant;
+    @ManyToOne
+	@JoinColumn(name="article_out_id")
+    private Article articleEntrant;
+    private String etat;
+    
+
+
+
+<form th:fragment="add_production_order_form" th:action="@{/addproductionorder}"
+		method="post">
+
+		<!-- Name  -->
+		<input name="codeProduction" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			
+			
+			<select name="articleSortant" >
+			 <option th:value="${a.id}" th:each="a:${articles}"  th:text="${a.code}">
+			 </option>
+			
+			</select>
+			
+			
+			
+			
+			<select name="articleEntrant" >
+			 <option th:value="${a.id}" th:each="a:${articles}"  th:text="${a.code}">
+
+			 </option>
+			</select>
+			
+			<select name="codeMachine" >
+			 <option th:value="${m.id}" th:each="m:${machines}"  th:text="${m.name}">
+
+			 </option>
+			
+			</select>
+			
+			
+			
+			<input name="quantiteRestant"
+			type="number" class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="activityNumber" /> 
+			
+			
+			<input
+			name="machineNumber" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+
+
+             <input
+			name="etat" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+
+
+		<button type="submit" class="btn btn-primary">Create</button>
+
+
+	</form>
+</body>
+</html>

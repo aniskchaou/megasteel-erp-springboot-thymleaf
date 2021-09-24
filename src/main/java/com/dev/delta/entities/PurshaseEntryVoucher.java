@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class PurshaseEntryVoucher implements Serializable {
@@ -15,16 +17,20 @@ public class PurshaseEntryVoucher implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@ManyToOne
+	@JoinColumn(name="article_id")
 	private Article article;
 	private String date;
 	private String quantity;
-	private String unit;
+	@ManyToOne
+	@JoinColumn(name="unit_id")
+	private Unit unit;
 	
 	public PurshaseEntryVoucher() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PurshaseEntryVoucher(Article article, String date, String quantity, String unit) {
+	public PurshaseEntryVoucher(Article article, String date, String quantity, Unit unit) {
 		super();
 		this.article = article;
 		this.date = date;
@@ -66,11 +72,11 @@ public class PurshaseEntryVoucher implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public String getUnit() {
+	public Unit getUnit() {
 		return unit;
 	}
 
-	public void setUnit(String unit) {
+	public void setUnit(Unit unit) {
 		this.unit = unit;
 	}
 	

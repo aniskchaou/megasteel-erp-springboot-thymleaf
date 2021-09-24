@@ -1,0 +1,180 @@
+
+
+
+
+	
+	
+	<div th:fragment="add_activity_form" id="mymodel" class="modal-dialog modal-xl" role="document" >
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Add new location</h5>
+    </div>
+    <div class="modal-body">
+
+     
+         <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Minimal</label>
+                  <select class="form-control select2" style="width: 100%;">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>Disabled</label>
+                  <select class="form-control select2" disabled="disabled" style="width: 100%;">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Multiple</label>
+                  <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>Disabled Result</label>
+                  <select class="form-control select2" style="width: 100%;">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option disabled="disabled">California (disabled)</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <h5>Custom Color Variants</h5>
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Minimal (.select2-danger)</label>
+                  <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%;">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Multiple (.select2-purple)</label>
+                  <div class="select2-purple">
+                    <select class="select2" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                      <option>Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+            
+            
+            
+      	<form  th:action="@{/addactivity}"
+		method="post">
+
+		<!-- Name  -->
+		<input name="name" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			<select name="familyIn" >
+			 <option th:value="${family.id}" th:each="family:${families}"  th:text="${family.name}">
+			 </option>
+			
+			</select>		
+			
+			<select name="familyOut" >
+			 <option th:value="${family.id}" th:each="family:${families}"  th:text="${family.name}">
+
+			 </option>
+			
+			</select>
+			
+			
+			
+			<input name="activityNumber"
+			type="number" class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="activityNumber" /> 
+			
+			
+			<input
+			name="machineNumber" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+
+
+
+
+		<button type="submit" class="btn btn-primary">Create</button>
+
+
+	</form>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+    </div>
+  </div>
+</div>

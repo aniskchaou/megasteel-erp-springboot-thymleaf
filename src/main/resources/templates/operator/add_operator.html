@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+				<form th:fragment="add_operator_form" th:action="@{/addoperator}" method="post">
+
+				<!-- Name  -->
+				 <input name="code" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="code">
+						
+				 <input name="nom" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nom">
+						
+				 <input name="prenom" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="prenom">
+						
+						 <input name="telephone" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="telephone">
+						
+						 <input name="email" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+						
+						 <input name="etat" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="etat">
+
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

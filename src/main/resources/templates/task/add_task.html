@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+	
+<form th:fragment="add_task_form" th:action="@{/addtask}"
+		method="post">
+
+		<!-- Name  -->
+		<input name="subject" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			
+			<select name="project" >
+			 <option th:value="${project.id}" th:each="project:${projects}"  th:text="${project.name}">
+			 </option>
+			
+			</select>
+			
+			
+			<select name="assigned" >
+			 <option th:value="${e.id}" th:each="e:${employees}"  th:text="${e.firstName}">
+
+			 </option>
+			
+			</select>
+			
+			
+			
+			<input name="priority"
+			type="number" class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="activityNumber" /> 
+			
+			
+			<input
+			name="date" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+
+
+            <input
+			name="deadline" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+			
+			
+			<input
+			name="tags" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+
+
+		<button type="submit" class="btn btn-primary">Create</button>
+
+
+	</form>
+</body>
+</html>

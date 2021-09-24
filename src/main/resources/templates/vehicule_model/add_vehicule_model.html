@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:fragment="add_vehicule_model_form" th:action="@{/addvehiculemodel}"
+		method="post">
+
+		<!-- Name  -->
+		<input name="brand" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			
+		<input name="name" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			
+
+		<button type="submit" class="btn btn-primary">Create</button>
+
+
+	</form>
+</body>
+</html>

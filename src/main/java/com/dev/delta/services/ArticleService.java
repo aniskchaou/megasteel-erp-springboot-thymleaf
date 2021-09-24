@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Article;
 import com.dev.delta.repositories.ArticleRepository;
 
+@Service
 public class ArticleService {
 
 	/**
@@ -57,7 +59,7 @@ public class ArticleService {
 	 * delete
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(long id) {
 		articleRepository.delete(articleRepository.findById(id).get());
 	}
 }

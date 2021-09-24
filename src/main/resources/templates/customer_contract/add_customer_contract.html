@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	
+	
+				<form th:fragment="add_customer_contract_form" th:action="@{/addcustomercontract}" method="post">
+
+				<!-- Name  -->
+				 <input name="Company" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Company">
+						
+				 <input name="partner" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="partner">
+						
+				 <input name="currency" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="currency">
+						
+						 <input name="name" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
+						
+						 <input name="activationDate" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="activationDate">
+						
+						 <input name="endDate" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="endDate">
+
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

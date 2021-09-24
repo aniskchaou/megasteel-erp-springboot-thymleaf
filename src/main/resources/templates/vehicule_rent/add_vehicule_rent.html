@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	
+<form th:fragment="add_vehicule_rent_form" th:action="@{/addactivity}"
+		method="post">
+
+	
+			
+			
+			<select name="Customer" >
+			 <option th:value="${c.id}" th:each="c:${customes}"  th:text="${c.name}">
+			 </option>
+			
+			</select>
+			
+			
+			<select name="Model" >
+			 <option th:value="${v.id}" th:each="v:${vehiculeModels}"  th:text="${v.name}">
+
+			 </option>
+			
+			</select>
+			
+			
+			
+			<input name="plateNumber"
+			type="number" class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="activityNumber" /> 
+			
+			
+			<input
+			name="contractNumber" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+			
+			<input
+			name="rentStart" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+			
+			
+			<input
+			name="rentEnd" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+			
+			<input
+			name="Mileage" type="number" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="machineNumber">
+
+
+
+
+		<button type="submit" class="btn btn-primary">Create</button>
+
+
+	</form>
+</body>
+</html>

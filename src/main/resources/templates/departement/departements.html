@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+		<thead>
+			<tr>
+			<td>name</td>
+			<td>Actions</td>
+			</tr>
+		</thead>
+		<tbody>
+          <tr th:each="departement:${departements}">
+	          <td th:text="${departement.name}"></td>
+	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
+                    th:href="@{/deletedepartement/{id}(id=${departement.id}) }">Delete</a></td> 
+          </tr>
+	   </tbody>	
+	</table>
+	
+	
+	 <div th:insert="departement/add_departement :: add_departement_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+</body>
+</html>

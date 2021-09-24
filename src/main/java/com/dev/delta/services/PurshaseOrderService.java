@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.PurshaseOrder;
 import com.dev.delta.repositories.PurshaseOrderRepository;
-
+@Service
 public class PurshaseOrderService {
 
 	/**

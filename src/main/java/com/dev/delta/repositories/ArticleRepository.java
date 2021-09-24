@@ -8,6 +8,6 @@ import com.dev.delta.entities.Article;
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
-	Optional<Article> findById(int id);
+	Optional<Article> findById(long id);
 
 }

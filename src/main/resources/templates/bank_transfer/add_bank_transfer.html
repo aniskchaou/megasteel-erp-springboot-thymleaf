@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	
+<form th:fragment="add_bank_transfer_form" th:action="@{/addbanktransfer}"
+		method="post">
+
+		<!-- Name  -->
+		<input name="date" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			
+			
+			<select name="paymentFrom" >
+			 <option th:value="${b.id}" th:each="b:${bankAccounts}"  th:text="${b.accountName}">
+			 </option>
+			
+			</select>
+			
+			
+			<select name="paymentTo" >
+			  <option th:value="${b.id}" th:each="b:${bankAccounts}"  th:text="${b.accountName}">
+			 </option>
+			
+			</select>
+			
+			
+			
+			<input name="amount"
+			type="number" class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="activityNumber" /> 
+			
+			
+		
+
+
+		<button type="submit" class="btn btn-primary">Create</button>
+
+
+	</form>
+</body>
+</html>

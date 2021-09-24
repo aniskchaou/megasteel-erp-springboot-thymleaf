@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Part part;
+	String Date;
+	String quantity;
+	String unit;
+	
+				<form th:fragment="add_purshase_order_form" th:action="@{/addpurshaseorder}" method="post">
+                 
+                  <input name="part" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="part">
+				
+				 <input name="date" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="date">
+						
+				 <input name="applicant" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="applicant">
+						
+				 <input name="quantity" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="quantity">
+						
+				<input name="unit" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="unit">
+						
+					
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+<form th:fragment="add_project_form" th:action="@{/addproject}"
+		method="post">
+
+		<!-- Name  -->
+		<input name="code" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			
+		<input name="name" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			
+		<input name="progress" type="text" class="form-control"
+			id="exampleInputEmail1" aria-describedby="emailHelp"
+			placeholder="name"> 
+			
+			<select name="owner" >
+			 <option th:value="${e.id}" th:each="e:${employees}"  th:text="${e.firstName}">
+			 </option>
+			
+			</select>
+			
+		
+			
+			
+			
+			<input name="description"
+			type="number" class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="activityNumber" /> 
+			
+		
+
+
+		<button type="submit" class="btn btn-primary">Create</button>
+
+
+	</form>
+</body>
+</html>

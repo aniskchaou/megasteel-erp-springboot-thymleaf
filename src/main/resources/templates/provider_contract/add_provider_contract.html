@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+
+	
+		<form th:fragment="add_provider_contract_form" th:action="@{/addprovidercontract}" method="post" >
+
+				<!-- Name  -->
+				 <input  name="partner"  type="text"  placeholder="partner"></input>
+					
+				 <input  name="currency"  type="text" placeholder="currency"></input>
+				 
+				  <input  name="name"  type="text" placeholder="name"></input>
+				  
+				   <input  name="activationDate"  type="text" placeholder="activationDate"></input>
+				   
+				    <input  name="endDate"  type="text" placeholder="endDate"></input>
+					
+				<button type="submit" class="btn btn-primary">Create</button>
+				
+</body>
+</html>

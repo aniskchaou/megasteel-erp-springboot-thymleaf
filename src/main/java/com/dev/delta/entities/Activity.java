@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 @Entity
 public class Activity implements Serializable {
 
@@ -17,7 +19,11 @@ public class Activity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	@ManyToOne
+	@JoinColumn(name="family_in_id")
 	private Family familyIn;
+	@ManyToOne
+	@JoinColumn(name="family_out_id")
 	private Family familyOut;
 	private String articleNumber;
 	private String machineNumber;

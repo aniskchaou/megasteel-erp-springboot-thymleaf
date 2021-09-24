@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Intervention implements Serializable {
@@ -18,7 +20,11 @@ public class Intervention implements Serializable {
 	String date;
 	String cost;
 	String duration;
-	String state;
+	@ManyToOne
+	@JoinColumn(name="state_intervention_id")
+	InterventionStatus state;
+	@ManyToOne
+	@JoinColumn(name="machine_id")
 	Machine machine;
 
 	public Machine getMachine() {
@@ -33,7 +39,8 @@ public class Intervention implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Intervention(Long id, String reference, String date, String cost, String duration, String state,
+	public Intervention(Long id, String reference, String date, String cost, String duration,
+			InterventionStatus state,
 			Machine machine) {
 		super();
 		this.id = id;
@@ -85,11 +92,11 @@ public class Intervention implements Serializable {
 		this.duration = duration;
 	}
 
-	public String getState() {
+	public InterventionStatus getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(InterventionStatus state) {
 		this.state = state;
 	}
 

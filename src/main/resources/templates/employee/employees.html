@@ -1,0 +1,71 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+	<table>
+		<thead>
+			<tr>
+			<td>firstName</td>
+			<td>lastName</td>
+			<td>dateBirth</td>
+			<td>address</td>
+			<td>dateRecuitement</td>
+			<td>Actions</td>
+			</tr>
+		</thead>
+		<tbody>
+          <tr th:each="employee:${employees}">
+	          <td th:text="${employee.firstName}"></td>
+	          <td th:text="${employee.lastName}"></td>
+	          <td th:text="${employee.dateBirth}"></td>
+	          <td th:text="${employee.address}"></td>
+	          <td th:text="${employee.dateRecuitement}"></td> 
+	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
+                    th:href="@{/deleteemployee/{id}(id=${employee.id}) }">Delete</a></td> 
+          </tr>
+	   </tbody>	
+	</table>
+	
+	
+	 <div th:insert="employee/add_employee :: add_employee_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+      
+</body>
+</html>

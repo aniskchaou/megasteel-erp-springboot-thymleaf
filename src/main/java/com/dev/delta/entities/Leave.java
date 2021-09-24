@@ -19,21 +19,25 @@ public class Leave implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	String employee;
+	@ManyToOne
+	@JoinColumn(name="employee_id")
+	Employee employee;
 	String firstName;
 	String lastName;
 	String startDate;
 	String endDate;
 	String requestedDays;
 	String remainingDays;
-	String TypeLeave;
+	@ManyToOne
+	@JoinColumn(name="type_leave_id")
+	TypeLeave TypeLeave;
 
 	public Leave() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Leave(String code, String firstName, String lastName, String startDate, String endDate,
-			String requestedDays, String remainingDays, String typeLeave) {
+	public Leave(Employee code, String firstName, String lastName, String startDate, String endDate,
+			String requestedDays, String remainingDays, TypeLeave typeLeave) {
 		super();
 		this.employee = code;
 		this.firstName = firstName;
@@ -53,11 +57,11 @@ public class Leave implements Serializable {
 		this.id = id;
 	}
 
-	public String getEmployee() {
+	public Employee getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(String employee) {
+	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
 
@@ -109,11 +113,11 @@ public class Leave implements Serializable {
 		this.remainingDays = remainingDays;
 	}
 
-	public String getTypeLeave() {
+	public TypeLeave getTypeLeave() {
 		return TypeLeave;
 	}
 
-	public void setTypeLeave(String typeLeave) {
+	public void setTypeLeave(TypeLeave typeLeave) {
 		TypeLeave = typeLeave;
 	}
 

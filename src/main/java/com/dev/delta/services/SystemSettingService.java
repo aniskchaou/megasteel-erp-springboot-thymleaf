@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.dev.delta.entities.SystemSetting;
+import com.dev.delta.entities.Setting;
 import com.dev.delta.repositories.SystemSettingRepository;
-
+@Service
 public class SystemSettingService {
 	/**
 	 * systemSettingRepository
@@ -20,7 +21,7 @@ public class SystemSettingService {
 	 * getSystemSettings
 	 * @return
 	 */
-	public List<SystemSetting> getSystemSettings()
+	public List<Setting> getSystemSettings()
 	{
 		return systemSettingRepository.findAll();
 	}
@@ -38,7 +39,7 @@ public class SystemSettingService {
 	 * save
 	 * @param systemSetting
 	 */
-	public void save(SystemSetting systemSetting)
+	public void save(Setting systemSetting)
 	{
 		systemSettingRepository.save(systemSetting);
 	}
@@ -48,7 +49,7 @@ public class SystemSettingService {
      * @param id
      * @return
      */
-	public Optional<SystemSetting> findById(int id) {
+	public Optional<Setting> findById(int id) {
 		return systemSettingRepository.findById(id);
 	}
 

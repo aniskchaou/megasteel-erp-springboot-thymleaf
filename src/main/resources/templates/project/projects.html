@@ -1,0 +1,68 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+
+
+
+
+		<thead>
+			<tr>
+			<td>Code</td>
+			<td>name</td>
+			<td>progress</td>
+			<td>owner</td>
+			<td>Actions</td>
+			</tr>
+		</thead>
+		<tbody>
+          <tr th:each="project:${projects}">
+	          <td th:text="${project.code}"></td>
+	          <td th:text="${project.name}"></td>
+	          <td th:text="${project.progress}"></td>
+	          <td th:text="${project.owner}"></td>
+	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
+                    th:href="@{/deleteproject/{id}(id=${project.id}) }">Delete</a></td> 
+          </tr>
+	   </tbody>	
+	</table>
+	
+	
+	 <div th:insert="project/add_project :: add_project_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+</body>
+</html>

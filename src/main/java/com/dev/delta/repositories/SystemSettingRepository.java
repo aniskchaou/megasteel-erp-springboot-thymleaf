@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.dev.delta.entities.SystemSetting;
+import com.dev.delta.entities.Setting;
 
-public interface SystemSettingRepository extends JpaRepository<SystemSetting, Long> {
+public interface SystemSettingRepository extends JpaRepository<Setting, Long> {
 
-	Optional<SystemSetting> findById(int id);
+	Optional<Setting> findById(int id);
 
 }

@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class PreventiveMaintenance implements Serializable{
@@ -18,6 +20,8 @@ public class PreventiveMaintenance implements Serializable{
 	String reference;
 	String type;
 	String duration;
+	@ManyToOne
+	@JoinColumn(name="machine_id")
 	Machine machine;
 	
 	public PreventiveMaintenance() {

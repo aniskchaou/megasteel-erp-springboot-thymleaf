@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ProductionOrder implements Serializable{
@@ -18,17 +20,24 @@ public class ProductionOrder implements Serializable{
     private String codeProduction;
     private String quantiteRealise;
     private String quantiteRestant;
-    private String codeMachine;
-    private String articleSortant;
-    private String articleEntrant;
+    @ManyToOne
+	@JoinColumn(name="machine_id")
+    private Machine codeMachine;
+    @ManyToOne
+	@JoinColumn(name="article_in_id")
+    private Article articleSortant;
+    @ManyToOne
+	@JoinColumn(name="article_out_id")
+    private Article articleEntrant;
     private String etat;
     
     public ProductionOrder() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductionOrder(String codeProduction, String quantiteRealise, String quantiteRestant, String codeMachine,
-			String articleSortant, String articleEntrant, String etat) {
+	public ProductionOrder(String codeProduction, String quantiteRealise, String quantiteRestant,
+			Machine codeMachine,
+			Article articleSortant, Article articleEntrant, String etat) {
 		super();
 		this.codeProduction = codeProduction;
 		this.quantiteRealise = quantiteRealise;
@@ -71,27 +80,27 @@ public class ProductionOrder implements Serializable{
 		this.quantiteRestant = quantiteRestant;
 	}
 
-	public String getCodeMachine() {
+	public Machine getCodeMachine() {
 		return codeMachine;
 	}
 
-	public void setCodeMachine(String codeMachine) {
+	public void setCodeMachine(Machine codeMachine) {
 		this.codeMachine = codeMachine;
 	}
 
-	public String getArticleSortant() {
+	public Article getArticleSortant() {
 		return articleSortant;
 	}
 
-	public void setArticleSortant(String articleSortant) {
+	public void setArticleSortant(Article articleSortant) {
 		this.articleSortant = articleSortant;
 	}
 
-	public String getArticleEntrant() {
+	public Article getArticleEntrant() {
 		return articleEntrant;
 	}
 
-	public void setArticleEntrant(String articleEntrant) {
+	public void setArticleEntrant(Article articleEntrant) {
 		this.articleEntrant = articleEntrant;
 	}
 

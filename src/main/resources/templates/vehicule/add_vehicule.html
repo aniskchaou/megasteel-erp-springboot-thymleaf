@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+				<form th:fragment="add_vehicule_form" th:action="@{/addvehicule}" method="post">
+
+				<!-- Name  -->
+				 <input name="name" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
+						
+				 <input name="model" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="model">
+						
+				 <input name="plateNumber" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="plateNumber">
+						
+					
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

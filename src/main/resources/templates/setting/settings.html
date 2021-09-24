@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+		<thead>
+			<tr>
+			<td>Code</td>
+			<td>Unity</td>
+			<td>Height</td>
+			<td>Width</td>
+			<td>Dimension</td>
+			<td>Weight</td>
+			<td>Actions</td>
+			</tr>
+		</thead>
+		<tbody>
+          <tr th:each="article:${articles}">
+	          <td th:text="${article.code}"></td>
+	          <td th:text="${article.unity}"></td>
+	          <td th:text="${article.height}"></td>
+	          <td th:text="${article.width}"></td>
+	          <td th:text="${article.dimension}"></td>
+	          <td th:text="${article.weight}"></td> 
+	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
+                    th:href="@{/deletearticle/{id}(id=${article.id}) }">Delete</a></td> 
+          </tr>
+	   </tbody>	
+	</table>
+	
+	
+	 <div th:insert="article/add_article :: add_article_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+	
+	
+</body>
+</html>

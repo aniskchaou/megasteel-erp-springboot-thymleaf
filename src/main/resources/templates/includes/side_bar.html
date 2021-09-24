@@ -1,0 +1,612 @@
+
+ <aside th:fragment="side_bar" class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="dist/img/megasteel.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Megasteel</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y 
+    os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/admin.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Admin</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+       
+         <li class="nav-item">
+            <a th:href="@{/dashboard}" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+         <li class="nav-header">MANUFACTURING</li>
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-industry"></i>
+              <p>
+                Productions
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a th:href="@{/productionorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Production Orders</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a th:href="@{/activities}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Activities</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/operators}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Operators</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/orders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/profuctionentryvouchers}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Production Entry Vouchers</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Configurations
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a th:href="@{/families}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Families</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/articles}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Articles</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/machines}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Machines</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/storageareas}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Storage area</p>
+                </a>
+              </li>
+            </ul>
+          </li>         
+         
+          <li class="nav-header">PURSHASE</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-basket"></i>
+              <p>
+                Purshases
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a th:href="@{/pushaseentryvouchers}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Purshase Entry Vouchers</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/providerorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Provider Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/pushaseorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Purshase Orders </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/orderstatus}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Order Status </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/partorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Part Orders</p>
+                </a>
+              </li>
+                <li class="nav-item">
+                <a th:href="@{/providers}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Providers</p>
+                </a>
+              </li>
+            </ul>
+          </li>        
+        
+
+         <li class="nav-header">DOCUMENT</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-file-alt"></i>
+              <p>
+                Documents
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a th:href="@{/documents}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Documents</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/typedocuments}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Type Documents</p>
+                </a>
+              </li>
+            </ul>
+          </li>     
+         
+         <li class="nav-header">ACCOUNTING</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-money-bill"></i>
+              <p>
+                Cash
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a th:href="@{/bankaccounts}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bank Accounts</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/banktransfers}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bank Transferts</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/incomes}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Incomes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/expenses}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Expenses </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/partstatus}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Order Status </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/partorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Part Orders</p>
+                </a>
+              </li>
+            </ul>
+          </li>  
+          
+          
+          
+          <li class="nav-header">HR</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Employees
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+             <li class="nav-item">
+                <a th:href="@{/employees}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employees</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/payslips}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pay Slips</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/events}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Events</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/departements}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Departements </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/terminations}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Terminations </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/leaves}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Leaves</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a th:href="@{/typeleaves}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Type Leaves</p>
+                </a>
+              </li>
+              
+               <li class="nav-item">
+                <a th:href="@{/jobs}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jobs</p>
+                </a>
+              </li>
+              
+               <li class="nav-item">
+                <a th:href="@{/parts}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Job Applicants</p>
+                </a>
+              </li>
+              
+               <li class="nav-item">
+                <a th:href="@{/jobapplications}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Job Applications</p>
+                </a>
+              </li>
+              
+               <li class="nav-item">
+                <a th:href="@{/trainings}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Trainings</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/typeterminations}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Type Terminations</p>
+                </a>
+              </li>
+            </ul>
+          </li>        
+         
+         
+         <li class="nav-header">FLEET</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-car"></i>
+              <p>
+                Vehicules
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+             <li class="nav-item">
+                <a th:href="@{/vehicules}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Vehicules</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/vehiculerents}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Vehicule Rents</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/vehiculemodels}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Vehicule Models</p>
+                </a>
+              </li>
+            </ul>
+          </li>     
+         
+         
+         <li class="nav-header">PROJECTS</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-flask"></i>
+              <p>
+                Teamworks
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a th:href="@{/tasks}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tasks</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a th:href="@{/projects}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projects</p>
+                </a>
+              </li>
+            </ul>
+          </li>     
+         
+         
+         <li class="nav-header">SALE</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cash-register"></i>
+              <p>
+                Sales
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+               <li class="nav-item">
+                <a th:href="@{/clients}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Clients</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/deliveryvouchers}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Delivery Vouchers</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/providerorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Provider Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/purshaseorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Purshase Orders </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/orderstatus}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Order Status </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/uplot.html" class="nav-link">
+                  <i  th:href="@{/partorders}"></i>
+                  <p>Part Orders</p>
+                </a>
+              </li>
+            </ul>
+          </li>     
+         
+         
+         <li class="nav-header">MAINTENANCE</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-hammer"></i>
+              <p>
+                Interventions
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+            <li class="nav-item">
+                <a th:href="@{/interventions}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Interventions</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/breakdowns}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Breakdowns</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/preventivemaintenances}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Preventive Maintenances</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/externalproviders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>External Providers </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/parts}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Parts </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/partorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Part Orders</p>
+                </a>
+              </li>
+            </ul>
+          </li>     
+         
+         <li class="nav-header">INVENTORY</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-warehouse"></i>
+              <p>
+                WareHouse
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+            <li class="nav-item">
+                <a th:href="@{/warehouses}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>WareHouses</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/incomes}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Incomes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/expenses}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Expenses</p>
+                </a>
+              </li>
+            </ul>
+          </li> 
+          
+          
+          <li class="nav-header">CONTRACT</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-handshake"></i>
+              <p>
+                <i class="right fas fa-angle-left"></i>
+                Contracts
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a th:href="@{/clientcontracts}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Client Contracts</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a th:href="@{/providercontracts}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Provider Contracts</p>
+                </a>
+              </li>
+            </ul>
+          </li>     
+          
+          
+          
+          <li class="nav-header">SETTING</li>
+         
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Settings
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a th:href="@{/cities}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cities</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/flot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Countries</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/vats}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>VAT</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a th:href="@{/units}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Units</p>
+                </a>
+              </li>
+            </ul>
+          </li>      
+         
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+    
+</aside>

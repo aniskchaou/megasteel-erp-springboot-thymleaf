@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	
+			<form th:fragment="add_termination_form" th:action="@{/addtermination}" method="post">
+
+			
+				
+				<select name="employee" >
+			 <option th:value="${employee.id}" th:each="employee:${employees}"  th:text="${employee.firstName}">
+			 </option>
+			
+			</select>
+			
+					
+				 <input name="firstName" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="firstName">
+						
+				 <input name="lastName" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="lastName">
+						
+						 <input name="date" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="date">
+						
+						
+						
+					 <select name="cause" >
+			 <option th:value="${t.id}" th:each="t:${typeTerminations}"  th:text="${t.name}">
+
+			 </option>
+			
+			</select>
+
+
+				<button type="submit" class="btn btn-primary">Create</button>
+
+
+			</form>
+</body>
+</html>

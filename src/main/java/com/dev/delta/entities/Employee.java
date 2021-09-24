@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -23,15 +25,19 @@ public class Employee {
 	String dateBirth;
 	String address;
 	String dateRecuitement;
-	String job;
+	@ManyToOne
+	@JoinColumn(name="job_id")
+	Job job;
 	String children;
 
 	
-	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 	public Employee(String code, String firstName, String lastName, String dateBirth, String address,
-			String dateRecuitement, String job, String children) {
+			String dateRecuitement, Job job, String children) {
 		super();
 		this.code = code;
 		this.firstName = firstName;
@@ -103,11 +109,11 @@ public class Employee {
 		this.dateRecuitement = dateRecuitement;
 	}
 
-	public String getJob() {
+	public Job getJob() {
 		return job;
 	}
 
-	public void setJob(String job) {
+	public void setJob(Job job) {
 		this.job = job;
 	}
 
