@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.OrderState;
 import com.dev.delta.repositories.OrderStateRepository;
+
 @Service
 public class OrderStatusService {
 
@@ -16,49 +17,50 @@ public class OrderStatusService {
 	 */
 	@Autowired
 	private OrderStateRepository orderStateRepository;
-	
 
 	/**
 	 * getOrderStates
+	 * 
 	 * @return
 	 */
-	public List<OrderState> getOrderStates()
-	{
+	public List<OrderState> getOrderStates() {
 		return orderStateRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return orderStateRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param orderState
 	 */
-	public void save(OrderState orderState)
-	{
+	public void save(OrderState orderState) {
 		orderStateRepository.save(orderState);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<OrderState> findById(int id) {
 		return orderStateRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		orderStateRepository.delete(orderStateRepository.findById(id).get());
 	}
 }

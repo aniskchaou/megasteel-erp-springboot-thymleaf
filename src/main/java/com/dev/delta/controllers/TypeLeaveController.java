@@ -27,26 +27,26 @@ public class TypeLeaveController {
 	@Autowired
 	private TypeLeaveService typeLeaveService;
 
-	
-
 	/**
 	 * getTypeLeaves
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/typeleaves")
 	public String getTypeLeaves(Model model) {
 		List<TypeLeave> typeTypeLeaves = typeLeaveService.getTypeLeaves();
-		model.addAttribute("typeLeaves", typeTypeLeaves);	
-		return "typeleave/typeleaves";
+		model.addAttribute("typeLeaves", typeTypeLeaves);
+		return "type_leave/type_leaves";
 	}
 
 	/**
 	 * addTypeLeave
+	 * 
 	 * @param typeTypeLeave
 	 * @return
 	 */
-	@PostMapping("/addtypeTypeLeave")
+	@PostMapping("/addtypeleave")
 
 	public String addTypeLeave(TypeLeave typeTypeLeave) {
 		typeLeaveService.save(typeTypeLeave);
@@ -55,6 +55,7 @@ public class TypeLeaveController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -68,6 +69,7 @@ public class TypeLeaveController {
 
 	/**
 	 * updateTypeLeave
+	 * 
 	 * @param id
 	 * @param typeTypeLeave
 	 * @param result
@@ -84,12 +86,13 @@ public class TypeLeaveController {
 
 	/**
 	 * deleteTypeLeave
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletetypetypeleave/{id}")
 	@Transactional
-	public String deleteTypeLeave(@PathVariable("id") int id) {
+	public String deleteTypeLeave(@PathVariable("id") Long id) {
 		typeLeaveService.delete(id);
 		return "redirect:/typeleaves";
 	}

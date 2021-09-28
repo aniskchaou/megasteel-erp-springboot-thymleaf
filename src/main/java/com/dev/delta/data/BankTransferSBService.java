@@ -10,10 +10,10 @@ public class BankTransferSBService implements IDBService {
 
 	@Autowired
 	BankTransferRepository bankTransferRepository;
-	
+
 	@Override
 	public void populate() {
-		bankTransfer.setAmount("34");
+		bankTransfer.setAmount("34.000 $");
 		bankTransfer.setDate("12-6-2020");
 		bankTransfer.setPaymentFrom(bankAccount);
 		bankTransfer.setPaymentName("payment");

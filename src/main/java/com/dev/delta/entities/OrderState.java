@@ -12,7 +12,7 @@ public class OrderState {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	
+
 	public OrderState() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,7 +37,5 @@ public class OrderState {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }

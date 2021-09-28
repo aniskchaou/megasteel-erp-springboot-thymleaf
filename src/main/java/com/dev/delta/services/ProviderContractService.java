@@ -16,49 +16,50 @@ public class ProviderContractService {
 	 */
 	@Autowired
 	private ProviderContractRepository providerContractRepository;
-	
 
 	/**
 	 * getProviderContracts
+	 * 
 	 * @return
 	 */
-	public List<ProviderContract> getProviderContracts()
-	{
+	public List<ProviderContract> getProviderContracts() {
 		return providerContractRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return providerContractRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param providerContract
 	 */
-	public void save(ProviderContract providerContract)
-	{
+	public void save(ProviderContract providerContract) {
 		providerContractRepository.save(providerContract);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<ProviderContract> findById(int id) {
 		return providerContractRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		providerContractRepository.delete(providerContractRepository.findById(id).get());
 	}
 }

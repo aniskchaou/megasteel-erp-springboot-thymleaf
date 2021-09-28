@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -21,6 +20,7 @@ import com.dev.delta.entities.TypeLeave;
 import com.dev.delta.services.EmployeeService;
 import com.dev.delta.services.LeaveService;
 import com.dev.delta.services.TypeLeaveService;
+
 @Controller
 public class LeaveController {
 	/**
@@ -31,21 +31,22 @@ public class LeaveController {
 
 	@Autowired
 	EmployeeService employeeService;
-	
+
 	@Autowired
-	TypeLeaveService  typeLeaveService;
+	TypeLeaveService typeLeaveService;
 
 	/**
 	 * getLeaves
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/leaves")
 	public String getLeaves(Model model) {
 		List<Leave> leaves = leaveService.getLeaves();
-		List<Employee> employees=employeeService.getEmployees();
-		List<TypeLeave> typeLeaves=typeLeaveService.getTypeLeaves();
-		model.addAttribute("leaves", leaves);	
+		List<Employee> employees = employeeService.getEmployees();
+		List<TypeLeave> typeLeaves = typeLeaveService.getTypeLeaves();
+		model.addAttribute("leaves", leaves);
 		model.addAttribute("employees", employees);
 		model.addAttribute("typeLeaves", typeLeaves);
 		return "leave/leaves";
@@ -53,6 +54,7 @@ public class LeaveController {
 
 	/**
 	 * addLeave
+	 * 
 	 * @param leave
 	 * @return
 	 */
@@ -65,6 +67,7 @@ public class LeaveController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -78,6 +81,7 @@ public class LeaveController {
 
 	/**
 	 * updateLeave
+	 * 
 	 * @param id
 	 * @param leave
 	 * @param result
@@ -85,8 +89,7 @@ public class LeaveController {
 	 * @return
 	 */
 	@PostMapping("/updateleave/{id}")
-	public String updateLeave(@PathVariable("id") long id, @Validated Leave leave, BindingResult result,
-			Model model) {
+	public String updateLeave(@PathVariable("id") long id, @Validated Leave leave, BindingResult result, Model model) {
 
 		leaveService.save(leave);
 		return "redirect:/leaves";
@@ -94,12 +97,13 @@ public class LeaveController {
 
 	/**
 	 * deleteLeave
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteleave/{id}")
 	@Transactional
-	public String deleteLeave(@PathVariable("id") int id) {
+	public String deleteLeave(@PathVariable("id") Long id) {
 		leaveService.delete(id);
 		return "redirect:/leaves";
 	}

@@ -30,25 +30,26 @@ public class SettingController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getSettings
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/settings")
 	public String getSettings(Model model) {
 		List<Setting> settings = settingService.getSettings();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("settings", settings);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("settings", settings);
+		model.addAttribute("families", families);
+
 		return "setting/settings";
 	}
 
 	/**
 	 * addSetting
+	 * 
 	 * @param setting
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class SettingController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class SettingController {
 
 	/**
 	 * updateSetting
+	 * 
 	 * @param id
 	 * @param setting
 	 * @param result
@@ -90,12 +93,13 @@ public class SettingController {
 
 	/**
 	 * deleteSetting
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletesetting/{id}")
 	@Transactional
-	public String deleteSetting(@PathVariable("id") int id) {
+	public String deleteSetting(@PathVariable("id") Long id) {
 		settingService.delete(id);
 		return "redirect:/settings";
 	}

@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -31,29 +30,32 @@ public class TerminationController {
 	private TerminationService terminationService;
 
 	@Autowired
-	private EmployeeService employeeService ;  
+	private EmployeeService employeeService;
 
 	@Autowired
 	private TypeTerminationService typeTerminationService;
+
 	/**
 	 * getTerminations
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/terminations")
 	public String getTerminations(Model model) {
 		List<Termination> terminations = terminationService.getTerminations();
-		List<Employee> employees=employeeService.getEmployees();
-		List<TypeTermination> typeTerminations=typeTerminationService.getTypeTerminations();
-		model.addAttribute("terminations", terminations);	
+		List<Employee> employees = employeeService.getEmployees();
+		List<TypeTermination> typeTerminations = typeTerminationService.getTypeTerminations();
+		model.addAttribute("terminations", terminations);
 		model.addAttribute("employees", employees);
 		model.addAttribute("typeTerminations", typeTerminations);
 		return "termination/terminations";
-		
+
 	}
 
 	/**
 	 * addTermination
+	 * 
 	 * @param termination
 	 * @return
 	 */
@@ -66,6 +68,7 @@ public class TerminationController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -79,6 +82,7 @@ public class TerminationController {
 
 	/**
 	 * updateTermination
+	 * 
 	 * @param id
 	 * @param termination
 	 * @param result
@@ -86,8 +90,8 @@ public class TerminationController {
 	 * @return
 	 */
 	@PostMapping("/updatetermination/{id}")
-	public String updateTermination(@PathVariable("id") long id, @Validated Termination termination, BindingResult result,
-			Model model) {
+	public String updateTermination(@PathVariable("id") long id, @Validated Termination termination,
+			BindingResult result, Model model) {
 
 		terminationService.save(termination);
 		return "redirect:/terminations";
@@ -95,12 +99,13 @@ public class TerminationController {
 
 	/**
 	 * deleteTermination
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletetermination/{id}")
 	@Transactional
-	public String deleteTermination(@PathVariable("id") int id) {
+	public String deleteTermination(@PathVariable("id") Long id) {
 		terminationService.delete(id);
 		return "redirect:/terminations";
 	}

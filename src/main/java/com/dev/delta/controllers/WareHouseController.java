@@ -29,29 +29,30 @@ public class WareHouseController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getWareHouses
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/warehouses")
 	public String getWareHouses(Model model) {
 		List<WareHouse> wareHouses = wareHouseService.getWareHouses();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("warehouses", wareHouses);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("warehouses", wareHouses);
+		model.addAttribute("families", families);
+
 		return "wareHouse/warehouses";
 	}
 
 	/**
 	 * addWareHouse
+	 * 
 	 * @param wareHouse
 	 * @return
 	 */
-	@PostMapping("/addwareHouse")
+	@PostMapping("/addwarehouse")
 
 	public String addWareHouse(WareHouse wareHouse) {
 		wareHouseService.save(wareHouse);
@@ -60,6 +61,7 @@ public class WareHouseController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -73,6 +75,7 @@ public class WareHouseController {
 
 	/**
 	 * updateWareHouse
+	 * 
 	 * @param id
 	 * @param wareHouse
 	 * @param result
@@ -89,12 +92,13 @@ public class WareHouseController {
 
 	/**
 	 * deleteWareHouse
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletewareHouse/{id}")
 	@Transactional
-	public String deleteWareHouse(@PathVariable("id") int id) {
+	public String deleteWareHouse(@PathVariable("id") Long id) {
 		wareHouseService.delete(id);
 		return "redirect:/warehouses";
 	}

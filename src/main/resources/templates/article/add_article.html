@@ -1,48 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+
+<div th:fragment="add_article_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:fragment="add_article_form" th:action="@{/addarticle}"
+				method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Code</label> <input name="code" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Code">
 
 
-			<form th:fragment="add_article_form" th:action="@{/addarticle}" method="post">
-
-				<!-- Name  -->
-				 <input name="code" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="code">
-						
-				 <input name="unity" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="unit">
-						
-				 <input name="height" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="height">
-						
-						 <input name="width" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="width">
-						
-						 <input name="dimension" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dimension">
-						
-						 <input name="weight" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="weight">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Width</label> <input name="width" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Width">
 
 
+
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Unit </label> 
+
+                           <select class="form-control select2"
+								style="width: 100%;" name="unity">
+								<option th:value="${u.id}" th:each="u:${units}"
+									th:text="${u.name}"></option>
+							</select>
+
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Height</label> <input name="height" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Height">
+
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-12 col-sm-6">
+						<div class="form-group">
+							<label>Dimension</label> <input name="dimension" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Dimension">
+
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-12 col-sm-6">
+						<div class="form-group">
+							<label>Weight</label> <input name="weight" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Weight">
+
+
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

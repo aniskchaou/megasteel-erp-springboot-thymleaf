@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.CustomerContractRepository;
 
 @Service
-public class CustomerContractDBService implements IDBService{
+public class CustomerContractDBService implements IDBService {
 
 	@Autowired
 	CustomerContractRepository CustomerContractRepository;
-	
+
 	@Override
 	public void populate() {
 		customerContract.setActivationDate("11/02/2021");

@@ -6,19 +6,17 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.OrderRepository;
 
 @Service
-public class OrderDBService implements IDBService
-{
+public class OrderDBService implements IDBService {
 
 	@Autowired
 	OrderRepository OrderRepository;
-	
-	
+
 	@Override
 	public void populate() {
 		order.setOrderNumber("D233E");
 		order.setDateCreation("12/11/2019");
 		order.setDateLimit("11/09/2021");
-		order.setState("1");
+		order.setState("sent");
 		OrderRepository.save(order);
 	}
 

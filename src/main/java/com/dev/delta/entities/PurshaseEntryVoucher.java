@@ -12,20 +12,19 @@ import javax.persistence.ManyToOne;
 @Entity
 public class PurshaseEntryVoucher implements Serializable {
 
-	
 	private static final long serialVersionUID = 2820707866128952939L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne
-	@JoinColumn(name="article_id")
+	@JoinColumn(name = "article_id")
 	private Article article;
 	private String date;
 	private String quantity;
 	@ManyToOne
-	@JoinColumn(name="unit_id")
+	@JoinColumn(name = "unit_id")
 	private Unit unit;
-	
+
 	public PurshaseEntryVoucher() {
 		// TODO Auto-generated constructor stub
 	}
@@ -45,8 +44,6 @@ public class PurshaseEntryVoucher implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	
 
 	public Article getArticle() {
 		return article;
@@ -79,6 +76,5 @@ public class PurshaseEntryVoucher implements Serializable {
 	public void setUnit(Unit unit) {
 		this.unit = unit;
 	}
-	
-	
+
 }

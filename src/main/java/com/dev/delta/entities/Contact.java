@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Contact implements Serializable {
 
 	private static final long serialVersionUID = -3129893792842559949L;
-	
+
 	protected String firstName;
 	protected String lastName;
 	protected String code;
@@ -35,8 +35,6 @@ public class Contact implements Serializable {
 		this.fax = fax;
 		this.email = email;
 	}
-
-	
 
 	public String getFirstName() {
 		return firstName;

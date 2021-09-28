@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Vehicule;
+import com.dev.delta.entities.VehiculeModel;
+import com.dev.delta.services.VehiculeModelService;
 import com.dev.delta.services.VehiculeService;
+
 @Controller
 public class VehiculeController {
 	/**
@@ -24,22 +27,27 @@ public class VehiculeController {
 	@Autowired
 	private VehiculeService vehiculeService;
 
-	
+	@Autowired
+	private VehiculeModelService vehiculeModelService;
 
 	/**
 	 * getVehicules
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/vehicules")
 	public String getVehicules(Model model) {
 		List<Vehicule> vehicules = vehiculeService.getVehicules();
-		model.addAttribute("vehicules", vehicules);	
+		List<VehiculeModel> vehiculeModels = vehiculeModelService.getVehiculeModels();
+		model.addAttribute("vehicules", vehicules);
+		model.addAttribute("vehiculeModels", vehiculeModels);
 		return "vehicule/vehicules";
 	}
 
 	/**
 	 * addVehicule
+	 * 
 	 * @param vehicule
 	 * @return
 	 */
@@ -52,6 +60,7 @@ public class VehiculeController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -65,6 +74,7 @@ public class VehiculeController {
 
 	/**
 	 * updateVehicule
+	 * 
 	 * @param id
 	 * @param vehicule
 	 * @param result
@@ -81,15 +91,15 @@ public class VehiculeController {
 
 	/**
 	 * deleteVehicule
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletevehicule/{id}")
 	@Transactional
-	public String deleteVehicule(@PathVariable("id") int id) {
+	public String deleteVehicule(@PathVariable("id") Long id) {
 		vehiculeService.delete(id);
 		return "redirect:/vehicules";
 	}
-	
-	
+
 }

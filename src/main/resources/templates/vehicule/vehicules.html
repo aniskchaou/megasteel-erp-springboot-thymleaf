@@ -98,28 +98,31 @@
 													<thead>
 														<tr>
 															<th>Name</th>
-			<th>Model</th>
-			<th>Plate Number</th>
-			<th>Actions</th>
+															<th>Model</th>
+															<th>Plate Number</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
-														 <tr th:each="vehicule:${vehicules}">
-	          <td th:text="${vehicule.name}"></td>
-	          <td th:text="${vehicule.model}"></td>
-	          <td th:text="${vehicule.plateNumber}"></td>
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletevehicule/{id}(id=${vehicule.id}) }">Delete</a></td> 
-          </tr>
+														<tr th:each="vehicule:${vehicules}">
+															<td th:text="${vehicule.name}"></td>
+															<td th:text="${vehicule.model}"></td>
+															<td th:text="${vehicule.plateNumber}"></td>
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletevehicule/{id}(id=${vehicule.id}) }"><i
+																	class="fas fa-trash"></i></a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
 
 														<tr>
 															<th>Name</th>
-			<th>Model</th>
-			<th>Plate Number</th>
-			<th>Actions</th>
+															<th>Model</th>
+															<th>Plate Number</th>
+															<th>Actions</th>
 														</tr>
 													</tfoot>
 												</table>
@@ -135,8 +138,9 @@
 					</div>
 					<!-- /.row -->
 				</div>
-					 <div th:insert="vehicule/add_vehicule :: add_vehicule_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div th:insert="vehicule/add_vehicule :: add_vehicule_form"
+					class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

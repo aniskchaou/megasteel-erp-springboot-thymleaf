@@ -8,56 +8,58 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.PaySlip;
 import com.dev.delta.repositories.PaySlipRepository;
+
 @Service
-public class PaySlipService  {
+public class PaySlipService {
 	/**
 	 * paySlipRepository
 	 */
 	@Autowired
 	private PaySlipRepository paySlipRepository;
-	
 
 	/**
 	 * getPaySlips
+	 * 
 	 * @return
 	 */
-	public List<PaySlip> getPaySlips()
-	{
+	public List<PaySlip> getPaySlips() {
 		return paySlipRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return paySlipRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param paySlip
 	 */
-	public void save(PaySlip paySlip)
-	{
+	public void save(PaySlip paySlip) {
 		paySlipRepository.save(paySlip);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<PaySlip> findById(int id) {
 		return paySlipRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		paySlipRepository.delete(paySlipRepository.findById(id).get());
 	}
 

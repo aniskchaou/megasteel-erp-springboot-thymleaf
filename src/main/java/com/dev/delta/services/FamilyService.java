@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Family;
 import com.dev.delta.repositories.FamilyRepository;
+
 @Service
 public class FamilyService {
 	/**
@@ -15,49 +16,50 @@ public class FamilyService {
 	 */
 	@Autowired
 	private FamilyRepository clientRepository;
-	
 
 	/**
 	 * getFamilys
+	 * 
 	 * @return
 	 */
-	public List<Family> getFamilys()
-	{
+	public List<Family> getFamilys() {
 		return clientRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return clientRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param client
 	 */
-	public void save(Family client)
-	{
+	public void save(Family client) {
 		clientRepository.save(client);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Family> findById(int id) {
 		return clientRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		clientRepository.delete(clientRepository.findById(id).get());
 	}
 }

@@ -8,9 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class ProviderContract {
 
-	
 	private static final long serialVersionUID = 3642847517267695020L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -19,9 +18,6 @@ public class ProviderContract {
 	private String name;
 	private String activationDate;
 	private String endDate;
-	
-	
-	
 
 	public String getPartner() {
 		return partner;
@@ -83,12 +79,5 @@ public class ProviderContract {
 		this.activationDate = activationDate;
 		this.endDate = endDate;
 	}
-
-	
-
-
-	
-	
-	
 
 }

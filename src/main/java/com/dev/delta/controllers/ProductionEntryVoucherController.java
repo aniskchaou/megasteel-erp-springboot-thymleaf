@@ -25,22 +25,23 @@ public class ProductionEntryVoucherController {
 	@Autowired
 	private ProductionEntryVoucherService productionEntryVoucherService;
 
-	
-
 	/**
 	 * getProductionEntryVouchers
+	 * 
 	 * @param model
 	 * @return
 	 */
-	@GetMapping("/productionEntryVouchers")
+	@GetMapping("/productionentryvouchers")
 	public String getProductionEntryVouchers(Model model) {
-		List<ProductionEntryVoucher> productionEntryVouchers = productionEntryVoucherService.getProductionEntryVouchers();
-		model.addAttribute("productionEntryVouchers", productionEntryVouchers);	
-		return "productionEntryVouchers";
+		List<ProductionEntryVoucher> productionEntryVouchers = productionEntryVoucherService
+				.getProductionEntryVouchers();
+		model.addAttribute("productionEntryVouchers", productionEntryVouchers);
+		return "production_entry_voucher/production_entry_vouchers";
 	}
 
 	/**
 	 * addProductionEntryVoucher
+	 * 
 	 * @param productionEntryVoucher
 	 * @return
 	 */
@@ -53,6 +54,7 @@ public class ProductionEntryVoucherController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -66,6 +68,7 @@ public class ProductionEntryVoucherController {
 
 	/**
 	 * updateProductionEntryVoucher
+	 * 
 	 * @param id
 	 * @param productionEntryVoucher
 	 * @param result
@@ -73,8 +76,8 @@ public class ProductionEntryVoucherController {
 	 * @return
 	 */
 	@PostMapping("/updateproductionEntryVoucher/{id}")
-	public String updateProductionEntryVoucher(@PathVariable("id") long id, @Validated ProductionEntryVoucher productionEntryVoucher, BindingResult result,
-			Model model) {
+	public String updateProductionEntryVoucher(@PathVariable("id") long id,
+			@Validated ProductionEntryVoucher productionEntryVoucher, BindingResult result, Model model) {
 
 		productionEntryVoucherService.save(productionEntryVoucher);
 		return "redirect:/productionEntryVouchers";
@@ -82,12 +85,13 @@ public class ProductionEntryVoucherController {
 
 	/**
 	 * deleteProductionEntryVoucher
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteproductionEntryVoucher/{id}")
+	@GetMapping("/deleteproductionentryvoucher/{id}")
 	@Transactional
-	public String deleteProductionEntryVoucher(@PathVariable("id") int id) {
+	public String deleteProductionEntryVoucher(@PathVariable("id") Long id) {
 		productionEntryVoucherService.delete(id);
 		return "redirect:/productionEntryVouchers";
 	}

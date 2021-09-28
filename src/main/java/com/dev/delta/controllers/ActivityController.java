@@ -22,8 +22,9 @@ import com.dev.delta.repositories.MessagingRepository;
 import com.dev.delta.repositories.NotificationRepository;
 import com.dev.delta.services.ActivityService;
 import com.dev.delta.services.FamilyService;
+
 @Controller
-public class ActivityController  {
+public class ActivityController {
 
 	/**
 	 * activityService
@@ -33,41 +34,41 @@ public class ActivityController  {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	@Autowired
 	NotificationRepository notificationRepository;
-	
+
 	@Autowired
 	MessagingRepository messagingRepository;
-	
-	
+
 	/**
 	 * getActivitys
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/activities")
 	public String getActivitys(Model model) {
 		List<Activity> activitys = activityService.getActivitys();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("activities", activitys);	
-		model.addAttribute("families",families);
-		
-		List<Messaging> messages=messagingRepository.findAll();
-		List<Notification> notifications=notificationRepository.findAll();
-		     Long  messagesNumber=messagingRepository.count();
-		     Long  notificationNumber=notificationRepository.count();
-		model.addAttribute("messages",messages);
-		model.addAttribute("notifications",notifications);
-		model.addAttribute("message_nb",messagesNumber);
-		model.addAttribute("notification_nb",notificationNumber);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("activities", activitys);
+		model.addAttribute("families", families);
+
+		List<Messaging> messages = messagingRepository.findAll();
+		List<Notification> notifications = notificationRepository.findAll();
+		Long messagesNumber = messagingRepository.count();
+		Long notificationNumber = notificationRepository.count();
+		model.addAttribute("messages", messages);
+		model.addAttribute("notifications", notifications);
+		model.addAttribute("message_nb", messagesNumber);
+		model.addAttribute("notification_nb", notificationNumber);
+
 		return "activity/activities";
 	}
 
 	/**
 	 * addActivity
+	 * 
 	 * @param activity
 	 * @return
 	 */
@@ -80,6 +81,7 @@ public class ActivityController  {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -93,6 +95,7 @@ public class ActivityController  {
 
 	/**
 	 * updateActivity
+	 * 
 	 * @param id
 	 * @param activity
 	 * @param result
@@ -109,12 +112,13 @@ public class ActivityController  {
 
 	/**
 	 * deleteActivity
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteactivity/{id}")
 	@Transactional
-	public String deleteActivity(@PathVariable("id") int id) {
+	public String deleteActivity(@PathVariable("id") Long id) {
 		activityService.delete(id);
 		return "redirect:/activities";
 	}

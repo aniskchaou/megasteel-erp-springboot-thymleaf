@@ -8,10 +8,10 @@ import com.dev.delta.repositories.MessagingRepository;
 
 @Service
 public class MessagingDBService implements IDBService {
-    
+
 	@Autowired
-	MessagingRepository messagingRepository; 
-	
+	MessagingRepository messagingRepository;
+
 	@Override
 	public void populate() {
 
@@ -20,14 +20,13 @@ public class MessagingDBService implements IDBService {
 		messaging.setReceiver("Admin");
 		messaging.setSender("John Doe");
 		messaging.setTitle("Request");
-		
+
 		messaging2.setDate("22-10");
 		messaging2.setMessage("Hello Admin...");
 		messaging2.setReceiver("Admin");
 		messaging2.setSender("John Doe");
 		messaging2.setTitle("Request");
 
-		
 		messagingRepository.save(messaging);
 		messagingRepository.save(messaging2);
 	}

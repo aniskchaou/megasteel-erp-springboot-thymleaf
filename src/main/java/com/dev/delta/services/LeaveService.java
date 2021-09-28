@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Leave;
 import com.dev.delta.repositories.LeaveRepository;
+
 @Service
 public class LeaveService {
 	/**
@@ -15,49 +16,50 @@ public class LeaveService {
 	 */
 	@Autowired
 	private LeaveRepository leaveRepository;
-	
 
 	/**
 	 * getLeaves
+	 * 
 	 * @return
 	 */
-	public List<Leave> getLeaves()
-	{
+	public List<Leave> getLeaves() {
 		return leaveRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return leaveRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param leave
 	 */
-	public void save(Leave leave)
-	{
+	public void save(Leave leave) {
 		leaveRepository.save(leave);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Leave> findById(int id) {
 		return leaveRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		leaveRepository.delete(leaveRepository.findById(id).get());
 	}
 }

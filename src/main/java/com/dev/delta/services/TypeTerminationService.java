@@ -17,49 +17,50 @@ public class TypeTerminationService {
 	 */
 	@Autowired
 	private TypeTerminaisonRepository typeTerminationRepository;
-	
 
 	/**
 	 * getTypeTerminations
+	 * 
 	 * @return
 	 */
-	public List<TypeTermination> getTypeTerminations()
-	{
+	public List<TypeTermination> getTypeTerminations() {
 		return typeTerminationRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return typeTerminationRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param typeTermination
 	 */
-	public void save(TypeTermination typeTermination)
-	{
+	public void save(TypeTermination typeTermination) {
 		typeTerminationRepository.save(typeTermination);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<TypeTermination> findById(int id) {
 		return typeTerminationRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		typeTerminationRepository.delete(typeTerminationRepository.findById(id).get());
 	}
 }

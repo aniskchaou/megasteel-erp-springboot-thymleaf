@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.entities.Unit;
 import com.dev.delta.repositories.UnitRepository;
 
- @Service
+@Service
 public class UnitService {
 
 	/**
@@ -17,49 +17,50 @@ public class UnitService {
 	 */
 	@Autowired
 	private UnitRepository unitRepository;
-	
 
 	/**
 	 * getUnits
+	 * 
 	 * @return
 	 */
-	public List<Unit> getUnits()
-	{
+	public List<Unit> getUnits() {
 		return unitRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return unitRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param unit
 	 */
-	public void save(Unit unit)
-	{
+	public void save(Unit unit) {
 		unitRepository.save(unit);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Unit> findById(int id) {
 		return unitRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		unitRepository.delete(unitRepository.findById(id).get());
 	}
 }

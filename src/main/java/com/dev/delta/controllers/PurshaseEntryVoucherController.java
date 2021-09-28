@@ -25,22 +25,22 @@ public class PurshaseEntryVoucherController {
 	@Autowired
 	private PurshaseEntryVoucherService purshaseEntryVoucherService;
 
-	
-
 	/**
 	 * getPurshaseEntryVouchers
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/purshaseentryvouchers")
 	public String getPurshaseEntryVouchers(Model model) {
 		List<PurshaseEntryVoucher> purshaseEntryVouchers = purshaseEntryVoucherService.getPurshaseEntryVouchers();
-		model.addAttribute("purshaseEntryVouchers", purshaseEntryVouchers);	
+		model.addAttribute("purshaseEntryVouchers", purshaseEntryVouchers);
 		return "purshase_entry/purshase_entry_vouchers";
 	}
 
 	/**
 	 * addPurshaseEntryVoucher
+	 * 
 	 * @param purshaseEntryVoucher
 	 * @return
 	 */
@@ -53,6 +53,7 @@ public class PurshaseEntryVoucherController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -66,6 +67,7 @@ public class PurshaseEntryVoucherController {
 
 	/**
 	 * updatePurshaseEntryVoucher
+	 * 
 	 * @param id
 	 * @param purshaseEntryVoucher
 	 * @param result
@@ -73,8 +75,8 @@ public class PurshaseEntryVoucherController {
 	 * @return
 	 */
 	@PostMapping("/updatepurshaseEntryVoucher/{id}")
-	public String updatePurshaseEntryVoucher(@PathVariable("id") long id, @Validated PurshaseEntryVoucher purshaseEntryVoucher, BindingResult result,
-			Model model) {
+	public String updatePurshaseEntryVoucher(@PathVariable("id") long id,
+			@Validated PurshaseEntryVoucher purshaseEntryVoucher, BindingResult result, Model model) {
 
 		purshaseEntryVoucherService.save(purshaseEntryVoucher);
 		return "redirect:/purshaseEntryVouchers";
@@ -82,14 +84,15 @@ public class PurshaseEntryVoucherController {
 
 	/**
 	 * deletePurshaseEntryVoucher
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletepurshaseEntryVoucher/{id}")
+	@GetMapping("/deletepurshaseentryvoucher/{id}")
 	@Transactional
-	public String deletePurshaseEntryVoucher(@PathVariable("id") int id) {
+	public String deletePurshaseEntryVoucher(@PathVariable("id") Long id) {
 		purshaseEntryVoucherService.delete(id);
 		return "redirect:/purshaseEntryVouchers";
 	}
-	
+
 }

@@ -1,31 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_order_form"  id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addorder}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Order Number</label> <input name="orderNumber" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="order Number">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Date</label> <input name="dateCreation" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Date Creation">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Deadline</label> <input name="dateLimit" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Date Limit">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Status</label>
+							<select name="state"  class="form-control" >
+							<option value="Sent">Sent</option>
+							<option value="Accepted">Accepted</option>
+							<option value="rejected">Rejected</option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-			<form th:fragment="add_order_form" th:action="@{/addorder}" method="post">
-
-				<!-- Name  -->
-				 <input name="orderNumber" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="orderNumber">
-						
-				 <input name="dateCreation" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dateCreation">
-						
-				 <input name="dateLimit" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dateLimit">
-						
-						 <input name="state" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="state">
-						
-						
-
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

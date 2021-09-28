@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.PurshaseOrderRepository;
 
 @Service
-public class PurshaseOrderDBService implements IDBService{
+public class PurshaseOrderDBService implements IDBService {
 
 	@Autowired
 	PurshaseOrderRepository purshaseOrderRepository;
-	
+
 	@Override
 	public void populate() {
 		purshaseOrder.setApplicant("kjbklj");

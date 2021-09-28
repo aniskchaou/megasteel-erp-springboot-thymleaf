@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Employee;
 import com.dev.delta.repositories.EmployeeRepository;
+
 @Service
 public class EmployeeService {
 	/**
@@ -15,49 +16,50 @@ public class EmployeeService {
 	 */
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
 
 	/**
 	 * getEmployees
+	 * 
 	 * @return
 	 */
-	public List<Employee> getEmployees()
-	{
+	public List<Employee> getEmployees() {
 		return employeeRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return employeeRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param employee
 	 */
-	public void save(Employee employee)
-	{
+	public void save(Employee employee) {
 		employeeRepository.save(employee);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Employee> findById(int id) {
 		return employeeRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		employeeRepository.delete(employeeRepository.findById(id).get());
 	}
 }

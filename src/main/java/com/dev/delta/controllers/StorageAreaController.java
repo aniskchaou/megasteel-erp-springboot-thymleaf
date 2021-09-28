@@ -18,29 +18,29 @@ import com.dev.delta.entities.StorageArea;
 import com.dev.delta.services.StorageAreaService;
 
 @Controller
-public class StorageAreaController  {
+public class StorageAreaController {
 	/**
 	 * storageAreaService
 	 */
 	@Autowired
 	private StorageAreaService storageAreaService;
 
-	
-
 	/**
 	 * getStorageAreas
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/storageareas")
 	public String getStorageAreas(Model model) {
 		List<StorageArea> storageAreas = storageAreaService.getStorageAreas();
-		model.addAttribute("storageAreas", storageAreas);	
+		model.addAttribute("storageAreas", storageAreas);
 		return "storage_area/storage_areas";
 	}
 
 	/**
 	 * addStorageArea
+	 * 
 	 * @param storageArea
 	 * @return
 	 */
@@ -53,6 +53,7 @@ public class StorageAreaController  {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -66,6 +67,7 @@ public class StorageAreaController  {
 
 	/**
 	 * updateStorageArea
+	 * 
 	 * @param id
 	 * @param storageArea
 	 * @param result
@@ -73,8 +75,8 @@ public class StorageAreaController  {
 	 * @return
 	 */
 	@PostMapping("/updatestoragearea/{id}")
-	public String updateStorageArea(@PathVariable("id") long id, @Validated StorageArea storageArea, BindingResult result,
-			Model model) {
+	public String updateStorageArea(@PathVariable("id") long id, @Validated StorageArea storageArea,
+			BindingResult result, Model model) {
 
 		storageAreaService.save(storageArea);
 		return "redirect:/storageareas";
@@ -82,14 +84,15 @@ public class StorageAreaController  {
 
 	/**
 	 * deleteStorageArea
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletestoragearea/{id}")
 	@Transactional
-	public String deleteStorageArea(@PathVariable("id") int id) {
+	public String deleteStorageArea(@PathVariable("id") Long id) {
 		storageAreaService.delete(id);
 		return "redirect:/storageareas";
 	}
-	 
+
 }

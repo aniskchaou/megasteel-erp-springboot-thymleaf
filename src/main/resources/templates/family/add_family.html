@@ -1,28 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	
-	
-				<form th:fragment="add_family_form" th:action="@{/addfamily}" method="post">
+<div th:fragment="add_family_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addfamily}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Name</label> <input name="name" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="name">
 
-				<!-- Name  -->
-				 <input name="name" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
-						
-				 <input name="articleNumber" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="articleNumber">
-						
-				 <input name="machineNumber" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="machineNumber">
-					
 
+
+
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Article Number</label> <input name="articleNumber"
+								type="text" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="articleNumber">
+
+
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Machine Number </label> <input name="machineNumber"
+								type="text" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="machineNumber">
+
+
+
+						</div>
+						<!-- /.form-group -->
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

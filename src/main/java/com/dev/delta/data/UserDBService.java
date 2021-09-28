@@ -7,13 +7,14 @@ import com.dev.delta.entities.User;
 import com.dev.delta.repositories.UserRepository;
 
 @Service
-public class UserDBService implements IDBService{
+public class UserDBService implements IDBService {
 
 	@Autowired
 	UserRepository userRepository;
+
 	@Override
 	public void populate() {
-		User u=new User();
+		User u = new User();
 		u.setUsername("admin");
 		u.setPassword("admin");
 		userRepository.save(u);

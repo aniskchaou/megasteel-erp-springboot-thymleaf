@@ -30,29 +30,30 @@ public class TypeDocumentController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getTypeDocuments
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/typedocuments")
 	public String getTypeDocuments(Model model) {
 		List<TypeDocument> typeDocuments = typeDocumentService.getTypeDocuments();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("typedocuments", typeDocuments);	
-		model.addAttribute("families",families);
-		
-		return "typeDocument/typedocuments";
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("typedocuments", typeDocuments);
+		model.addAttribute("families", families);
+
+		return "type_document/type_documents";
 	}
 
 	/**
 	 * addTypeDocument
+	 * 
 	 * @param typeDocument
 	 * @return
 	 */
-	@PostMapping("/addtypeDocument")
+	@PostMapping("/addtypedocument")
 
 	public String addTypeDocument(TypeDocument typeDocument) {
 		typeDocumentService.save(typeDocument);
@@ -61,6 +62,7 @@ public class TypeDocumentController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -68,12 +70,13 @@ public class TypeDocumentController {
 	@RequestMapping("/typeDocument/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		TypeDocument typeDocument = typeDocumentService.findById(id).get();
-		model.addAttribute("typeDocument", typeDocument);
+		model.addAttribute("typeDocuments", typeDocument);
 		return "editActivities";
 	}
 
 	/**
 	 * updateTypeDocument
+	 * 
 	 * @param id
 	 * @param typeDocument
 	 * @param result
@@ -81,8 +84,8 @@ public class TypeDocumentController {
 	 * @return
 	 */
 	@PostMapping("/updatetypeDocument/{id}")
-	public String updateTypeDocument(@PathVariable("id") long id, @Validated TypeDocument typeDocument, BindingResult result,
-			Model model) {
+	public String updateTypeDocument(@PathVariable("id") long id, @Validated TypeDocument typeDocument,
+			BindingResult result, Model model) {
 
 		typeDocumentService.save(typeDocument);
 		return "redirect:/typedocuments";
@@ -90,12 +93,13 @@ public class TypeDocumentController {
 
 	/**
 	 * deleteTypeDocument
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletetypeDocument/{id}")
+	@GetMapping("/deletetypedocument/{id}")
 	@Transactional
-	public String deleteTypeDocument(@PathVariable("id") int id) {
+	public String deleteTypeDocument(@PathVariable("id") Long id) {
 		typeDocumentService.delete(id);
 		return "redirect:/typedocuments";
 	}

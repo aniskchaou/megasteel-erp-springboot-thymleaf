@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Contract implements Serializable {
-	
 
 	private static final long serialVersionUID = -410981207128641518L;
 	@Id
@@ -19,7 +18,7 @@ public class Contract implements Serializable {
 	String name;
 	String activationDate;
 	String endDate;
-	
+
 	public Contract() {
 		// TODO Auto-generated constructor stub
 	}
@@ -90,6 +89,5 @@ public class Contract implements Serializable {
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	
-	
+
 }

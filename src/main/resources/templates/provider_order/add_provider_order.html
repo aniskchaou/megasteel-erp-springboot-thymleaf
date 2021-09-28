@@ -1,35 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-			<form th:fragment="add_article_form" th:action="@{/addarticle}" method="post">
+<div th:fragment="add_article_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addarticle}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Code</label> <input name="code" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="code">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Unit</label> <input name="unity" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="unit">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Height</label> <input name="height" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="height">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Width</label> <input name="width" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="width">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Family Out </label> <input name="dimension" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="dimension">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Weight</label> <input name="weight" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="weight">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-				<!-- Name  -->
-				 <input name="code" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="code">
-						
-				 <input name="unity" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="unit">
-						
-				 <input name="height" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="height">
-						
-						 <input name="width" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="width">
-						
-						 <input name="dimension" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dimension">
-						
-						 <input name="weight" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="weight">
-
-
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

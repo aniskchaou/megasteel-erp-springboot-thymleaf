@@ -12,7 +12,7 @@ public class WareHouse {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String name;
-	
+
 	public WareHouse() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,7 +37,5 @@ public class WareHouse {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }

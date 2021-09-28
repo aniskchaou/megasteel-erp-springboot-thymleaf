@@ -32,25 +32,26 @@ public class BankTransferController {
 
 	@Autowired
 	private BankAccountService bankAccountService;
-	
 
 	/**
 	 * getBankTransfers
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/banktransfers")
 	public String getBankTransfers(Model model) {
 		List<BankTransfer> bankTransfers = bankTransferService.getBankTransfers();
-		List<BankAccount> bankAccounts=bankAccountService.getBankAccounts();
-		model.addAttribute("banktransfers", bankTransfers);	
-		model.addAttribute("bankAccounts",bankAccounts);
-		
+		List<BankAccount> bankAccounts = bankAccountService.getBankAccounts();
+		model.addAttribute("banktransfers", bankTransfers);
+		model.addAttribute("bankAccounts", bankAccounts);
+
 		return "bank_transfer/bank_transfers";
 	}
 
 	/**
 	 * addBankTransfer
+	 * 
 	 * @param bankTransfer
 	 * @return
 	 */
@@ -63,6 +64,7 @@ public class BankTransferController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -76,6 +78,7 @@ public class BankTransferController {
 
 	/**
 	 * updateBankTransfer
+	 * 
 	 * @param id
 	 * @param bankTransfer
 	 * @param result
@@ -83,8 +86,8 @@ public class BankTransferController {
 	 * @return
 	 */
 	@PostMapping("/updatebanktransfer/{id}")
-	public String updateBankTransfer(@PathVariable("id") long id, @Validated BankTransfer bankTransfer, BindingResult result,
-			Model model) {
+	public String updateBankTransfer(@PathVariable("id") long id, @Validated BankTransfer bankTransfer,
+			BindingResult result, Model model) {
 
 		bankTransferService.save(bankTransfer);
 		return "redirect:/banktransfers";
@@ -92,12 +95,13 @@ public class BankTransferController {
 
 	/**
 	 * deleteBankTransfer
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletebanktransfer/{id}")
 	@Transactional
-	public String deleteBankTransfer(@PathVariable("id") int id) {
+	public String deleteBankTransfer(@PathVariable("id") Long id) {
 		bankTransferService.delete(id);
 		return "redirect:/banktransfers";
 	}

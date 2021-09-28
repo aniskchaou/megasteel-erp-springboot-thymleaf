@@ -1,38 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-	
-				<form th:fragment="add_part_order_form" th:action="@{/addpartorder}" method="post">
-
-				<!-- Name  -->
-				
-				<select name="part" >
-			 <option th:value="${part.id}" th:each="part:${parts}"  th:text="${part.name}">
-			 </option>
-			
-			</select>
-			
-					
-				 <input name="Date" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Date">
-						
-				 <input name="quantity" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="quantity">
-						
-						 <input name="unit" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="unit">
-						
-						
-
-
+<div th:fragment="add_part_order_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addpartorder}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Part</label> <select name="part">
+								<option th:value="${part.id}" th:each="part:${parts}"
+									th:text="${part.name}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Date</label> <input name="Date" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Date">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Quantity</label> <input name="quantity" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Quantity">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Unit</label> 
+								 <select name="unit" class="form-control"> 
+								<option th:value="${u.id}" th:each="u:${units}"
+									th:text="${u.name}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

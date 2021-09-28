@@ -14,7 +14,7 @@ public class Vehicule {
 	String name;
 	String model;
 	String plateNumber;
-	
+
 	public Vehicule() {
 		// TODO Auto-generated constructor stub
 	}
@@ -57,6 +57,5 @@ public class Vehicule {
 	public void setPlateNumber(String plateNumber) {
 		this.plateNumber = plateNumber;
 	}
-	
-	
+
 }

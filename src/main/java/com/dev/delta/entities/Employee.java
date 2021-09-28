@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
-
 @Entity
 public class Employee {
 
@@ -26,15 +24,13 @@ public class Employee {
 	String address;
 	String dateRecuitement;
 	@ManyToOne
-	@JoinColumn(name="job_id")
+	@JoinColumn(name = "job_id")
 	Job job;
 	String children;
 
-	
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
-	
 
 	public Employee(String code, String firstName, String lastName, String dateBirth, String address,
 			String dateRecuitement, Job job, String children) {
@@ -48,10 +44,6 @@ public class Employee {
 		this.job = job;
 		this.children = children;
 	}
-
-	
-
-	
 
 	public Long getId() {
 		return id;

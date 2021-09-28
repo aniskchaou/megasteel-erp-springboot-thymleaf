@@ -16,49 +16,50 @@ public class PreventiveMaintenanceService {
 	 */
 	@Autowired
 	private PreventiveMaintenancerepository preventiveMaintenanceRepository;
-	
 
 	/**
 	 * getPreventiveMaintenances
+	 * 
 	 * @return
 	 */
-	public List<PreventiveMaintenance> getPreventiveMaintenances()
-	{
+	public List<PreventiveMaintenance> getPreventiveMaintenances() {
 		return preventiveMaintenanceRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return preventiveMaintenanceRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param preventiveMaintenance
 	 */
-	public void save(PreventiveMaintenance preventiveMaintenance)
-	{
+	public void save(PreventiveMaintenance preventiveMaintenance) {
 		preventiveMaintenanceRepository.save(preventiveMaintenance);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<PreventiveMaintenance> findById(int id) {
 		return preventiveMaintenanceRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		preventiveMaintenanceRepository.delete(preventiveMaintenanceRepository.findById(id).get());
 	}
 }

@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 @Entity
 public class Activity implements Serializable {
 
@@ -20,10 +21,10 @@ public class Activity implements Serializable {
 	private Long id;
 	private String name;
 	@ManyToOne
-	@JoinColumn(name="family_in_id")
+	@JoinColumn(name = "family_in_id")
 	private Family familyIn;
 	@ManyToOne
-	@JoinColumn(name="family_out_id")
+	@JoinColumn(name = "family_out_id")
 	private Family familyOut;
 	private String articleNumber;
 	private String machineNumber;
@@ -55,8 +56,6 @@ public class Activity implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
 
 	public Family getFamilyIn() {
 		return familyIn;

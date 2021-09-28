@@ -1,44 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	
-			<form th:fragment="add_termination_form" th:action="@{/addtermination}" method="post">
-
-			
-				
-				<select name="employee" >
-			 <option th:value="${employee.id}" th:each="employee:${employees}"  th:text="${employee.firstName}">
-			 </option>
-			
-			</select>
-			
+<div th:fragment="add_termination_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addtermination}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Employee</label> <select name="employee">
+								<option th:value="${employee.id}"
+									th:each="employee:${employees}" th:text="${employee.firstName}">
+								</option>
+							</select>
+						</div>
 					
-				 <input name="firstName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="firstName">
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
 						
-				 <input name="lastName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="lastName">
-						
-						 <input name="date" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="date">
-						
-						
-						
-					 <select name="cause" >
-			 <option th:value="${t.id}" th:each="t:${typeTerminations}"  th:text="${t.name}">
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Date</label> <input name="date" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="date">
+						</div>
+						<div class="form-group">
+							<label>Reason</label> <select name="cause">
+								<option th:value="${t.id}" th:each="t:${typeTerminations}"
+									th:text="${t.name}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-			 </option>
-			
-			</select>
-
-
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

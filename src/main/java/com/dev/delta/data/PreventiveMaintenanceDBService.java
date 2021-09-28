@@ -6,11 +6,12 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.PreventiveMaintenancerepository;
 
 @Service
-public class PreventiveMaintenanceDBService implements IDBService{
+public class PreventiveMaintenanceDBService implements IDBService {
 
 	@Autowired
-	
+
 	PreventiveMaintenancerepository PreventiveMaintenancerepository;
+
 	@Override
 	public void populate() {
 		preventiveMaintenance.setMachine(machine);

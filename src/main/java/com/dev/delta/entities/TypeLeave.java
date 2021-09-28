@@ -11,7 +11,7 @@ public class TypeLeave {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String name;
-	
+
 	public TypeLeave() {
 		// TODO Auto-generated constructor stub
 	}
@@ -36,7 +36,5 @@ public class TypeLeave {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }

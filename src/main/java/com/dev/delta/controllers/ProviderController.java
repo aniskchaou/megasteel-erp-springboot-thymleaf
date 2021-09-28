@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -16,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Provider;
+import com.dev.delta.entities.VAT;
 import com.dev.delta.services.ProviderService;
+import com.dev.delta.services.VATService;
 
 @Controller
 public class ProviderController {
@@ -26,22 +27,27 @@ public class ProviderController {
 	@Autowired
 	private ProviderService providerService;
 
-	
+	@Autowired
+	private VATService vatService;
 
 	/**
 	 * getProviders
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/providers")
 	public String getProviders(Model model) {
 		List<Provider> providers = providerService.getProviders();
-		model.addAttribute("providers", providers);	
+		List<VAT> vats = vatService.getVats();
+		model.addAttribute("vats", vats);
+		model.addAttribute("providers", providers);
 		return "provider/providers";
 	}
 
 	/**
 	 * addProvider
+	 * 
 	 * @param provider
 	 * @return
 	 */
@@ -54,6 +60,7 @@ public class ProviderController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -67,6 +74,7 @@ public class ProviderController {
 
 	/**
 	 * updateProvider
+	 * 
 	 * @param id
 	 * @param provider
 	 * @param result
@@ -83,12 +91,13 @@ public class ProviderController {
 
 	/**
 	 * deleteProvider
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteprovider/{id}")
 	@Transactional
-	public String deleteProvider(@PathVariable("id") int id) {
+	public String deleteProvider(@PathVariable("id") Long id) {
 		providerService.delete(id);
 		return "redirect:/providers";
 	}

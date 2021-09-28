@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.PartOrder;
 import com.dev.delta.repositories.PartOrderRepository;
+
 @Service
 public class PartOrderService {
 	/**
@@ -15,49 +16,50 @@ public class PartOrderService {
 	 */
 	@Autowired
 	private PartOrderRepository clientRepository;
-	
 
 	/**
 	 * getPartOrders
+	 * 
 	 * @return
 	 */
-	public List<PartOrder> getPartOrders()
-	{
+	public List<PartOrder> getPartOrders() {
 		return clientRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return clientRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param client
 	 */
-	public void save(PartOrder client)
-	{
+	public void save(PartOrder client) {
 		clientRepository.save(client);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<PartOrder> findById(int id) {
 		return clientRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		clientRepository.delete(clientRepository.findById(id).get());
 	}
 }

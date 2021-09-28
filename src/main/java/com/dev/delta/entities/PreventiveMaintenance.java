@@ -10,9 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class PreventiveMaintenance implements Serializable{
+public class PreventiveMaintenance implements Serializable {
 
-	
 	private static final long serialVersionUID = 1362871185337709251L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +20,12 @@ public class PreventiveMaintenance implements Serializable{
 	String type;
 	String duration;
 	@ManyToOne
-	@JoinColumn(name="machine_id")
+	@JoinColumn(name = "machine_id")
 	Machine machine;
-	
+
 	public PreventiveMaintenance() {
 		// TODO Auto-generated constructor stub
 	}
-
-	
 
 	public PreventiveMaintenance(String reference, String type, String duration, Machine machine) {
 		super();
@@ -38,19 +35,13 @@ public class PreventiveMaintenance implements Serializable{
 		this.machine = machine;
 	}
 
-
-
 	public Machine getMachine() {
 		return machine;
 	}
 
-
-
 	public void setMachine(Machine machine) {
 		this.machine = machine;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -83,8 +74,5 @@ public class PreventiveMaintenance implements Serializable{
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-	
-	
-
 
 }

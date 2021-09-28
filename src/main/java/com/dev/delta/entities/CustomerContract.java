@@ -6,10 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-@Entity
-public class CustomerContract  implements Serializable {
 
-	
+@Entity
+public class CustomerContract implements Serializable {
+
 	private static final long serialVersionUID = -175335630601303215L;
 
 	@Id
@@ -21,7 +21,7 @@ public class CustomerContract  implements Serializable {
 	String name;
 	String activationDate;
 	String endDate;
-	
+
 	public String getCompany() {
 		return Company;
 	}
@@ -77,7 +77,7 @@ public class CustomerContract  implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public CustomerContract() {
 		super();
 	}
@@ -92,7 +92,5 @@ public class CustomerContract  implements Serializable {
 		this.activationDate = activationDate;
 		this.endDate = endDate;
 	}
-	
 
-	
 }

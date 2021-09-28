@@ -7,14 +7,13 @@ import com.dev.delta.repositories.ClientRepository;
 
 @Service
 public class ClientDBService implements IDBService {
-    
+
 	@Autowired
 	ClientRepository ClientRepository;
-	
-	
+
 	@Override
 	public void populate() {
-		
+
 		client.setCode("H8787");
 		client.setAdresse("sdsd");
 		client.setEmail("nqzrfer");
@@ -23,10 +22,9 @@ public class ClientDBService implements IDBService {
 		client.setLastName("kn lh");
 		client.setTelephone("7898769");
 		client.setTva("24");
-		
-		ClientRepository.save(client);
-		
-	}
 
+		ClientRepository.save(client);
+
+	}
 
 }

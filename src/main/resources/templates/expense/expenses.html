@@ -97,33 +97,35 @@
 													role="grid" aria-describedby="example1_info">
 													<thead>
 														<tr>
-														<th>Name</th>
-			<th>Date</th>
-			<th>Payment Type</th>
-			<th>Amount</th>
-			<th>Actions</th>
+															<th>Name</th>
+															<th>Date</th>
+															<th>Payment Type</th>
+															<th>Amount</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr th:each="expense:${expenses}">
-	          <td th:text="${expense.name}"></td>
-	          <td th:text="${expense.date}"></td>
-	          <td th:text="${expense.paymentType}"></td>
-	          <td th:text="${expense.amount}"></td>
-	         
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deleteexpense/{id}(id=${expense.id}) }">Delete</a></td> 
-          </tr>
+															<td th:text="${expense.name}"></td>
+															<td th:text="${expense.date}"></td>
+															<td th:text="${expense.paymentType}"></td>
+															<td  ><span class="badge bg-primary" th:text="${expense.amount}"></span></td>
+
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deleteexpense/{id}(id=${expense.id}) }">Delete</a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
 
 														<tr>
 															<th>Name</th>
-			<th>Date</th>
-			<th>Payment Type</th>
-			<th>Amount</th>
-			<th>Actions</th>
+															<th>Date</th>
+															<th>Payment Type</th>
+															<th>Amount</th>
+															<th>Actions</th>
 														</tr>
 													</tfoot>
 												</table>
@@ -139,8 +141,9 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				<div th:insert="expense/add_expense :: add_expense_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div th:insert="expense/add_expense :: add_expense_form"
+					class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

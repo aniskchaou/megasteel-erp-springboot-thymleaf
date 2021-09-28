@@ -110,12 +110,12 @@
 															<td th:text="${provider.name}"></td>
 															<td th:text="${provider.address}"></td>
 															<td th:text="${provider.code}"></td>
-															<td th:text="${provider.vat}"></td>
+															<td th:text="${provider.vat.name}"></td>
 															<td th:text="${provider.phone}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deleteprovider/{id}(id=${provider.id}) }">Delete</a></td>
+																th:href="@{/deleteprovider/{id}(id=${provider.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>

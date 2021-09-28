@@ -15,7 +15,7 @@ public class Expense {
 	String date;
 	String paymentType;
 	String amount;
-	
+
 	public Expense() {
 		// TODO Auto-generated constructor stub
 	}
@@ -67,7 +67,5 @@ public class Expense {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
-	
-	
-	
+
 }

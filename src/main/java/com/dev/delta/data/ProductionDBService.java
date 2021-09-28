@@ -10,8 +10,7 @@ public class ProductionDBService implements IDBService {
 
 	@Autowired
 	ProductionOrderRepository productionOrderRepository;
-	
-	
+
 	@Override
 	public void populate() {
 		productionOrder.setArticleEntrant(article);
@@ -22,7 +21,7 @@ public class ProductionDBService implements IDBService {
 		productionOrder.setQuantiteRealise("87");
 		productionOrder.setQuantiteRestant("8");
 		productionOrderRepository.save(productionOrder);
-		
+
 	}
 
 }

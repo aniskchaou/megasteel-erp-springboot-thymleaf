@@ -1,39 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	String reference;
-	String type;
-	String duration;
-	Machine machine;
-	
-				<form th:fragment="add_preventive_maintenance_form" th:action="@{/addpreventivemaintenance}" method="post">
-
-				 <input name="reference" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="code">
-						
-				 <input name="type" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="unit">
-						
-				 <input name="duration" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="height">
-						
-						
-				
-				<select name="machine" >
-			 <option th:value="${machine.id}" th:each="machine:${machines}"  th:text="${machine.name}">
-
-			 </option>
-			
-			</select>	
-
-
+<div th:fragment="add_preventive_maintenance_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addpreventivemaintenance}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Reference</label> <input name="reference" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Reference">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Type</label> <input name="type" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Type">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Duration </label> <input name="duration" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Duration">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Machine</label> <select name="machine">
+								<option th:value="${machine.id}" th:each="machine:${machines}"
+									th:text="${machine.name}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -15,7 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dev.delta.entities.Family;
 import com.dev.delta.entities.Machine;
+import com.dev.delta.services.FamilyService;
 import com.dev.delta.services.MachineService;
 
 @Controller
@@ -26,22 +27,27 @@ public class MachineController {
 	@Autowired
 	private MachineService machineService;
 
-	
+	@Autowired
+	private FamilyService familyService;
 
 	/**
 	 * getMachines
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/machines")
 	public String getMachines(Model model) {
 		List<Machine> machines = machineService.getMachines();
-		model.addAttribute("machines", machines);	
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("machines", machines);
+		model.addAttribute("families", families);
 		return "machine/machines";
 	}
 
 	/**
 	 * addMachine
+	 * 
 	 * @param machine
 	 * @return
 	 */
@@ -54,6 +60,7 @@ public class MachineController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -67,6 +74,7 @@ public class MachineController {
 
 	/**
 	 * updateMachine
+	 * 
 	 * @param id
 	 * @param machine
 	 * @param result
@@ -83,12 +91,13 @@ public class MachineController {
 
 	/**
 	 * deleteMachine
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletemachine/{id}")
 	@Transactional
-	public String deleteMachine(@PathVariable("id") int id) {
+	public String deleteMachine(@PathVariable("id") Long id) {
 		machineService.delete(id);
 		return "redirect:/machines";
 	}

@@ -1,37 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_income_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addincome}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Name</label> <input name="name" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Name">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Payment Type</label> <input name="paymentType" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Payment Type">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Date</label> <input name="date" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="name">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Amount</label> <input name="amount" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Amount">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-<form th:fragment="add_income_form" th:action="@{/addactivity}"
-		method="post">
-
-		<!-- Name  -->
-		<input name="name" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-			
-		<input name="date" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-			
-		<input name="paymentType" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-		<input name="amount" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-
-		<button type="submit" class="btn btn-primary">Create</button>
-
-
-	</form>
-</body>
-</html>
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

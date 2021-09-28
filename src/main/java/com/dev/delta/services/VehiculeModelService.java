@@ -17,49 +17,50 @@ public class VehiculeModelService {
 	 */
 	@Autowired
 	private VehiculeModelRepository vehiculeModelRepository;
-	
 
 	/**
 	 * getVehiculeModels
+	 * 
 	 * @return
 	 */
-	public List<VehiculeModel> getVehiculeModels()
-	{
+	public List<VehiculeModel> getVehiculeModels() {
 		return vehiculeModelRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return vehiculeModelRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param vehiculeModel
 	 */
-	public void save(VehiculeModel vehiculeModel)
-	{
+	public void save(VehiculeModel vehiculeModel) {
 		vehiculeModelRepository.save(vehiculeModel);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<VehiculeModel> findById(int id) {
 		return vehiculeModelRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		vehiculeModelRepository.delete(vehiculeModelRepository.findById(id).get());
 	}
 }

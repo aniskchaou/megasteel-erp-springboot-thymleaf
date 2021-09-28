@@ -9,11 +9,11 @@ import com.dev.delta.repositories.TypeLeaveRepository;
 public class TypeLEaveDBService implements IDBService {
 
 	@Autowired
-	TypeLeaveRepository  TypeLeaveRepository;
-	
+	TypeLeaveRepository TypeLeaveRepository;
+
 	@Override
 	public void populate() {
-		
+
 		typeLeave.setName("Holiday");
 		TypeLeaveRepository.save(typeLeave);
 	}

@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -26,22 +25,22 @@ public class PartController {
 	@Autowired
 	private PartService partService;
 
-	
-
 	/**
 	 * getParts
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/parts")
 	public String getParts(Model model) {
 		List<Part> parts = partService.getParts();
-		model.addAttribute("parts", parts);	
+		model.addAttribute("parts", parts);
 		return "part/parts";
 	}
 
 	/**
 	 * addPart
+	 * 
 	 * @param part
 	 * @return
 	 */
@@ -54,6 +53,7 @@ public class PartController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -67,6 +67,7 @@ public class PartController {
 
 	/**
 	 * updatePart
+	 * 
 	 * @param id
 	 * @param part
 	 * @param result
@@ -74,8 +75,7 @@ public class PartController {
 	 * @return
 	 */
 	@PostMapping("/updatepart/{id}")
-	public String updatePart(@PathVariable("id") long id, @Validated Part part, BindingResult result,
-			Model model) {
+	public String updatePart(@PathVariable("id") long id, @Validated Part part, BindingResult result, Model model) {
 
 		partService.save(part);
 		return "redirect:/parts";
@@ -83,12 +83,13 @@ public class PartController {
 
 	/**
 	 * deletePart
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletepart/{id}")
 	@Transactional
-	public String deletePart(@PathVariable("id") int id) {
+	public String deletePart(@PathVariable("id") Long id) {
 		partService.delete(id);
 		return "redirect:/parts";
 	}

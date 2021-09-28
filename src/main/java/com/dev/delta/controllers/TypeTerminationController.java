@@ -29,29 +29,30 @@ public class TypeTerminationController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getTypeTerminations
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/typeterminations")
 	public String getTypeTerminations(Model model) {
 		List<TypeTermination> typeTerminations = typeTerminationService.getTypeTerminations();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("typeTerminations", typeTerminations);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("typeTerminations", typeTerminations);
+		model.addAttribute("families", families);
+
 		return "type_termination/type_terminations";
 	}
 
 	/**
 	 * addTypeTermination
+	 * 
 	 * @param typeTermination
 	 * @return
 	 */
-	@PostMapping("/addtypeTermination")
+	@PostMapping("/addtypetermination")
 
 	public String addTypeTermination(TypeTermination typeTermination) {
 		typeTerminationService.save(typeTermination);
@@ -60,6 +61,7 @@ public class TypeTerminationController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -73,6 +75,7 @@ public class TypeTerminationController {
 
 	/**
 	 * updateTypeTermination
+	 * 
 	 * @param id
 	 * @param typeTermination
 	 * @param result
@@ -80,8 +83,8 @@ public class TypeTerminationController {
 	 * @return
 	 */
 	@PostMapping("/updatetypeTermination/{id}")
-	public String updateTypeTermination(@PathVariable("id") long id, @Validated TypeTermination typeTermination, BindingResult result,
-			Model model) {
+	public String updateTypeTermination(@PathVariable("id") long id, @Validated TypeTermination typeTermination,
+			BindingResult result, Model model) {
 
 		typeTerminationService.save(typeTermination);
 		return "redirect:/typeterminations";
@@ -89,12 +92,13 @@ public class TypeTerminationController {
 
 	/**
 	 * deleteTypeTermination
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletetypeTermination/{id}")
+	@GetMapping("/deletetypetermination/{id}")
 	@Transactional
-	public String deleteTypeTermination(@PathVariable("id") int id) {
+	public String deleteTypeTermination(@PathVariable("id") Long id) {
 		typeTerminationService.delete(id);
 		return "redirect:/typeterminations";
 	}

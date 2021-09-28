@@ -34,29 +34,31 @@ public class ProductionOrderController {
 
 	@Autowired
 	private ArticleService articleService;
-	
+
 	@Autowired
-	private MachineService machineService  ;
+	private MachineService machineService;
 
 	/**
 	 * getProductionOrders
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/productionorders")
 	public String getProductionOrders(Model model) {
 		List<ProductionOrder> productionOrders = productionOrderService.getProductionOrders();
-		List<Machine> machines=machineService.getMachines();
-		List<Article> articles=articleService.getArticles();
-		model.addAttribute("productionOrders", productionOrders);	
-		model.addAttribute("machines",machines);
-		model.addAttribute("articles",articles);
-		
+		List<Machine> machines = machineService.getMachines();
+		List<Article> articles = articleService.getArticles();
+		model.addAttribute("productionOrders", productionOrders);
+		model.addAttribute("machines", machines);
+		model.addAttribute("articles", articles);
+
 		return "production_order/production_orders";
 	}
 
 	/**
 	 * addProductionOrder
+	 * 
 	 * @param productionOrder
 	 * @return
 	 */
@@ -69,6 +71,7 @@ public class ProductionOrderController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -82,6 +85,7 @@ public class ProductionOrderController {
 
 	/**
 	 * updateProductionOrder
+	 * 
 	 * @param id
 	 * @param productionOrder
 	 * @param result
@@ -89,8 +93,8 @@ public class ProductionOrderController {
 	 * @return
 	 */
 	@PostMapping("/updateproductionOrder/{id}")
-	public String updateProductionOrder(@PathVariable("id") long id, @Validated ProductionOrder productionOrder, BindingResult result,
-			Model model) {
+	public String updateProductionOrder(@PathVariable("id") long id, @Validated ProductionOrder productionOrder,
+			BindingResult result, Model model) {
 
 		productionOrderService.save(productionOrder);
 		return "redirect:/productionorders";
@@ -98,12 +102,13 @@ public class ProductionOrderController {
 
 	/**
 	 * deleteProductionOrder
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteproductionOrder/{id}")
+	@GetMapping("/deleteproductionorder/{id}")
 	@Transactional
-	public String deleteProductionOrder(@PathVariable("id") int id) {
+	public String deleteProductionOrder(@PathVariable("id") Long id) {
 		productionOrderService.delete(id);
 		return "redirect:/productionorders";
 	}

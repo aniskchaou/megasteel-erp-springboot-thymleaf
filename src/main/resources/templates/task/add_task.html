@@ -1,63 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_task_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addtask}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Subject</label> <input name="Subject" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Subject">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Project</label> <select name="project">
+								<option th:value="${project.id}" th:each="project:${projects}"
+									th:text="${project.name}"></option>
 
-	
-	
-<form th:fragment="add_task_form" th:action="@{/addtask}"
-		method="post">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Date</label> <input name="date" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Date">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Priority </label> 
+								<select name="priority" 
+								class="form-control"><option value="High">High</option>High<option value="Low">Low</option></select>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Assigned</label> <select name="assigned">
+								<option th:value="${e.id}" th:each="e:${employees}"
+									th:text="${e.firstName}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Deadline</label> <input name="deadline"
+								type="date" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="machineNumber">
+						</div>
 
-		<!-- Name  -->
-		<input name="subject" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-			<select name="project" >
-			 <option th:value="${project.id}" th:each="project:${projects}"  th:text="${project.name}">
-			 </option>
-			
-			</select>
-			
-			
-			<select name="assigned" >
-			 <option th:value="${e.id}" th:each="e:${employees}"  th:text="${e.firstName}">
-
-			 </option>
-			
-			</select>
-			
-			
-			
-			<input name="priority"
-			type="number" class="form-control" id="exampleInputEmail1"
-			aria-describedby="emailHelp" placeholder="activityNumber" /> 
-			
-			
-			<input
-			name="date" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-
-
-            <input
-			name="deadline" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-			
-			
-			<input
-			name="tags" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-
-
-		<button type="submit" class="btn btn-primary">Create</button>
-
-
-	</form>
-</body>
-</html>
+						<div class="form-group">
+							<label>Tags</label> <input name="tags" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Tags">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

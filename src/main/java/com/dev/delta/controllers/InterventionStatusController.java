@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dev.delta.entities.InterventionStatus;
 import com.dev.delta.services.InterventionStatusService;
 
-
 @Controller
 public class InterventionStatusController {
-
 
 	/**
 	 * InterventionStatusService
@@ -28,24 +26,24 @@ public class InterventionStatusController {
 	@Autowired
 	private InterventionStatusService InterventionStatusService;
 
-	
-
 	/**
 	 * getInterventionStatuss
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/interventionstatus")
 	public String getInterventionStatuss(Model model) {
 		List<InterventionStatus> InterventionStatuss = InterventionStatusService.getinterventionStatuss();
-		
-		model.addAttribute("InterventionStatus", InterventionStatuss);	
-			
+
+		model.addAttribute("InterventionStatus", InterventionStatuss);
+
 		return "Intervention_status/intervention_status";
 	}
 
 	/**
 	 * addInterventionStatus
+	 * 
 	 * @param InterventionStatus
 	 * @return
 	 */
@@ -58,6 +56,7 @@ public class InterventionStatusController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -71,6 +70,7 @@ public class InterventionStatusController {
 
 	/**
 	 * updateInterventionStatus
+	 * 
 	 * @param id
 	 * @param InterventionStatus
 	 * @param result
@@ -78,8 +78,8 @@ public class InterventionStatusController {
 	 * @return
 	 */
 	@PostMapping("/updateInterventionStatus/{id}")
-	public String updateInterventionStatus(@PathVariable("id") long id, @Validated InterventionStatus InterventionStatus, BindingResult result,
-			Model model) {
+	public String updateInterventionStatus(@PathVariable("id") long id,
+			@Validated InterventionStatus InterventionStatus, BindingResult result, Model model) {
 
 		InterventionStatusService.save(InterventionStatus);
 		return "redirect:/InterventionStatuss";
@@ -87,12 +87,13 @@ public class InterventionStatusController {
 
 	/**
 	 * deleteInterventionStatus
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteInterventionStatus/{id}")
+	@GetMapping("/deleteInterventionstatus/{id}")
 	@Transactional
-	public String deleteInterventionStatus(@PathVariable("id") int id) {
+	public String deleteInterventionStatus(@PathVariable("id") Long id) {
 		InterventionStatusService.delete(id);
 		return "redirect:/interventionStatus";
 	}

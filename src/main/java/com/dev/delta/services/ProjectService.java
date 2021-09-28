@@ -16,49 +16,50 @@ public class ProjectService {
 	 */
 	@Autowired
 	private ProjectRepository projectRepository;
-	
 
 	/**
 	 * getProjects
+	 * 
 	 * @return
 	 */
-	public List<Project> getProjects()
-	{
+	public List<Project> getProjects() {
 		return projectRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return projectRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param project
 	 */
-	public void save(Project project)
-	{
+	public void save(Project project) {
 		projectRepository.save(project);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Project> findById(int id) {
 		return projectRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		projectRepository.delete(projectRepository.findById(id).get());
 	}
 }

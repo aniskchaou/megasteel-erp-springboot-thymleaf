@@ -17,49 +17,50 @@ public class BankTransferService {
 	 */
 	@Autowired
 	private BankTransferRepository bankTransferRepository;
-	
 
 	/**
 	 * getBankTransfers
+	 * 
 	 * @return
 	 */
-	public List<BankTransfer> getBankTransfers()
-	{
+	public List<BankTransfer> getBankTransfers() {
 		return bankTransferRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return bankTransferRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param bankTransfer
 	 */
-	public void save(BankTransfer bankTransfer)
-	{
+	public void save(BankTransfer bankTransfer) {
 		bankTransferRepository.save(bankTransfer);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<BankTransfer> findById(int id) {
 		return bankTransferRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		bankTransferRepository.delete(bankTransferRepository.findById(id).get());
 	}
 }

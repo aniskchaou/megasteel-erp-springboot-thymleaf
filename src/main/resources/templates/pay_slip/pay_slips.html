@@ -105,13 +105,13 @@
 													</thead>
 													<tbody>
 														<tr th:each="pay_slip:${paySlips}">
-															<td th:text="${pay_slip.employee}"></td>
+															<td th:text="${pay_slip.employee.firstName}"></td>
 															<td th:text="${pay_slip.workedHours}"></td>
 															<td th:text="${pay_slip.attendanceBonus}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletepay_slip/{id}(id=${pay_slip.id}) }">Delete</a></td>
+																th:href="@{/deletepayslip/{id}(id=${pay_slip.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 													</tbody>
 													<tfoot>

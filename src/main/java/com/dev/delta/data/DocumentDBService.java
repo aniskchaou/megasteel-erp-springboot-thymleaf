@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.DocumentRepository;
 
 @Service
-public class DocumentDBService implements IDBService{
+public class DocumentDBService implements IDBService {
 
 	@Autowired
 	DocumentRepository documentRepository;
@@ -15,9 +15,8 @@ public class DocumentDBService implements IDBService{
 	public void populate() {
 		document.setName(null);
 		document.setType(typeDocument);
-		
+
 		documentRepository.save(document);
 	}
-	
-	
+
 }

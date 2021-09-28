@@ -6,10 +6,11 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.EventRepository;
 
 @Service
-public class EventDBService implements IDBService{
+public class EventDBService implements IDBService {
 
 	@Autowired
 	EventRepository eventRepository;
+
 	@Override
 	public void populate() {
 		event.setDescription("");
@@ -18,7 +19,7 @@ public class EventDBService implements IDBService{
 		event.setName("holiday");
 		event.setStartDate("12-11-2020");
 		eventRepository.save(event);
-		
+
 	}
 
 }

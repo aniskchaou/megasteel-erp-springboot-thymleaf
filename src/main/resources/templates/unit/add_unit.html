@@ -1,25 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<form th:fragment="add_unit_form" th:action="@{/addunit}"
-		method="post">
 
-		<!-- Name  -->
-		<input name="name" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-		<input name="departement" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name">
-			
+<div th:fragment="add_unit_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addunit}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Unit</label> <input name="name" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Name">
+						</div>
 
-		<button type="submit" class="btn btn-primary">Create</button>
-
-
-	</form>
-</body>
-</html>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

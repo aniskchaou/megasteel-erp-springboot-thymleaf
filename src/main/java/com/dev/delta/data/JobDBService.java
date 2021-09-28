@@ -7,16 +7,16 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.JobbRepository;
 
 @Service
-public class JobDBService implements IDBService{
+public class JobDBService implements IDBService {
 
 	@Autowired
 	JobbRepository jobRepository;
-	
+
 	@Override
 	public void populate() {
 		job.setName("Software Engineer");
 		job.setDepartement(departement);
-		
+
 		jobRepository.save(job);
 	}
 

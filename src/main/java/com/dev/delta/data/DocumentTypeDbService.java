@@ -7,18 +7,18 @@ import com.dev.delta.repositories.DocumentRepository;
 import com.dev.delta.repositories.TypeDocumentRepository;
 
 @Service
-public class DocumentTypeDbService implements IDBService{
+public class DocumentTypeDbService implements IDBService {
 
 	@Autowired
 	TypeDocumentRepository documentRepository;
 
 	@Override
 	public void populate() {
-		
+
 		typeDocument.setDescription("");
 		typeDocument.setExtension("doc");
 		typeDocument.setName("word");
 		documentRepository.save(typeDocument);
 	}
-	
+
 }

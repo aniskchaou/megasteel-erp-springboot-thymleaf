@@ -16,49 +16,50 @@ public class DocumentService {
 	 */
 	@Autowired
 	private DocumentRepository documentRepository;
-	
 
 	/**
 	 * getDocuments
+	 * 
 	 * @return
 	 */
-	public List<Document> getDocuments()
-	{
+	public List<Document> getDocuments() {
 		return documentRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return documentRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param document
 	 */
-	public void save(Document document)
-	{
+	public void save(Document document) {
 		documentRepository.save(document);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Document> findById(int id) {
 		return documentRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		documentRepository.delete(documentRepository.findById(id).get());
 	}
 }

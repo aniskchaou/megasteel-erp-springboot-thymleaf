@@ -1,81 +1,76 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_production_order_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addproductionorder}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Code</label> <input name="codeProduction" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Code">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Article Out</label> <select name="articleSortant">
+								<option th:value="${a.id}" th:each="a:${articles}"
+									th:text="${a.code}"></option>
+							</select>
+						</div>
 
-private String ;
-    private String quantiteRealise;
-    private String quantiteRestant;
-    @ManyToOne
-	@JoinColumn(name="machine_id")
-    private Machine codeMachine;
-    @ManyToOne
-	@JoinColumn(name="article_in_id")
-    private Article articleSortant;
-    @ManyToOne
-	@JoinColumn(name="article_out_id")
-    private Article articleEntrant;
-    private String etat;
-    
+						<div class="form-group">
+							<label>Machine Number</label> <input name="machineNumber"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Machine Number">
+						</div>
+						<div class="form-group">
+							<label>Status</label> <select name="etat" class="form-control"><option
+									value="Started">Started</option>
+								<option value="Running">Running</option>
+								<option value="Finished">Finished</option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Article In </label> <select name="articleEntrant">
+								<option th:value="${a.id}" th:each="a:${articles}"
+									th:text="${a.code}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Machine</label> <select name="codeMachine">
+								<option th:value="${m.id}" th:each="m:${machines}"
+									th:text="${m.name}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Remaining quantity</label> <input name="quantiteRestant"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Remaining quantity" />
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-
-
-<form th:fragment="add_production_order_form" th:action="@{/addproductionorder}"
-		method="post">
-
-		<!-- Name  -->
-		<input name="codeProduction" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+		    <a type="button" class="btn btn-secondary" th:href="@{/machines}">Machines</a>
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 			
-			
-			<select name="articleSortant" >
-			 <option th:value="${a.id}" th:each="a:${articles}"  th:text="${a.code}">
-			 </option>
-			
-			</select>
-			
-			
-			
-			
-			<select name="articleEntrant" >
-			 <option th:value="${a.id}" th:each="a:${articles}"  th:text="${a.code}">
-
-			 </option>
-			</select>
-			
-			<select name="codeMachine" >
-			 <option th:value="${m.id}" th:each="m:${machines}"  th:text="${m.name}">
-
-			 </option>
-			
-			</select>
-			
-			
-			
-			<input name="quantiteRestant"
-			type="number" class="form-control" id="exampleInputEmail1"
-			aria-describedby="emailHelp" placeholder="activityNumber" /> 
-			
-			
-			<input
-			name="machineNumber" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-
-
-             <input
-			name="etat" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
 
 
-		<button type="submit" class="btn btn-primary">Create</button>
-
-
-	</form>
-</body>
-</html>
+		</div>
+	</div>
+</div>

@@ -30,25 +30,26 @@ public class VehiculeModelController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getVehiculeModels
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/vehiculemodels")
 	public String getVehiculeModels(Model model) {
 		List<VehiculeModel> vehiculeModels = vehiculeModelService.getVehiculeModels();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("vehiculemodels", vehiculeModels);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("vehiculeModels", vehiculeModels);
+		model.addAttribute("families", families);
+
 		return "vehicule_model/vehicule_models";
 	}
 
 	/**
 	 * addVehiculeModel
+	 * 
 	 * @param vehiculeModel
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class VehiculeModelController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class VehiculeModelController {
 
 	/**
 	 * updateVehiculeModel
+	 * 
 	 * @param id
 	 * @param vehiculeModel
 	 * @param result
@@ -81,8 +84,8 @@ public class VehiculeModelController {
 	 * @return
 	 */
 	@PostMapping("/updatevehiculeModel/{id}")
-	public String updateVehiculeModel(@PathVariable("id") long id, @Validated VehiculeModel vehiculeModel, BindingResult result,
-			Model model) {
+	public String updateVehiculeModel(@PathVariable("id") long id, @Validated VehiculeModel vehiculeModel,
+			BindingResult result, Model model) {
 
 		vehiculeModelService.save(vehiculeModel);
 		return "redirect:/vehiculemodels";
@@ -90,12 +93,13 @@ public class VehiculeModelController {
 
 	/**
 	 * deleteVehiculeModel
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletevehiculeModel/{id}")
+	@GetMapping("/deletevehiculemodel/{id}")
 	@Transactional
-	public String deleteVehiculeModel(@PathVariable("id") int id) {
+	public String deleteVehiculeModel(@PathVariable("id") Long id) {
 		vehiculeModelService.delete(id);
 		return "redirect:/vehiculemodels";
 	}

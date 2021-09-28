@@ -10,134 +10,109 @@ import javax.persistence.ManyToOne;
 @Entity
 public class JobApplication {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	
- String jobTitle;
- @ManyToOne
- @JoinColumn(name="country_id")
- Country country;
- 
- @ManyToOne
- @JoinColumn(name="city_id")
- City city;
- 
- @ManyToOne
- @JoinColumn(name="departement_id")
- Departement department;
 
- @ManyToOne
- @JoinColumn(name="employee_id")
- Employee responsible;
+	String jobTitle;
+	@ManyToOne
+	@JoinColumn(name = "country_id")
+	Country country;
 
-  String nbPeopleHired;
+	@ManyToOne
+	@JoinColumn(name = "city_id")
+	City city;
 
- @ManyToOne
- @JoinColumn(name="job_id")
- Job job;
+	@ManyToOne
+	@JoinColumn(name = "departement_id")
+	Departement department;
 
-  String email;
-  String publicationDate;
-  
-  public JobApplication() {
-	// TODO Auto-generated constructor stub
-}
+	@ManyToOne
+	@JoinColumn(name = "employee_id")
+	Employee responsible;
 
-public JobApplication(String jobTitle, Country country, City city, Departement department, Employee responsible,
-		String nbPeopleHired, Job job, String email, String publicationDate) {
-	super();
-	this.jobTitle = jobTitle;
-	this.country = country;
-	this.city = city;
-	this.department = department;
-	this.responsible = responsible;
-	this.nbPeopleHired = nbPeopleHired;
-	this.job = job;
-	this.email = email;
-	this.publicationDate = publicationDate;
-}
+	String nbPeopleHired;
 
-public Long getId() {
-	return id;
-}
+	String email;
 
-public void setId(Long id) {
-	this.id = id;
-}
+	public JobApplication() {
+		// TODO Auto-generated constructor stub
+	}
 
-public String getJobTitle() {
-	return jobTitle;
-}
+	public JobApplication(String jobTitle, Country country, City city, Departement department, Employee responsible,
+			String nbPeopleHired, String email) {
+		super();
+		this.jobTitle = jobTitle;
+		this.country = country;
+		this.city = city;
+		this.department = department;
+		this.responsible = responsible;
+		this.nbPeopleHired = nbPeopleHired;
+		this.email = email;
+	}
 
-public void setJobTitle(String jobTitle) {
-	this.jobTitle = jobTitle;
-}
+	public Long getId() {
+		return id;
+	}
 
-public Country getCountry() {
-	return country;
-}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-public void setCountry(Country country) {
-	this.country = country;
-}
+	public String getJobTitle() {
+		return jobTitle;
+	}
 
-public City getCity() {
-	return city;
-}
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
 
-public void setCity(City city) {
-	this.city = city;
-}
+	public Country getCountry() {
+		return country;
+	}
 
-public Departement getDepartment() {
-	return department;
-}
+	public void setCountry(Country country) {
+		this.country = country;
+	}
 
-public void setDepartment(Departement department) {
-	this.department = department;
-}
+	public City getCity() {
+		return city;
+	}
 
-public Employee getResponsible() {
-	return responsible;
-}
+	public void setCity(City city) {
+		this.city = city;
+	}
 
-public void setResponsible(Employee responsible) {
-	this.responsible = responsible;
-}
+	public Departement getDepartment() {
+		return department;
+	}
 
-public String getNbPeopleHired() {
-	return nbPeopleHired;
-}
+	public void setDepartment(Departement department) {
+		this.department = department;
+	}
 
-public void setNbPeopleHired(String nbPeopleHired) {
-	this.nbPeopleHired = nbPeopleHired;
-}
+	public Employee getResponsible() {
+		return responsible;
+	}
 
-public Job getJob() {
-	return job;
-}
+	public void setResponsible(Employee responsible) {
+		this.responsible = responsible;
+	}
 
-public void setJob(Job job) {
-	this.job = job;
-}
+	public String getNbPeopleHired() {
+		return nbPeopleHired;
+	}
 
-public String getEmail() {
-	return email;
-}
+	public void setNbPeopleHired(String nbPeopleHired) {
+		this.nbPeopleHired = nbPeopleHired;
+	}
 
-public void setEmail(String email) {
-	this.email = email;
-}
+	public String getEmail() {
+		return email;
+	}
 
-public String getPublicationDate() {
-	return publicationDate;
-}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-public void setPublicationDate(String publicationDate) {
-	this.publicationDate = publicationDate;
-}
-  
-  
 }

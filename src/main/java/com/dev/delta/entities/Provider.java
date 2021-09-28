@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Provider implements Serializable {
 
-	
 	private static final long serialVersionUID = 5425958403589355069L;
 
 	@Id
@@ -26,10 +25,10 @@ public class Provider implements Serializable {
 	private String name;
 	private String address;
 	@ManyToOne
-	@JoinColumn(name="vat_id")
+	@JoinColumn(name = "vat_id")
 	private VAT vat;
 	private String phone;
-	
+
 	private String responsable;
 	private String fax;
 
@@ -37,9 +36,7 @@ public class Provider implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Provider(String code, String name, String address, VAT vat, String phone,
-			String responsable,
-			String fax) {
+	public Provider(String code, String name, String address, VAT vat, String phone, String responsable, String fax) {
 		super();
 		this.code = code;
 		this.name = name;

@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.TypeTerminaisonRepository;
 
 @Service
-public class TypeTerminaisonDBService implements IDBService{
+public class TypeTerminaisonDBService implements IDBService {
 
 	@Autowired
-	TypeTerminaisonRepository  typeTerminaisonRepository;
-	
+	TypeTerminaisonRepository typeTerminaisonRepository;
+
 	@Override
 	public void populate() {
 		// TODO Auto-generated method stub
@@ -18,5 +18,4 @@ public class TypeTerminaisonDBService implements IDBService{
 		typeTerminaisonRepository.save(typeTermination);
 	}
 
-	
 }

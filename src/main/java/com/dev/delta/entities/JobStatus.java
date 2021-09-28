@@ -12,7 +12,7 @@ public class JobStatus {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String name;
-	
+
 	public JobStatus() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,6 +37,5 @@ public class JobStatus {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
 }

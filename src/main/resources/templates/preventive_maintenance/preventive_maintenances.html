@@ -98,9 +98,9 @@
 													<thead>
 														<tr>
 															<th>Code</th>
-															<th>type</th>
-															<th>duration</th>
-															<th>machine</th>
+															<th>Type</th>
+															<th>Duration</th>
+															<th>Machine</th>
 															<th>Actions</th>
 														</tr>
 													</thead>
@@ -110,11 +110,11 @@
 															<td th:text="${preventiveMaintenance.reference}"></td>
 															<td th:text="${preventiveMaintenance.type}"></td>
 															<td th:text="${preventiveMaintenance.duration}"></td>
-															<td th:text="${preventiveMaintenance.machine}"></td>
+															<td th:text="${preventiveMaintenance.machine.name}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletepreventiveMaintenance/{id}(id=${preventiveMaintenance.id}) }">Delete</a></td>
+																th:href="@{/deletepreventivemaintenance/{id}(id=${preventiveMaintenance.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>
@@ -122,9 +122,9 @@
 
 														<tr>
 															<th>Code</th>
-															<th>type</th>
-															<th>duration</th>
-															<th>machine</th>
+															<th>Type</th>
+															<th>Duration</th>
+															<th>Machine</th>
 															<th>Actions</th>
 														</tr>
 													</tfoot>

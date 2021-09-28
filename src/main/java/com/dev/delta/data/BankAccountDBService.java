@@ -7,17 +7,17 @@ import com.dev.delta.repositories.BankAccountRepository;
 
 @Service
 public class BankAccountDBService implements IDBService {
-    
+
 	@Autowired
 	BankAccountRepository bankAccountRepository;
-	
+
 	@Override
 	public void populate() {
-		bankAccount.setAccountName("");
-		bankAccount.setAccountNumber("9798698698687");
-		bankAccount.setBankName("JP MOgan Chase");
+		bankAccount.setAccountName("Crystal Steel");
+		bankAccount.setAccountNumber("4485 8593 6224 7038");
+		bankAccount.setBankName("Deutsch Bank");
 		bankAccount.setDescription("");
-		bankAccount.setStatus("pending");
+		bankAccount.setStatus("Active");
 		bankAccountRepository.save(bankAccount);
 	}
 

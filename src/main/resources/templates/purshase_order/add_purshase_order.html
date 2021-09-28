@@ -1,37 +1,64 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-Part part;
-	String Date;
-	String quantity;
-	String unit;
-	
-				<form th:fragment="add_purshase_order_form" th:action="@{/addpurshaseorder}" method="post">
-                 
-                  <input name="part" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="part">
-				
-				 <input name="date" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="date">
-						
-				 <input name="applicant" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="applicant">
-						
-				 <input name="quantity" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="quantity">
-						
-				<input name="unit" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="unit">
-						
+<div th:fragment="add_purshase_order_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addpurshaseorder}" method="post">
+				<div class="row">
+					<div class="col-md-6">
 					
+					    <div class="form-group">
+							<label>Part</label> <input name="part" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Part">
+						</div>	
+								
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Date</label> <input name="date" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Date">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Unit</label> <input name="unit" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Unit">
 
+						</div>
+						<!-- /.form-group -->
+						
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Applicant </label> <input name="applicant" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Applicant">
+
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Quantity</label> <input name="quantity" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Quantity">
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

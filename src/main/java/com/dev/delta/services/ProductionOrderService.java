@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.ProductionOrder;
 import com.dev.delta.repositories.ProductionOrderRepository;
+
 @Service
 public class ProductionOrderService {
 
@@ -16,49 +17,50 @@ public class ProductionOrderService {
 	 */
 	@Autowired
 	private ProductionOrderRepository productionOrderRepository;
-	
 
 	/**
 	 * getProductionOrders
+	 * 
 	 * @return
 	 */
-	public List<ProductionOrder> getProductionOrders()
-	{
+	public List<ProductionOrder> getProductionOrders() {
 		return productionOrderRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return productionOrderRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param productionOrder
 	 */
-	public void save(ProductionOrder productionOrder)
-	{
+	public void save(ProductionOrder productionOrder) {
 		productionOrderRepository.save(productionOrder);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<ProductionOrder> findById(int id) {
 		return productionOrderRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		productionOrderRepository.delete(productionOrderRepository.findById(id).get());
 	}
 }

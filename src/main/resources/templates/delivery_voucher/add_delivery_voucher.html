@@ -1,48 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_delivery_voucher_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/adddeliveryvoucher}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Article</label> <select name="article">
+								<option th:value="${article.id}" th:each="article:${articles}"
+									th:text="${article.code}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Client </label> <select name="client">
+								<option th:value="${client.id}" th:each="client:${clients}"
+									th:text="${client.firstName}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+						
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-12 col-sm-6">
+						<div class="form-group">
+							<label>Quantity</label> <input name="quantite"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Quantity">
 
 
 
-	<form th:fragment="add_delivery_voucher_form"
-		th:action="@{/adddeliveryvoucher}" method="post">
-
-		<!-- Name  -->
-		<input name="codeCommande" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="codeCommande"> 
-			
-			<select name="article">
-			<option th:value="${article.id}" th:each="article:${articles}"
-				th:text="${article.code}"></option>
-		    </select> 
-
-
-           <select name="client">
-			<option th:value="${client.id}" th:each="client:${clients}"
-				th:text="${client.firstName}"></option>
-		    </select> 
-
-			
-			 <input
-			name="quantite" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="quantite">
-			
-			 <input name="date" type="date"
-			class="form-control" id="exampleInputEmail1"
-			aria-describedby="emailHelp" placeholder="date">
-
-
-
-
-		<button type="submit" class="btn btn-primary">Create</button>
-
-
-	</form>
-</body>
-</html>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

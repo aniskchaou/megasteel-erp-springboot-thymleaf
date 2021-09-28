@@ -1,42 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-<form th:fragment="add_training_form" th:action="@{/addactivity}"
-		method="post">
-
-		<!-- Name  -->
-		<input name="Session" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-			
-			<input name="fromDate" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-			
-			<input name="toDate" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-			
-			<select name="employee" >
-			 <option th:value="${employee.id}" th:each="employee:${employees}"  th:text="${employee.firstName}">
-			 </option>
-			
-			</select>
-			
-			
-			
-
-		<button type="submit" class="btn btn-primary">Create</button>
-
-
-	</form>
-</body>
-</html>
+<div th:fragment="add_training_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addtraining}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Session</label> <input name="session" type="time"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Session">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>End</label> <input name="toDate" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="End">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Start </label> <input name="fromDate" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Start">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Employee</label> <select name="employee">
+								<option th:value="${employee.id}"
+									th:each="employee:${employees}" th:text="${employee.firstName}">
+								</option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

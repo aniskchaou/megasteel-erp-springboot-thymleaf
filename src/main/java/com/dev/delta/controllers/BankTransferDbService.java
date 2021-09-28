@@ -5,12 +5,13 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.data.IDBService;
 import com.dev.delta.repositories.BankTransferRepository;
+
 @Service
-public class BankTransferDbService implements IDBService{
-   
+public class BankTransferDbService implements IDBService {
+
 	@Autowired
-	BankTransferRepository bankTransferRepository ; 
-	
+	BankTransferRepository bankTransferRepository;
+
 	@Override
 	public void populate() {
 		bankTransfer.setAmount("21");
@@ -18,9 +19,9 @@ public class BankTransferDbService implements IDBService{
 		bankTransfer.setPaymentFrom(bankAccount);
 		bankTransfer.setPaymentTo(bankAccount);
 		bankTransfer.setPaymentName("pay");
-		
+
 		bankTransferRepository.save(bankTransfer);
-		
+
 	}
 
 }

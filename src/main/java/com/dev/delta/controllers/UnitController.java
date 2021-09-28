@@ -30,25 +30,26 @@ public class UnitController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getUnits
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/units")
 	public String getUnits(Model model) {
 		List<Unit> units = unitService.getUnits();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("units", units);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("units", units);
+		model.addAttribute("families", families);
+
 		return "unit/units";
 	}
 
 	/**
 	 * addUnit
+	 * 
 	 * @param unit
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class UnitController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class UnitController {
 
 	/**
 	 * updateUnit
+	 * 
 	 * @param id
 	 * @param unit
 	 * @param result
@@ -81,8 +84,7 @@ public class UnitController {
 	 * @return
 	 */
 	@PostMapping("/updateunit/{id}")
-	public String updateUnit(@PathVariable("id") long id, @Validated Unit unit, BindingResult result,
-			Model model) {
+	public String updateUnit(@PathVariable("id") long id, @Validated Unit unit, BindingResult result, Model model) {
 
 		unitService.save(unit);
 		return "redirect:/units";
@@ -90,12 +92,13 @@ public class UnitController {
 
 	/**
 	 * deleteUnit
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteunit/{id}")
 	@Transactional
-	public String deleteUnit(@PathVariable("id") int id) {
+	public String deleteUnit(@PathVariable("id") Long id) {
 		unitService.delete(id);
 		return "redirect:/units";
 	}

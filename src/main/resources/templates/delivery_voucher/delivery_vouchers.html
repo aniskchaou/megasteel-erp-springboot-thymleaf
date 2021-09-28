@@ -97,33 +97,30 @@
 													role="grid" aria-describedby="example1_info">
 													<thead>
 														<tr>
-															<th>Order</th>
+															<th>Client</th>
 															<th>Article</th>
 															<th>Quantity</th>
-															<th>Date</th>
 															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr th:each="deliveryVoucher:${deliveryVouchers}">
-															<td th:text="${deliveryVoucher.codeCommande}"></td>
-															<td th:text="${deliveryVoucher.article}"></td>
+															<td th:text="${deliveryVoucher.client.firstName}"></td>
+															<td th:text="${deliveryVoucher.article.code}"></td>
 															<td th:text="${deliveryVoucher.quantite}"></td>
-															<td th:text="${deliveryVoucher.date}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletedeliveryVoucher/{id}(id=${deliveryVoucher.id}) }">Delete</a></td>
+																th:href="@{/deletedeliveryvoucher/{id}(id=${deliveryVoucher.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>
 													<tfoot>
 
 														<tr>
-															<th>Order</th>
+															<th>Client</th>
 															<th>Article</th>
 															<th>Quantity</th>
-															<th>Date</th>
 															<th>Actions</th>
 														</tr>
 													</tfoot>

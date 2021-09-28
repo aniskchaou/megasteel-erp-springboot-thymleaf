@@ -17,7 +17,7 @@ public class Income {
 	private String date;
 	private String paymentType;
 	private String amount;
-	
+
 	public Income() {
 		// TODO Auto-generated constructor stub
 	}
@@ -69,6 +69,5 @@ public class Income {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
-	
-	
+
 }

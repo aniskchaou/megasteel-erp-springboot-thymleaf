@@ -19,51 +19,52 @@ public class VATService {
 	 */
 	@Autowired
 	private VatRepository vatRepository;
-	
 
 	/**
 	 * getVats
+	 * 
 	 * @return
 	 */
-	public List<VAT> getVats()
-	{
+	public List<VAT> getVats() {
 		return vatRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return vatRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param vat
 	 */
-	public void save( VAT vat)
-	{
-		
+	public void save(VAT vat) {
+
 		vatRepository.save(vat);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<VAT> findById(int id) {
 		return vatRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		vatRepository.delete(vatRepository.findById(id).get());
 	}
-	
+
 }

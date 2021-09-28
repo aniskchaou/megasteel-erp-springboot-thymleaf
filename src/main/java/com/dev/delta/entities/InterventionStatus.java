@@ -12,7 +12,7 @@ public class InterventionStatus {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String name;
-	
+
 	public InterventionStatus() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,7 +37,5 @@ public class InterventionStatus {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }

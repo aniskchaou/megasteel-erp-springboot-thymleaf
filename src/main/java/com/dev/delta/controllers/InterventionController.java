@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Intervention;
+import com.dev.delta.entities.InterventionStatus;
 import com.dev.delta.entities.Machine;
 import com.dev.delta.services.InterventionService;
+import com.dev.delta.services.InterventionStatusService;
 import com.dev.delta.services.MachineService;
+
 @Controller
 public class InterventionController {
 	/**
@@ -29,22 +32,29 @@ public class InterventionController {
 	@Autowired
 	private MachineService machineService;
 
+	@Autowired
+	private InterventionStatusService interventionStatusService;
+
 	/**
 	 * getInterventions
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/interventions")
 	public String getInterventions(Model model) {
 		List<Intervention> interventions = interventionService.getInterventions();
-		List<Machine> machines=machineService.getMachines();
-		model.addAttribute("interventions", interventions);	
-		model.addAttribute("machines", machines);	
+		List<Machine> machines = machineService.getMachines();
+		List<InterventionStatus> interventionStatus = interventionStatusService.getinterventionStatuss();
+		model.addAttribute("interventions", interventions);
+		model.addAttribute("machines", machines);
+		model.addAttribute("interventionStatus", interventionStatus);
 		return "intervention/interventions";
 	}
 
 	/**
 	 * addIntervention
+	 * 
 	 * @param intervention
 	 * @return
 	 */
@@ -57,6 +67,7 @@ public class InterventionController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -70,6 +81,7 @@ public class InterventionController {
 
 	/**
 	 * updateIntervention
+	 * 
 	 * @param id
 	 * @param intervention
 	 * @param result
@@ -77,8 +89,8 @@ public class InterventionController {
 	 * @return
 	 */
 	@PostMapping("/updateintervention/{id}")
-	public String updateIntervention(@PathVariable("id") long id, @Validated Intervention intervention, BindingResult result,
-			Model model) {
+	public String updateIntervention(@PathVariable("id") long id, @Validated Intervention intervention,
+			BindingResult result, Model model) {
 
 		interventionService.save(intervention);
 		return "redirect:/interventions";
@@ -86,12 +98,13 @@ public class InterventionController {
 
 	/**
 	 * deleteIntervention
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteintervention/{id}")
 	@Transactional
-	public String deleteIntervention(@PathVariable("id") int id) {
+	public String deleteIntervention(@PathVariable("id") Long id) {
 		interventionService.delete(id);
 		return "redirect:/interventions";
 	}

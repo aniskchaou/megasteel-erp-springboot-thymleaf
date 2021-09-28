@@ -98,31 +98,35 @@
 													<thead>
 														<tr>
 															<th>Name</th>
-			<th>Date</th>
-			<th>Payment Type</th>
-			<th>Amount</th>
-			<th>Actions</th>
+															<th>Date</th>
+															<th>Payment Type</th>
+															<th>Amount</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
-														 <tr th:each="income:${incomes}">
-	          <td th:text="${income.name}"></td>
-	          <td th:text="${income.date}"></td>
-	          <td th:text="${income.paymentType}"></td>
-	          <td th:text="${income.amount}"></td>
-	        
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deleteincome/{id}(id=${income.id}) }">Delete</a></td> 
-          </tr>
+														<tr th:each="income:${incomes}">
+															<td th:text="${income.name}"></td>
+															<td th:text="${income.date}"></td>
+															<td th:text="${income.paymentType}"></td>
+															<td><span class="badge bg-primary"
+																th:text="${income.amount}"></span></td>
+
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deleteincome/{id}(id=${income.id}) }"><i
+																	class="fas fa-trash"></i></a></td>
+														</tr>
 													</tbody>
 													<tfoot>
 
 														<tr>
 															<th>Name</th>
-			<th>Date</th>
-			<th>Payment Type</th>
-			<th>Amount</th>
-			<th>Actions</th>
+															<th>Date</th>
+															<th>Payment Type</th>
+															<th>Amount</th>
+															<th>Actions</th>
 														</tr>
 													</tfoot>
 												</table>
@@ -138,8 +142,9 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				 <div th:insert="income/add_income :: add_income_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div th:insert="income/add_income :: add_income_form"
+					class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

@@ -30,29 +30,30 @@ public class JobApplicantController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getJobApplicants
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/jobapplicants")
 	public String getJobApplicants(Model model) {
 		List<JobApplicant> jobApplicants = jobApplicantService.getJobApplicants();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("jobapplicant", jobApplicants);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("jobapplicants", jobApplicants);
+		model.addAttribute("families", families);
+
 		return "job_applicant/job_applicants";
 	}
 
 	/**
 	 * addJobApplicant
+	 * 
 	 * @param jobApplicant
 	 * @return
 	 */
-	@PostMapping("/addjobapplicants")
+	@PostMapping("/addjobapplicant")
 
 	public String addJobApplicant(JobApplicant jobApplicant) {
 		jobApplicantService.save(jobApplicant);
@@ -61,6 +62,7 @@ public class JobApplicantController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class JobApplicantController {
 
 	/**
 	 * updateJobApplicant
+	 * 
 	 * @param id
 	 * @param jobApplicant
 	 * @param result
@@ -81,8 +84,8 @@ public class JobApplicantController {
 	 * @return
 	 */
 	@PostMapping("/updatejobApplicant/{id}")
-	public String updateJobApplicant(@PathVariable("id") long id, @Validated JobApplicant jobApplicant, BindingResult result,
-			Model model) {
+	public String updateJobApplicant(@PathVariable("id") long id, @Validated JobApplicant jobApplicant,
+			BindingResult result, Model model) {
 
 		jobApplicantService.save(jobApplicant);
 		return "redirect:/jobapplicant";
@@ -90,12 +93,13 @@ public class JobApplicantController {
 
 	/**
 	 * deleteJobApplicant
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletejobApplicant/{id}")
+	@GetMapping("/deletejobapplicant/{id}")
 	@Transactional
-	public String deleteJobApplicant(@PathVariable("id") int id) {
+	public String deleteJobApplicant(@PathVariable("id") Long id) {
 		jobApplicantService.delete(id);
 		return "redirect:/jobapplicant";
 	}

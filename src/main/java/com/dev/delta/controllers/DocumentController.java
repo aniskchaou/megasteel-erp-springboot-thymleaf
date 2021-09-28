@@ -29,25 +29,26 @@ public class DocumentController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getDocuments
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/documents")
 	public String getDocuments(Model model) {
 		List<Document> documents = documentService.getDocuments();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("documents", documents);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("documents", documents);
+		model.addAttribute("families", families);
+
 		return "document/documents";
 	}
 
 	/**
 	 * addDocument
+	 * 
 	 * @param document
 	 * @return
 	 */
@@ -60,6 +61,7 @@ public class DocumentController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -73,6 +75,7 @@ public class DocumentController {
 
 	/**
 	 * updateDocument
+	 * 
 	 * @param id
 	 * @param document
 	 * @param result
@@ -89,12 +92,13 @@ public class DocumentController {
 
 	/**
 	 * deleteDocument
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletedocument/{id}")
 	@Transactional
-	public String deleteDocument(@PathVariable("id") int id) {
+	public String deleteDocument(@PathVariable("id") Long id) {
 		documentService.delete(id);
 		return "redirect:/documents";
 	}

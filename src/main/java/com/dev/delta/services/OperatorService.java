@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Operator;
 import com.dev.delta.repositories.OperatorRepository;
+
 @Service
 public class OperatorService {
 	/**
@@ -15,49 +16,50 @@ public class OperatorService {
 	 */
 	@Autowired
 	private OperatorRepository operatorRepository;
-	
 
 	/**
 	 * getOperators
+	 * 
 	 * @return
 	 */
-	public List<Operator> getOperators()
-	{
+	public List<Operator> getOperators() {
 		return operatorRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return operatorRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param operator
 	 */
-	public void save(Operator operator)
-	{
+	public void save(Operator operator) {
 		operatorRepository.save(operator);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Operator> findById(int id) {
 		return operatorRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		operatorRepository.delete(operatorRepository.findById(id).get());
 	}
 

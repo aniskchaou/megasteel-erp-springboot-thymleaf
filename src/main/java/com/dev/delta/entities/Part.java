@@ -19,7 +19,7 @@ public class Part implements Serializable {
 	Long id;
 	String reference;
 	String name;
-	
+
 	public Part() {
 		// TODO Auto-generated constructor stub
 	}
@@ -53,10 +53,5 @@ public class Part implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
-	
-	
+
 }

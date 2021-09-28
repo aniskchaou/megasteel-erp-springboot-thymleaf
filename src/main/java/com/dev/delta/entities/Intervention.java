@@ -21,10 +21,10 @@ public class Intervention implements Serializable {
 	String cost;
 	String duration;
 	@ManyToOne
-	@JoinColumn(name="state_intervention_id")
+	@JoinColumn(name = "state_intervention_id")
 	InterventionStatus state;
 	@ManyToOne
-	@JoinColumn(name="machine_id")
+	@JoinColumn(name = "machine_id")
 	Machine machine;
 
 	public Machine getMachine() {
@@ -39,8 +39,7 @@ public class Intervention implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Intervention(Long id, String reference, String date, String cost, String duration,
-			InterventionStatus state,
+	public Intervention(Long id, String reference, String date, String cost, String duration, InterventionStatus state,
 			Machine machine) {
 		super();
 		this.id = id;

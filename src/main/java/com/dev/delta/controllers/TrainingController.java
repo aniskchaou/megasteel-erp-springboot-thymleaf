@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Training;
+import com.dev.delta.entities.Employee;
 import com.dev.delta.entities.Family;
 import com.dev.delta.services.TrainingService;
+import com.dev.delta.services.EmployeeService;
 import com.dev.delta.services.FamilyService;
 
 @Controller
@@ -29,26 +31,27 @@ public class TrainingController {
 	private TrainingService trainingService;
 
 	@Autowired
-	private FamilyService familyService;
-	
+	private EmployeeService employeeService;
 
 	/**
 	 * getTrainings
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/trainings")
 	public String getTrainings(Model model) {
 		List<Training> trainings = trainingService.getTrainings();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("trainings", trainings);	
-		model.addAttribute("families",families);
-		
+		List<Employee> employees = employeeService.getEmployees();
+		model.addAttribute("trainings", trainings);
+		model.addAttribute("employees", employees);
+
 		return "training/trainings";
 	}
 
 	/**
 	 * addTraining
+	 * 
 	 * @param training
 	 * @return
 	 */
@@ -61,6 +64,7 @@ public class TrainingController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +78,7 @@ public class TrainingController {
 
 	/**
 	 * updateTraining
+	 * 
 	 * @param id
 	 * @param training
 	 * @param result
@@ -90,12 +95,13 @@ public class TrainingController {
 
 	/**
 	 * deleteTraining
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletetraining/{id}")
 	@Transactional
-	public String deleteTraining(@PathVariable("id") int id) {
+	public String deleteTraining(@PathVariable("id") Long id) {
 		trainingService.delete(id);
 		return "redirect:/trainings";
 	}

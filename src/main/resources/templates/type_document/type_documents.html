@@ -103,13 +103,13 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr th:each="type_document:${type_documents}">
+														<tr th:each="type_document:${typedocuments}">
 															<td th:text="${type_document.name}"></td>
 															<td th:text="${type_document.extension}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletetypedocument/{id}(id=${type_document.id}) }">Delete</a></td>
+																th:href="@{/deletetypedocument/{id}(id=${type_document.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>

@@ -12,27 +12,25 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Termination implements Serializable {
 
-	
 	private static final long serialVersionUID = -3947162495320645969L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	@ManyToOne
-	@JoinColumn(name="employee_id")
+	@JoinColumn(name = "employee_id")
 	Employee employee;
 	String firstName;
 	String lastName;
 	String date;
 	@ManyToOne
-	@JoinColumn(name="type_termination")
+	@JoinColumn(name = "type_termination")
 	TypeTermination cause;
 
 	public Termination() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Termination(Employee employee, String firstName, String lastName, String date, 
-			TypeTermination cause) {
+	public Termination(Employee employee, String firstName, String lastName, String date, TypeTermination cause) {
 		super();
 		this.employee = employee;
 		this.firstName = firstName;

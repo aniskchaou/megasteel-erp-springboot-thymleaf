@@ -17,49 +17,50 @@ public class TrainingService {
 	 */
 	@Autowired
 	private TrainingRepository trainingRepository;
-	
 
 	/**
 	 * getTrainings
+	 * 
 	 * @return
 	 */
-	public List<Training> getTrainings()
-	{
+	public List<Training> getTrainings() {
 		return trainingRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return trainingRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param training
 	 */
-	public void save(Training training)
-	{
+	public void save(Training training) {
 		trainingRepository.save(training);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Training> findById(int id) {
 		return trainingRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		trainingRepository.delete(trainingRepository.findById(id).get());
 	}
 }

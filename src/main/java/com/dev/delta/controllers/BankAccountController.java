@@ -30,25 +30,26 @@ public class BankAccountController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getBankAccounts
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/bankaccounts")
 	public String getBankAccounts(Model model) {
 		List<BankAccount> bankAccounts = bankAccountService.getBankAccounts();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("bankAccounts", bankAccounts);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("bankAccounts", bankAccounts);
+		model.addAttribute("families", families);
+
 		return "bank_account/bank_accounts";
 	}
 
 	/**
 	 * addBankAccount
+	 * 
 	 * @param bankAccount
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class BankAccountController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class BankAccountController {
 
 	/**
 	 * updateBankAccount
+	 * 
 	 * @param id
 	 * @param bankAccount
 	 * @param result
@@ -81,8 +84,8 @@ public class BankAccountController {
 	 * @return
 	 */
 	@PostMapping("/updatebankAccount/{id}")
-	public String updateBankAccount(@PathVariable("id") long id, @Validated BankAccount bankAccount, BindingResult result,
-			Model model) {
+	public String updateBankAccount(@PathVariable("id") long id, @Validated BankAccount bankAccount,
+			BindingResult result, Model model) {
 
 		bankAccountService.save(bankAccount);
 		return "redirect:/bankaccounts";
@@ -90,12 +93,13 @@ public class BankAccountController {
 
 	/**
 	 * deleteBankAccount
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletebankAccount/{id}")
+	@GetMapping("/deletebankaccount/{id}")
 	@Transactional
-	public String deleteBankAccount(@PathVariable("id") int id) {
+	public String deleteBankAccount(@PathVariable("id") Long id) {
 		bankAccountService.delete(id);
 		return "redirect:/bankaccounts";
 	}

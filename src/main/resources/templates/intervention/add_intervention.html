@@ -1,40 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_intervention_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addintervention}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Reference</label> <input name="reference" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Reference">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Date</label> <input name="date" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Date">
+						</div>
+						<div class="form-group">
+							<label>Machine</label> <select name="machine">
+								<option th:value="${machine.id}" th:each="machine:${machines}"
+									th:text="${machine.name}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Cost </label> <input name="cost" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="cost">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Duration</label> <input name="duration" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="duration">
+						</div>
+						<div class="form-group">
+							<label>State</label> <select name="state" class="form-control"><option
+									value="Started">Started</option>
+								<option value="Finished">Finished</option></select>
 
-	
-				<form th:fragment="add_intervention_form" th:action="@{/addintervention}" method="post">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-				<!-- Name  -->
-				 <input name="reference" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="reference">
-						
-				 <input name="date" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="date">
-						
-				 <input name="cost" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="cost">
-						
-						 <input name="duration" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="duration">
-						
-						 <input name="state" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="state">
-						
-						 <select name="machine" >
-			 <option th:value="${machine.id}" th:each="machine:${machines}"  th:text="${machine.name}">
-			 </option>
-			
-			</select>
-
-
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

@@ -108,12 +108,12 @@
 														<tr th:each="intervention:${interventions}">
 															<td th:text="${intervention.reference}"></td>
 															<td th:text="${intervention.date}"></td>
-															<td th:text="${intervention.cost}"></td>
+															<td ><span class="badge bg-success" th:text="${intervention.cost}"></span></td>
 															<td th:text="${intervention.duration}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deleteintervention/{id}(id=${intervention.id}) }">Delete</a></td>
+																th:href="@{/deleteintervention/{id}(id=${intervention.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>

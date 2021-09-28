@@ -1,7 +1,7 @@
 
  <aside th:fragment="side_bar" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="#" class="brand-link">
       <img src="dist/img/megasteel.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Megasteel</span>
     </a>
@@ -79,12 +79,12 @@
                   <p>Orders</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a th:href="@{/profuctionentryvouchers}" class="nav-link">
+              <!--  <li class="nav-item">
+                <a th:href="@{/productionentryvouchers}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Production Entry Vouchers</p>
                 </a>
-              </li>
+              </li>-->
             </ul>
           </li>
          <li class="nav-item">
@@ -134,7 +134,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="display: none;">
-              <li class="nav-item">
+              <!--  <li class="nav-item">
                 <a th:href="@{/pushaseentryvouchers}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Purshase Entry Vouchers</p>
@@ -151,7 +151,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Purshase Orders </p>
                 </a>
-              </li>
+              </li>-->
               <li class="nav-item">
                 <a th:href="@{/orderstatus}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -235,18 +235,6 @@
                   <p>Expenses </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a th:href="@{/partstatus}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Order Status </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a th:href="@{/partorders}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Part Orders</p>
-                </a>
-              </li>
             </ul>
           </li>  
           
@@ -314,7 +302,7 @@
               </li>
               
                <li class="nav-item">
-                <a th:href="@{/parts}" class="nav-link">
+                <a th:href="@{/jobapplicants}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Job Applicants</p>
                 </a>
@@ -426,12 +414,13 @@
                   <p>Delivery Vouchers</p>
                 </a>
               </li>
+              <!--  
               <li class="nav-item">
                 <a th:href="@{/providerorders}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Provider Orders</p>
                 </a>
-              </li>
+              </li>-->
               <li class="nav-item">
                 <a th:href="@{/purshaseorders}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -445,8 +434,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
-                  <i  th:href="@{/partorders}"></i>
+                <a th:href="@{/partorders}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
                   <p>Part Orders</p>
                 </a>
               </li>
@@ -490,17 +479,12 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a th:href="@{/parts}" class="nav-link">
+                <a th:href="@{/interventionstatus}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Parts </p>
+                  <p>Intervention Status </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a th:href="@{/partorders}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Part Orders</p>
-                </a>
-              </li>
+              
             </ul>
           </li>     
          
@@ -536,7 +520,7 @@
             </ul>
           </li> 
           
-          
+          <!--  
           <li class="nav-header">CONTRACT</li>
          
          <li class="nav-item">
@@ -563,7 +547,7 @@
             </ul>
           </li>     
           
-          
+          -->
           
           <li class="nav-header">SETTING</li>
          
@@ -583,7 +567,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a th:href="@{/countries}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Countries</p>
                 </a>

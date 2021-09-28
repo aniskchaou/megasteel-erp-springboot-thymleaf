@@ -1,29 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_vehicule_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addvehicule}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Name</label> <input name="name" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="name">
 
-	
-				<form th:fragment="add_vehicule_form" th:action="@{/addvehicule}" method="post">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Plate Number</label> <input name="plateNumber" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="plateNumber">
+						</div>
+						<!-- /.form-group -->
 
-				<!-- Name  -->
-				 <input name="name" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
-						
-				 <input name="model" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="model">
-						
-				 <input name="plateNumber" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="plateNumber">
-						
-					
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Model </label> 
+								
+								<select name="model" 
+								class="form-control">
+								<option th:value="${e.id}" th:each="e:${vehiculeModels}"
+									th:text="${e.name}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
 
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

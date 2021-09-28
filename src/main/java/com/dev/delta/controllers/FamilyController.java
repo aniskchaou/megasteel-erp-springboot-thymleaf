@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -26,22 +25,22 @@ public class FamilyController {
 	@Autowired
 	private FamilyService familyService;
 
-	
-
 	/**
 	 * getFamilys
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/families")
 	public String getFamilys(Model model) {
 		List<Family> familys = familyService.getFamilys();
-		model.addAttribute("families", familys);	
+		model.addAttribute("families", familys);
 		return "family/families";
 	}
 
 	/**
 	 * addFamily
+	 * 
 	 * @param family
 	 * @return
 	 */
@@ -54,6 +53,7 @@ public class FamilyController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -67,6 +67,7 @@ public class FamilyController {
 
 	/**
 	 * updateFamily
+	 * 
 	 * @param id
 	 * @param family
 	 * @param result
@@ -83,12 +84,13 @@ public class FamilyController {
 
 	/**
 	 * deleteFamily
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletefamily/{id}")
 	@Transactional
-	public String deleteFamily(@PathVariable("id") int id) {
+	public String deleteFamily(@PathVariable("id") Long id) {
 		familyService.delete(id);
 		return "redirect:/families";
 	}

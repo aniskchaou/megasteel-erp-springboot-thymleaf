@@ -1,49 +1,71 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_project_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addproject}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Code</label> <input name="code" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Code">
 
 
 
-<form th:fragment="add_project_form" th:action="@{/addproject}"
-		method="post">
-
-		<!-- Name  -->
-		<input name="code" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-		<input name="name" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-		<input name="progress" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-			<select name="owner" >
-			 <option th:value="${e.id}" th:each="e:${employees}"  th:text="${e.firstName}">
-			 </option>
-			
-			</select>
-			
-		
-			
-			
-			
-			<input name="description"
-			type="number" class="form-control" id="exampleInputEmail1"
-			aria-describedby="emailHelp" placeholder="activityNumber" /> 
-			
-		
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Progress</label> <input name="progress" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Progress">
 
 
-		<button type="submit" class="btn btn-primary">Create</button>
 
 
-	</form>
-</body>
-</html>
+						</div>
+
+						<div class="form-group">
+							<label>Description</label> <input name="description"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Description" />
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Name </label> <input name="name" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Name">
+
+
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Owner</label> <select name="owner">
+								<option th:value="${e.id}" th:each="e:${employees}"
+									th:text="${e.firstName}"></option>
+
+							</select>
+
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

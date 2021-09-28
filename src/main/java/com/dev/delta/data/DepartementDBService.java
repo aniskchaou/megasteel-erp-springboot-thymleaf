@@ -6,18 +6,18 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.DepartementRepository;
 
 @Service
-public class DepartementDBService implements IDBService{
+public class DepartementDBService implements IDBService {
 
 	@Autowired
 	DepartementRepository departementRepository;
-	
+
 	@Override
 	public void populate() {
-		departement.setName("IT");
+		departement.setName("HR");
 		departement.setDescription("");
-		
+
 		departementRepository.save(departement);
-		
+
 	}
 
 }

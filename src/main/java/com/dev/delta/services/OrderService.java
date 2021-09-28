@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Order;
 import com.dev.delta.repositories.OrderRepository;
+
 @Service
 public class OrderService {
 	/**
@@ -15,49 +16,50 @@ public class OrderService {
 	 */
 	@Autowired
 	private OrderRepository orderRepository;
-	
 
 	/**
 	 * getOrders
+	 * 
 	 * @return
 	 */
-	public List<Order> getOrders()
-	{
+	public List<Order> getOrders() {
 		return orderRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return orderRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param order
 	 */
-	public void save(Order order)
-	{
+	public void save(Order order) {
 		orderRepository.save(order);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Order> findById(int id) {
 		return orderRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		orderRepository.delete(orderRepository.findById(id).get());
 	}
 }

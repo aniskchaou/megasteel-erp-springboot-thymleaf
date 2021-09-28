@@ -16,49 +16,50 @@ public class WareHouseService {
 	 */
 	@Autowired
 	private WareHouseRepository wareHouseRepository;
-	
 
 	/**
 	 * getWareHouses
+	 * 
 	 * @return
 	 */
-	public List<WareHouse> getWareHouses()
-	{
+	public List<WareHouse> getWareHouses() {
 		return wareHouseRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return wareHouseRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param wareHouse
 	 */
-	public void save(WareHouse wareHouse)
-	{
+	public void save(WareHouse wareHouse) {
 		wareHouseRepository.save(wareHouse);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<WareHouse> findById(int id) {
 		return wareHouseRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		wareHouseRepository.delete(wareHouseRepository.findById(id).get());
 	}
 }

@@ -29,25 +29,26 @@ public class JobController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getJobs
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/jobs")
 	public String getJobs(Model model) {
 		List<Job> jobs = jobService.getJobs();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("jobs", jobs);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("jobs", jobs);
+		model.addAttribute("families", families);
+
 		return "job/jobs";
 	}
 
 	/**
 	 * addJob
+	 * 
 	 * @param job
 	 * @return
 	 */
@@ -60,6 +61,7 @@ public class JobController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -73,6 +75,7 @@ public class JobController {
 
 	/**
 	 * updateJob
+	 * 
 	 * @param id
 	 * @param job
 	 * @param result
@@ -80,8 +83,7 @@ public class JobController {
 	 * @return
 	 */
 	@PostMapping("/updatejob/{id}")
-	public String updateJob(@PathVariable("id") long id, @Validated Job job, BindingResult result,
-			Model model) {
+	public String updateJob(@PathVariable("id") long id, @Validated Job job, BindingResult result, Model model) {
 
 		jobService.save(job);
 		return "redirect:/jobs";
@@ -89,12 +91,13 @@ public class JobController {
 
 	/**
 	 * deleteJob
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletejob/{id}")
 	@Transactional
-	public String deleteJob(@PathVariable("id") int id) {
+	public String deleteJob(@PathVariable("id") Long id) {
 		jobService.delete(id);
 		return "redirect:/jobs";
 	}

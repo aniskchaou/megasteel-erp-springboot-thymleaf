@@ -30,25 +30,26 @@ public class ExpenseController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getExpenses
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/expenses")
 	public String getExpenses(Model model) {
 		List<Expense> expenses = expenseService.getExpenses();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("expenses", expenses);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("expenses", expenses);
+		model.addAttribute("families", families);
+
 		return "expense/expenses";
 	}
 
 	/**
 	 * addExpense
+	 * 
 	 * @param expense
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class ExpenseController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class ExpenseController {
 
 	/**
 	 * updateExpense
+	 * 
 	 * @param id
 	 * @param expense
 	 * @param result
@@ -90,12 +93,13 @@ public class ExpenseController {
 
 	/**
 	 * deleteExpense
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteexpense/{id}")
 	@Transactional
-	public String deleteExpense(@PathVariable("id") int id) {
+	public String deleteExpense(@PathVariable("id") Long id) {
 		expenseService.delete(id);
 		return "redirect:/expenses";
 	}

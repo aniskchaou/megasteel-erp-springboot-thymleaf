@@ -102,12 +102,14 @@
 														</tr>
 													</thead>
 													<tbody>
-														 <tr th:each="type_leave:${type_leaves}">
-	          <td th:text="${type_leave.name}"></td>
-	          
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletetypeleave/{id}(id=${type_leave.id}) }">Delete</a></td> 
-          </tr>
+														<tr th:each="type_leave:${typeLeaves}">
+															<td th:text="${type_leave.name}"></td>
+
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletetypeleave/{id}(id=${type_leave.id}) }"><i class="fas fa-trash"></i></a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
@@ -130,8 +132,9 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				 <div th:insert="type_leave/add_type_leave :: add_type_leave_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div th:insert="type_leave/add_type_leave :: add_type_leave_form"
+					class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

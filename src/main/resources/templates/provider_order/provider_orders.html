@@ -106,17 +106,17 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr th:each="activity:${activities}">
-															<td th:text="${activity.name}"></td>
-															<td th:text="${activity.familyIn.name}"></td>
-															<td th:text="${activity.familyOut.name}"></td>
-															<td th:text="${activity.articleNumber}"></td>
+														<tr th:each="provider:${providerOrders}">
+															<td th:text="${provider.name}"></td>
+															<td th:text="${provider.familyIn.name}"></td>
+															<td th:text="${provider.familyOut.name}"></td>
+															<td th:text="${provider.articleNumber}"></td>
 															<td th:text="${activity.machineNumber}"></td>
 															<td><a type="button" data-bs-toggle="tooltip"
 																data-bs-placement="top" title="Tooltip on top"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deleteactivity/{id}(id=${activity.id}) }">
+																th:href="@{/deleteproviderorder/{id}(id=${activity.id}) }">
 
 																	<i class="fas fa-trash"></i>
 															</a></td>

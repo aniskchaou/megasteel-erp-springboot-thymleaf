@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Setting;
 import com.dev.delta.repositories.SystemSettingRepository;
+
 @Service
 public class SystemSettingService {
 	/**
@@ -15,49 +16,50 @@ public class SystemSettingService {
 	 */
 	@Autowired
 	private SystemSettingRepository systemSettingRepository;
-	
 
 	/**
 	 * getSystemSettings
+	 * 
 	 * @return
 	 */
-	public List<Setting> getSystemSettings()
-	{
+	public List<Setting> getSystemSettings() {
 		return systemSettingRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return systemSettingRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param systemSetting
 	 */
-	public void save(Setting systemSetting)
-	{
+	public void save(Setting systemSetting) {
 		systemSettingRepository.save(systemSetting);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Setting> findById(int id) {
 		return systemSettingRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		systemSettingRepository.delete(systemSettingRepository.findById(id).get());
 	}
 }

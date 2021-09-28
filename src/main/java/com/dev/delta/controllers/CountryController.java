@@ -29,25 +29,26 @@ public class CountryController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getCountrys
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/countries")
 	public String getCountrys(Model model) {
 		List<Country> countrys = countryService.getCountrys();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("countries", countrys);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("countries", countrys);
+		model.addAttribute("families", families);
+
 		return "country/countries";
 	}
 
 	/**
 	 * addCountry
+	 * 
 	 * @param country
 	 * @return
 	 */
@@ -60,6 +61,7 @@ public class CountryController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -73,6 +75,7 @@ public class CountryController {
 
 	/**
 	 * updateCountry
+	 * 
 	 * @param id
 	 * @param country
 	 * @param result
@@ -89,12 +92,13 @@ public class CountryController {
 
 	/**
 	 * deleteCountry
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletecountry/{id}")
 	@Transactional
-	public String deleteCountry(@PathVariable("id") int id) {
+	public String deleteCountry(@PathVariable("id") Long id) {
 		countryService.delete(id);
 		return "redirect:/countries";
 	}

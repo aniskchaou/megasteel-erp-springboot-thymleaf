@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Article;
+import com.dev.delta.entities.Unit;
 import com.dev.delta.services.ArticleService;
+import com.dev.delta.services.UnitService;
 
 @Controller
 public class ArticleController {
@@ -25,22 +27,28 @@ public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
 
-	
+	@Autowired
+	private UnitService unitService;
 
 	/**
 	 * getArticles
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/articles")
 	public String getArticles(Model model) {
 		List<Article> articles = articleService.getArticles();
-		model.addAttribute("articles", articles);	
+		List<Unit> units = unitService.getUnits();
+
+		model.addAttribute("articles", articles);
+		model.addAttribute("units", units);
 		return "article/articles";
 	}
 
 	/**
 	 * addArticle
+	 * 
 	 * @param article
 	 * @return
 	 */
@@ -53,6 +61,7 @@ public class ArticleController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -66,6 +75,7 @@ public class ArticleController {
 
 	/**
 	 * updateArticle
+	 * 
 	 * @param id
 	 * @param article
 	 * @param result
@@ -82,15 +92,15 @@ public class ArticleController {
 
 	/**
 	 * deleteArticle
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletearticle/{id}")
 	@Transactional
-	public String deleteArticle(@PathVariable("id") String id) {
-		articleService.delete(Integer.parseInt(id));
+	public String deleteArticle(@PathVariable("id") Long id) {
+		articleService.delete(id);
 		return "redirect:/articles";
-	}   
-
+	}
 
 }

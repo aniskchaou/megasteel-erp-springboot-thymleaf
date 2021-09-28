@@ -17,9 +17,9 @@ public class Training {
 	String fromDate;
 	String toDate;
 	@ManyToOne
-	@JoinColumn(name="employee_id")
+	@JoinColumn(name = "employee_id")
 	Employee employee;
-	
+
 	public Training() {
 		// TODO Auto-generated constructor stub
 	}
@@ -71,7 +71,5 @@ public class Training {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
-	
 
 }

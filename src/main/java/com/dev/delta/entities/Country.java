@@ -20,7 +20,7 @@ public class Country implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	
+
 	public Country() {
 		// TODO Auto-generated constructor stub
 	}
@@ -45,7 +45,5 @@ public class Country implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }

@@ -9,18 +9,18 @@ import com.dev.delta.repositories.ActivityRepository;
 public class ActivityDBService implements IDBService {
 
 	@Autowired
-	ActivityRepository  activityRepository;
-	
+	ActivityRepository activityRepository;
+
 	@Override
 	public void populate() {
-		activity.setArticleNumber("1113");
+		activity.setArticleNumber("10");
 		activity.setFamilyIn(family);
 		activity.setFamilyOut(family);
-		activity.setMachineNumber("44");
-		activity.setName("Forgery");
-		
+		activity.setMachineNumber("2");
+		activity.setName("rolling");
+
 		activityRepository.save(activity);
-		
+
 	}
 
 }

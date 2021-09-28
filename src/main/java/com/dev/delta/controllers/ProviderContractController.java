@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -29,22 +28,22 @@ public class ProviderContractController {
 	@Autowired
 	private ProviderContractService providerContractService;
 
-	
-
 	/**
 	 * getProviders
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/providercontracts")
 	public String getProviders(Model model) {
 		List<ProviderContract> providerContractrs = providerContractService.getProviderContracts();
-		model.addAttribute("providerContracts", providerContractrs);	
+		model.addAttribute("providerContracts", providerContractrs);
 		return "provider_contract/provider_contracts";
 	}
 
 	/**
 	 * addProvider
+	 * 
 	 * @param providerContractr
 	 * @return
 	 */
@@ -57,6 +56,7 @@ public class ProviderContractController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -70,6 +70,7 @@ public class ProviderContractController {
 
 	/**
 	 * updateProvider
+	 * 
 	 * @param id
 	 * @param providerContractr
 	 * @param result
@@ -77,8 +78,8 @@ public class ProviderContractController {
 	 * @return
 	 */
 	@PostMapping("/updateprovidercontract/{id}")
-	public String updateProvider(@PathVariable("id") long id, @Validated ProviderContract providerContractr, BindingResult result,
-			Model model) {
+	public String updateProvider(@PathVariable("id") long id, @Validated ProviderContract providerContractr,
+			BindingResult result, Model model) {
 
 		providerContractService.save(providerContractr);
 		return "redirect:/providercontracts";
@@ -86,12 +87,13 @@ public class ProviderContractController {
 
 	/**
 	 * deleteProvider
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteprovidercontract/{id}")
 	@Transactional
-	public String deleteProvider(@PathVariable("id") int id) {
+	public String deleteProvider(@PathVariable("id") Long id) {
 		providerContractService.delete(id);
 		return "redirect:/providercontracts";
 	}

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import com.dev.delta.entities.VAT;
 import com.dev.delta.services.VATService;;
 
@@ -27,42 +26,38 @@ public class VATController {
 	@Autowired
 	private VATService vatService;
 
-	
-
 	/**
 	 * getVats
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/vats")
 	public String getVats(Model model) {
 		List<VAT> vats = vatService.getVats();
-		model.addAttribute("vats", vats);	
+		model.addAttribute("vats", vats);
 		model.addAttribute("vat", new VAT());
 		return "vat/vats";
 	}
 
 	/**
 	 * addVat
+	 * 
 	 * @param vat
 	 * @return
 	 */
 	@PostMapping("/addvat")
 
 	public String addVat(VAT vat, BindingResult result, Model model) {
-		
-			 vatService.save(vat);
-		return "redirect:/vats"; 
-		  
-		
-	}
-	
-	
-	
 
+		vatService.save(vat);
+		return "redirect:/vats";
+
+	}
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -76,6 +71,7 @@ public class VATController {
 
 	/**
 	 * updateVat
+	 * 
 	 * @param id
 	 * @param vat
 	 * @param result
@@ -83,8 +79,7 @@ public class VATController {
 	 * @return
 	 */
 	@PostMapping("/updatevat/{id}")
-	public String updateVat(@PathVariable("id") long id, @Validated VAT vat, BindingResult result,
-			Model model) {
+	public String updateVat(@PathVariable("id") long id, @Validated VAT vat, BindingResult result, Model model) {
 
 		vatService.save(vat);
 		return "redirect:/vats";
@@ -92,14 +87,15 @@ public class VATController {
 
 	/**
 	 * deleteVat
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletevat/{id}")
 	@Transactional
-	public String deleteVat(@PathVariable("id") int id) {
+	public String deleteVat(@PathVariable("id") Long id) {
 		vatService.delete(id);
 		return "redirect:/vats";
 	}
-	
+
 }

@@ -17,50 +17,51 @@ public class TypeLeaveService {
 	 */
 	@Autowired
 	private TypeLeaveRepository typeLeaveRepositorya;
-	
 
 	/**
 	 * getVats
+	 * 
 	 * @return
 	 */
-	public List<TypeLeave> getTypeLeaves()
-	{
+	public List<TypeLeave> getTypeLeaves() {
 		return typeLeaveRepositorya.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return typeLeaveRepositorya.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param vat
 	 */
-	public void save(TypeLeave vat)
-	{
+	public void save(TypeLeave vat) {
 		typeLeaveRepositorya.save(vat);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<TypeLeave> findById(int id) {
 		return typeLeaveRepositorya.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		typeLeaveRepositorya.delete(typeLeaveRepositorya.findById(id).get());
 	}
-	
+
 }

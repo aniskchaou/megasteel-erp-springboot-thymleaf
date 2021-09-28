@@ -16,49 +16,50 @@ public class TypeDocumentService {
 	 */
 	@Autowired
 	private TypeDocumentRepository typeDocumentRepository;
-	
 
 	/**
 	 * getTypeDocuments
+	 * 
 	 * @return
 	 */
-	public List<TypeDocument> getTypeDocuments()
-	{
+	public List<TypeDocument> getTypeDocuments() {
 		return typeDocumentRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return typeDocumentRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param typeDocument
 	 */
-	public void save(TypeDocument typeDocument)
-	{
+	public void save(TypeDocument typeDocument) {
 		typeDocumentRepository.save(typeDocument);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<TypeDocument> findById(int id) {
 		return typeDocumentRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		typeDocumentRepository.delete(typeDocumentRepository.findById(id).get());
 	}
 }

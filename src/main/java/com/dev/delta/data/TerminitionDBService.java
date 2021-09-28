@@ -10,14 +10,14 @@ public class TerminitionDBService implements IDBService {
 
 	@Autowired
 	TerminationRepository terminationRepository;
-	
+
 	@Override
 	public void populate() {
 		termination.setCause(typeTermination);
-		termination.setDate(null);
+		termination.setDate("12/3/2020");
 		termination.setEmployee(employee);
-		termination.setFirstName("cdc");
-		termination.setLastName("");
+		termination.setFirstName("Anthony W. ");
+		termination.setLastName("Jacobs");
 		terminationRepository.save(termination);
 	}
 

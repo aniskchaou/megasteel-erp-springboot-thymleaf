@@ -17,49 +17,50 @@ public class ArticleService {
 	 */
 	@Autowired
 	private ArticleRepository articleRepository;
-	
 
 	/**
 	 * getArticles
+	 * 
 	 * @return
 	 */
-	public List<Article> getArticles()
-	{
+	public List<Article> getArticles() {
 		return articleRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return articleRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param article
 	 */
-	public void save(Article article)
-	{
+	public void save(Article article) {
 		articleRepository.save(article);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Article> findById(int id) {
 		return articleRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(long id) {
+	public void delete(Long id) {
 		articleRepository.delete(articleRepository.findById(id).get());
 	}
 }

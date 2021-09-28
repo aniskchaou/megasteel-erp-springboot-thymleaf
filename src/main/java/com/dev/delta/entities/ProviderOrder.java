@@ -11,7 +11,7 @@ public class ProviderOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	public ProviderOrder() {
 		// TODO Auto-generated constructor stub
 	}
@@ -23,6 +23,5 @@ public class ProviderOrder {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
+
 }

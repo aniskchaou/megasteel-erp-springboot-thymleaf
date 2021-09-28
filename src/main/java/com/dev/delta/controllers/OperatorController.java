@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -26,22 +25,22 @@ public class OperatorController {
 	@Autowired
 	private OperatorService operatorService;
 
-	
-
 	/**
 	 * getOperators
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/operators")
 	public String getOperators(Model model) {
 		List<Operator> operators = operatorService.getOperators();
-		model.addAttribute("operators", operators);	
+		model.addAttribute("operators", operators);
 		return "operator/operators";
 	}
 
 	/**
 	 * addOperator
+	 * 
 	 * @param operator
 	 * @return
 	 */
@@ -54,6 +53,7 @@ public class OperatorController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -67,6 +67,7 @@ public class OperatorController {
 
 	/**
 	 * updateOperator
+	 * 
 	 * @param id
 	 * @param operator
 	 * @param result
@@ -83,12 +84,13 @@ public class OperatorController {
 
 	/**
 	 * deleteOperator
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteoperator/{id}")
 	@Transactional
-	public String deleteOperator(@PathVariable("id") int id) {
+	public String deleteOperator(@PathVariable("id") Long id) {
 		operatorService.delete(id);
 		return "redirect:/operators";
 	}

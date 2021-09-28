@@ -10,7 +10,7 @@ public class DeliveryVoucherDBService implements IDBService {
 
 	@Autowired
 	DeliveryVoucherRepository DeliveryVoucherRepository;
-	
+
 	@Override
 	public void populate() {
 		deliveryVoucher.setArticle(article);

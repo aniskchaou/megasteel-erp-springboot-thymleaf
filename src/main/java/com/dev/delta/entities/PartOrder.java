@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class PartOrder implements Serializable {
 
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1077493635909532153L;
@@ -22,7 +22,7 @@ public class PartOrder implements Serializable {
 	String Date;
 	String quantity;
 	String unit;
-	
+
 	public PartOrder() {
 		// TODO Auto-generated constructor stub
 	}
@@ -42,8 +42,6 @@ public class PartOrder implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	
 
 	public Part getPart() {
 		return part;
@@ -76,8 +74,5 @@ public class PartOrder implements Serializable {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	
-	
-	
 
 }

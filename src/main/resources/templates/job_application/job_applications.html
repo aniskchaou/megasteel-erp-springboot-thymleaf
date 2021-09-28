@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AdminLTE 3 | DataTables</title>
+<title>Job Applications</title>
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -83,7 +83,7 @@
 							<div class="card">
 								<div class="card-header">
 									<h3 class="card-title">
-										<h3>Activities</h3>
+										<h3>Job Applications</h3>
 									</h3>
 								</div>
 								<!-- /.card-header -->
@@ -97,40 +97,38 @@
 													role="grid" aria-describedby="example1_info">
 													<thead>
 														<tr>
-															<th>Name</th>
-															<th>Family In</th>
-															<th>Family Out</th>
-															<th>Article Number</th>
-															<th>Machine Number</th>
+															<th>Job</th>
+															<th>Departement</th>
+															<th>Responsible</th>
+															<th>Hired People</th>
+															<th>City</th>
 															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
-														<tr th:each="activity:${activities}">
-															<td th:text="${activity.name}"></td>
-															<td th:text="${activity.familyIn.name}"></td>
-															<td th:text="${activity.familyOut.name}"></td>
-															<td th:text="${activity.articleNumber}"></td>
-															<td th:text="${activity.machineNumber}"></td>
+														<tr th:each="j:${jobapplication}">
+															<td th:text="${j.jobTitle}"></td>
+															<td th:text="${j.department?.name}"></td>
+															<td th:text="${j.responsible?.firstName}"></td>
+															<td th:text="${j.nbPeopleHired}"></td>
+															<td th:text="${j.city?.name}"></td>
 															<td><a type="button" data-bs-toggle="tooltip"
 																data-bs-placement="top" title="Tooltip on top"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deleteactivity/{id}(id=${activity.id}) }">
-
-																	<i class="fas fa-trash"></i>
+																th:href="@{/deletejobapplication/{id}(id=${j.id}) }"> <i
+																	class="fas fa-trash"></i>
 															</a></td>
 														</tr>
 
 													</tbody>
 													<tfoot>
-
 														<tr>
-															<th>Name</th>
-															<th>Family In</th>
-															<th>Family Out</th>
-															<th>Article Number</th>
-															<th>Machine Number</th>
+															<th>Job</th>
+															<th>Departement</th>
+															<th>Responsible</th>
+															<th>Hired People</th>
+															<th>City</th>
 															<th>Actions</th>
 														</tr>
 													</tfoot>
@@ -147,7 +145,7 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				<div th:insert="activity/add_activity :: add_activity_form"
+				<div th:insert="job_application/add_job_application :: add_job_application_form"
 					class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
@@ -207,34 +205,37 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table>
+	<table>
 		<thead>
 			<tr>
-			<td>Code</td>
-			<td>Unity</td>
-			<td>Height</td>
-			<td>Width</td>
-			<td>Dimension</td>
-			<td>Weight</td>
-			<td>Actions</td>
+				<td>Code</td>
+				<td>Unity</td>
+				<td>Height</td>
+				<td>Width</td>
+				<td>Dimension</td>
+				<td>Weight</td>
+				<td>Actions</td>
 			</tr>
 		</thead>
 		<tbody>
-          <tr th:each="article:${articles}">
-	          <td th:text="${article.code}"></td>
-	          <td th:text="${article.unity}"></td>
-	          <td th:text="${article.height}"></td>
-	          <td th:text="${article.width}"></td>
-	          <td th:text="${article.dimension}"></td>
-	          <td th:text="${article.weight}"></td> 
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletearticle/{id}(id=${article.id}) }">Delete</a></td> 
-          </tr>
-	   </tbody>	
+			<tr th:each="article:${articles}">
+				<td th:text="${article.code}"></td>
+				<td th:text="${article.unity}"></td>
+				<td th:text="${article.height}"></td>
+				<td th:text="${article.width}"></td>
+				<td th:text="${article.dimension}"></td>
+				<td th:text="${article.weight}"></td>
+				<td><a type="button"
+					onclick="return confirm('Are you sure?') ? true : false;"
+					class="btn btn-danger"
+					th:href="@{/deletearticle/{id}(id=${article.id}) }">Delete</a></td>
+			</tr>
+		</tbody>
 	</table>
-	
-	
-	 <div th:insert="article/add_article :: add_article_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+
+
+	<div th:insert="article/add_article :: add_article_form"
+		class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 </body>
 </html>

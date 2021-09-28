@@ -8,8 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Unit implements Serializable{
-	
+public class Unit implements Serializable {
+
 	/**
 	 * 
 	 */
@@ -23,16 +23,12 @@ public class Unit implements Serializable{
 	public Unit() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public Unit(String name, String desription) {
 		super();
 		this.name = name;
 		this.desription = desription;
 	}
-
-
 
 	public String getDesription() {
 		return desription;
@@ -57,6 +53,5 @@ public class Unit implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 }

@@ -17,49 +17,50 @@ public class DepartementService {
 	 */
 	@Autowired
 	private DepartementRepository departementRepository;
-	
 
 	/**
 	 * getDepartements
+	 * 
 	 * @return
 	 */
-	public List<Departement> getDepartements()
-	{
+	public List<Departement> getDepartements() {
 		return departementRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return departementRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param departement
 	 */
-	public void save(Departement departement)
-	{
+	public void save(Departement departement) {
 		departementRepository.save(departement);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Departement> findById(int id) {
 		return departementRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		departementRepository.delete(departementRepository.findById(id).get());
 	}
 }

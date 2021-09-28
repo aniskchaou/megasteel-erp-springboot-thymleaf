@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.ExternalProvider;
 import com.dev.delta.services.ExternalProviderService;
+
 @Controller
 public class ExternalProviderController {
 	/**
@@ -24,22 +25,22 @@ public class ExternalProviderController {
 	@Autowired
 	private ExternalProviderService externalProviderService;
 
-	
-
 	/**
 	 * getExternalProviders
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/externalproviders")
 	public String getExternalProviders(Model model) {
 		List<ExternalProvider> externalProviders = externalProviderService.getExternalProviders();
-		model.addAttribute("externalProviders", externalProviders);	
+		model.addAttribute("externalProviders", externalProviders);
 		return "external_provider/external_providers";
 	}
 
 	/**
 	 * addExternalProvider
+	 * 
 	 * @param externalProvider
 	 * @return
 	 */
@@ -52,6 +53,7 @@ public class ExternalProviderController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -65,6 +67,7 @@ public class ExternalProviderController {
 
 	/**
 	 * updateExternalProvider
+	 * 
 	 * @param id
 	 * @param externalProvider
 	 * @param result
@@ -72,8 +75,8 @@ public class ExternalProviderController {
 	 * @return
 	 */
 	@PostMapping("/updateexternalprovider/{id}")
-	public String updateExternalProvider(@PathVariable("id") long id, @Validated ExternalProvider externalProvider, BindingResult result,
-			Model model) {
+	public String updateExternalProvider(@PathVariable("id") long id, @Validated ExternalProvider externalProvider,
+			BindingResult result, Model model) {
 
 		externalProviderService.save(externalProvider);
 		return "redirect:/externalproviders";
@@ -81,12 +84,13 @@ public class ExternalProviderController {
 
 	/**
 	 * deleteExternalProvider
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteexternalProvider/{id}")
+	@GetMapping("/deleteexternalprovider/{id}")
 	@Transactional
-	public String deleteExternalProvider(@PathVariable("id") int id) {
+	public String deleteExternalProvider(@PathVariable("id") Long id) {
 		externalProviderService.delete(id);
 		return "redirect:/externalproviders";
 	}

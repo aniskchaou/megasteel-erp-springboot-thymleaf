@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Project;
+import com.dev.delta.entities.Employee;
 import com.dev.delta.entities.Family;
 import com.dev.delta.services.ProjectService;
+import com.dev.delta.services.EmployeeService;
 import com.dev.delta.services.FamilyService;
 
 @Controller
@@ -29,26 +31,27 @@ public class ProjectController {
 	private ProjectService projectService;
 
 	@Autowired
-	private FamilyService familyService;
-	
+	private EmployeeService employeeService;
 
 	/**
 	 * getProjects
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/projects")
 	public String getProjects(Model model) {
 		List<Project> projects = projectService.getProjects();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("employees", families);	
-		model.addAttribute("families",families);
-		
+		List<Employee> employees = employeeService.getEmployees();
+		model.addAttribute("projects", projects);
+		model.addAttribute("employees", employees);
+
 		return "project/projects";
 	}
 
 	/**
 	 * addProject
+	 * 
 	 * @param project
 	 * @return
 	 */
@@ -61,6 +64,7 @@ public class ProjectController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +78,7 @@ public class ProjectController {
 
 	/**
 	 * updateProject
+	 * 
 	 * @param id
 	 * @param project
 	 * @param result
@@ -90,12 +95,13 @@ public class ProjectController {
 
 	/**
 	 * deleteProject
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteproject/{id}")
 	@Transactional
-	public String deleteProject(@PathVariable("id") int id) {
+	public String deleteProject(@PathVariable("id") Long id) {
 		projectService.delete(id);
 		return "redirect:/projects";
 	}

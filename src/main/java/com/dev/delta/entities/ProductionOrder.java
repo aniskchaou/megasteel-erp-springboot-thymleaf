@@ -10,33 +10,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class ProductionOrder implements Serializable{
+public class ProductionOrder implements Serializable {
 
-   
 	private static final long serialVersionUID = 9155714314567020674L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-    private String codeProduction;
-    private String quantiteRealise;
-    private String quantiteRestant;
-    @ManyToOne
-	@JoinColumn(name="machine_id")
-    private Machine codeMachine;
-    @ManyToOne
-	@JoinColumn(name="article_in_id")
-    private Article articleSortant;
-    @ManyToOne
-	@JoinColumn(name="article_out_id")
-    private Article articleEntrant;
-    private String etat;
-    
-    public ProductionOrder() {
+	private String codeProduction;
+	private String quantiteRealise;
+	private String quantiteRestant;
+	@ManyToOne
+	@JoinColumn(name = "machine_id")
+	private Machine codeMachine;
+	@ManyToOne
+	@JoinColumn(name = "article_in_id")
+	private Article articleSortant;
+	@ManyToOne
+	@JoinColumn(name = "article_out_id")
+	private Article articleEntrant;
+	private String etat;
+
+	public ProductionOrder() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductionOrder(String codeProduction, String quantiteRealise, String quantiteRestant,
-			Machine codeMachine,
+	public ProductionOrder(String codeProduction, String quantiteRealise, String quantiteRestant, Machine codeMachine,
 			Article articleSortant, Article articleEntrant, String etat) {
 		super();
 		this.codeProduction = codeProduction;
@@ -111,6 +109,5 @@ public class ProductionOrder implements Serializable{
 	public void setEtat(String etat) {
 		this.etat = etat;
 	}
-    
-    
+
 }

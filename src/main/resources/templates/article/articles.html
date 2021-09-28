@@ -97,38 +97,40 @@
 													role="grid" aria-describedby="example1_info">
 													<thead>
 														<tr>
-																		<th>Code</th>
-			<th>Unit</th>
-			<th>Height</th>
-			<th>Width</th>
-			<th>Dimension</th>
-			<th>Weight</th>
-			<th>Actions</th>
+															<th>Code</th>
+															<th>Unit</th>
+															<th>Height</th>
+															<th>Width</th>
+															<th>Dimension</th>
+															<th>Weight</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
-														  <tr th:each="article:${articles}">
-	          <td th:text="${article.code}"></td>
-	          <td th:text="${article.unity}"></td>
-	          <td th:text="${article.height}"></td>
-	          <td th:text="${article.width}"></td>
-	          <td th:text="${article.dimension}"></td>
-	          <td th:text="${article.weight}"></td> 
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletearticle/{id}(id=${article.id}) }">Delete</a></td> 
-          </tr>
+														<tr th:each="article:${articles}">
+															<td th:text="${article.code}"></td>
+															<td th:text="${article.unity?.name}"></td>
+															<td th:text="${article.height}"></td>
+															<td th:text="${article.width}"></td>
+															<td th:text="${article.dimension}"></td>
+															<td th:text="${article.weight}"></td>
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletearticle/{id}(id=${article.id}) }"><i class="fas fa-trash"></i></a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
 
 														<tr>
-																		<th>Code</th>
-			<th>Unit</th>
-			<th>Height</th>
-			<th>Width</th>
-			<th>Dimension</th>
-			<th>Weight</th>
-			<th>Actions</th>
+															<th>Code</th>
+															<th>Unit</th>
+															<th>Height</th>
+															<th>Width</th>
+															<th>Dimension</th>
+															<th>Weight</th>
+															<th>Actions</th>
 														</tr>
 													</tfoot>
 												</table>
@@ -144,8 +146,9 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				 <div th:insert="article/add_article :: add_article_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div th:insert="article/add_article :: add_article_form"
+					class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

@@ -1,50 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	Employee employee;
-	String firstName;
-	String lastName;
-	String workedHours;
-	String leaves;
-	String attendanceBonus;
-	String grossSalary;
-	String delayHours;
-	
-				<form th:fragment="add_pay_slip_form" th:action="@{/addpayslip}" method="post">
+<div th:fragment="add_pay_slip_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addpayslip}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Employee</label> <input name="employee" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="employee">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Worked Hours</label> <input name="workedHours" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="worked Hours">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Leaves </label> <input name="leaves" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="leaves">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Attendance Days</label> <input name="attendanceBonus"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Attendance Bonus">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Gross Salary</label> <input name="grossSalary"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Gross Salary">
 
-				<!-- Name  -->
-				 <input name="employee" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="employee">
-						
-				 <input name="firstName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="firstName">
-						
-				 <input name="lastName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="lastName">
-						
-						 <input name="workedHours" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="workedHours">
-						
-						 <input name="leaves" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="leaves">
-						
-						 <input name="attendanceBonus" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="attendanceBonus">
-						
-						 <input name="grossSalary" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="grossSalary">
-						
-						 <input name="delayHours" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delayHours">
 
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Delay Hours</label> <input name="delayHours"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Delay Hours">
 
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

@@ -111,11 +111,11 @@
 															<td th:text="${machine.production}"></td>
 															<td th:text="${machine.serviceTime}"></td>
 															<td th:text="${machine.stopTime}"></td>
-															<td th:text="${machine.state}"></td>
+															<td ><span th:text="${machine.state}" class="badge bg-success"></span></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletemachine/{id}(id=${machine.id}) }">Delete</a></td>
+																th:href="@{/deletemachine/{id}(id=${machine.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 													</tbody>
 													<tfoot>

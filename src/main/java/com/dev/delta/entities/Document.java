@@ -15,9 +15,9 @@ public class Document {
 	Long id;
 	String name;
 	@ManyToOne
-	@JoinColumn(name="type_document_id")
+	@JoinColumn(name = "type_document_id")
 	TypeDocument type;
-	
+
 	public Document() {
 		// TODO Auto-generated constructor stub
 	}
@@ -51,6 +51,5 @@ public class Document {
 	public void setType(TypeDocument type) {
 		this.type = type;
 	}
-	
-	
+
 }

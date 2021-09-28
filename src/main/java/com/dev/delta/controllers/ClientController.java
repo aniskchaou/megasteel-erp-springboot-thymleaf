@@ -18,6 +18,7 @@ import com.dev.delta.entities.Client;
 import com.dev.delta.entities.VAT;
 import com.dev.delta.services.ClientService;
 import com.dev.delta.services.VATService;
+
 @Controller
 public class ClientController {
 	/**
@@ -28,24 +29,25 @@ public class ClientController {
 
 	@Autowired
 	private VATService vATService;
-	
 
 	/**
 	 * getClients
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/clients")
 	public String getClients(Model model) {
 		List<Client> clients = clientService.getClients();
-		List<VAT> vats=vATService.getVats();
-		model.addAttribute("clients", clients);	
+		List<VAT> vats = vATService.getVats();
+		model.addAttribute("clients", clients);
 		model.addAttribute("vats", vats);
 		return "client/clients";
 	}
 
 	/**
 	 * addClient
+	 * 
 	 * @param client
 	 * @return
 	 */
@@ -59,6 +61,7 @@ public class ClientController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -72,6 +75,7 @@ public class ClientController {
 
 	/**
 	 * updateClient
+	 * 
 	 * @param id
 	 * @param client
 	 * @param result
@@ -88,12 +92,13 @@ public class ClientController {
 
 	/**
 	 * deleteClient
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteclient/{id}")
 	@Transactional
-	public String deleteClient(@PathVariable("id") int id) {
+	public String deleteClient(@PathVariable("id") Long id) {
 		clientService.delete(id);
 		return "redirect:/clients";
 	}

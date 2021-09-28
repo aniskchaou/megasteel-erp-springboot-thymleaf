@@ -109,11 +109,11 @@
 															<td th:text="${order.orderNumber}"></td>
 															<td th:text="${order.dateCreation}"></td>
 															<td th:text="${order.dateLimit}"></td>
-															<td th:text="${order.state}"></td>
+															<td ><span class="badge bg-warning text-dark" th:text="${order.state}"></span></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deleteorder/{id}(id=${order.id}) }">Delete</a></td>
+																th:href="@{/deleteorder/{id}(id=${order.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 													</tbody>
 													<tfoot>

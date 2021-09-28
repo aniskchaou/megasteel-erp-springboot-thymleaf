@@ -17,49 +17,50 @@ public class JobApplicantService {
 	 */
 	@Autowired
 	private JobApplicantRepository jobApplicantRepository;
-	
 
 	/**
 	 * getJobApplicants
+	 * 
 	 * @return
 	 */
-	public List<JobApplicant> getJobApplicants()
-	{
+	public List<JobApplicant> getJobApplicants() {
 		return jobApplicantRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return jobApplicantRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param jobApplicant
 	 */
-	public void save(JobApplicant jobApplicant)
-	{
+	public void save(JobApplicant jobApplicant) {
 		jobApplicantRepository.save(jobApplicant);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<JobApplicant> findById(int id) {
 		return jobApplicantRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		jobApplicantRepository.delete(jobApplicantRepository.findById(id).get());
 	}
 }

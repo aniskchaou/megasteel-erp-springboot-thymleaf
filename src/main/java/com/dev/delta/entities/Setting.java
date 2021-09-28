@@ -17,7 +17,7 @@ public class Setting implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	
+
 	public Setting() {
 		// TODO Auto-generated constructor stub
 	}
@@ -29,6 +29,5 @@ public class Setting implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
+
 }

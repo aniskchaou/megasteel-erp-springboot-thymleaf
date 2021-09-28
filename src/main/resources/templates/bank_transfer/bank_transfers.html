@@ -109,14 +109,14 @@
 														<tr th:each="bank_transfer:${banktransfers}">
 															<td th:text="${bank_transfer.date}"></td>
 															<td th:text="${bank_transfer.paymentName}"></td>
-															<td th:text="${bank_transfer.paymentFrom}"></td>
-															<td th:text="${bank_transfer.paymentTo}"></td>
-															<td th:text="${bank_transfer.amount}"></td>
+															<td th:text="${bank_transfer.paymentFrom.accountName}"></td>
+															<td th:text="${bank_transfer.paymentTo.accountName}"></td>
+															<td ><span class="badge bg-info text-dark" th:text="${bank_transfer.amount}"></span></td>
 
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletebanktransfer/{id}(id=${bank_transfer.id}) }">Delete</a></td>
+																th:href="@{/deletebanktransfer/{id}(id=${bank_transfer.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>

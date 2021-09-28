@@ -11,16 +11,14 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class VAT implements Serializable {
-	
+
 	private static final long serialVersionUID = -4455180405820254047L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 
-	
 	String name;
-	
-	
+
 	String rate;
 
 	public VAT() {

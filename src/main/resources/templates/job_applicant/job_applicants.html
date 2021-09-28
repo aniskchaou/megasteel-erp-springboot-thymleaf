@@ -98,34 +98,36 @@
 													<thead>
 														<tr>
 															<th>Last Name</th>
-			<th>First Name</th>
-			<th>Email</th>
-			<th>Phone</th>
-			<th>JobS tatus</th>
-			<th>Actions</th>
+															<th>First Name</th>
+															<th>Email</th>
+															<th>Phone</th>
+															<th>Job Status</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
-														 <tr th:each="job_applicant:${jobapplicants}">
-	          <td th:text="${job_applicant.lastName}"></td>
-	          <td th:text="${job_applicant.FirstName}"></td>
-	          <td th:text="${job_applicant.EmailFixed}"></td>
-	          <td th:text="${job_applicant.phoneMobile}"></td>
-	          <td th:text="${job_applicant.jobStatus}"></td> 
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletejob_applicant/{id}(id=${job_applicant.id}) }">Delete</a></td> 
-          </tr>
+														<tr th:each="job_applicant:${jobapplicants}">
+															<td th:text="${job_applicant.lastName}"></td>
+															<td th:text="${job_applicant.FirstName}"></td>
+															<td th:text="${job_applicant.EmailFixed}"></td>
+															<td th:text="${job_applicant.phoneMobile}"></td>
+															<td ><span class="badge bg-success" th:text="${job_applicant.jobStatus}"></span></td>
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletejobapplicant/{id}(id=${job_applicant.id}) }"><i class="fas fa-trash"></i></a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
 
 														<tr>
 															<th>Last Name</th>
-			<th>First Name</th>
-			<th>Email</th>
-			<th>Phone</th>
-			<th>JobS tatus</th>
-			<th>Actions</th>
+															<th>First Name</th>
+															<th>Email</th>
+															<th>Phone</th>
+															<th>Job Status</th>
+															<th>Actions</th>
 														</tr>
 													</tfoot>
 												</table>
@@ -141,8 +143,10 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				 <div th:insert="job_applicant/add_job_applicant :: add_job_applicant_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div
+					th:insert="job_applicant/add_job_applicant :: add_job_applicant_form"
+					class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

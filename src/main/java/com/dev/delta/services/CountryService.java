@@ -17,49 +17,50 @@ public class CountryService {
 	 */
 	@Autowired
 	private CountryRepository countryRepository;
-	
 
 	/**
 	 * getCountrys
+	 * 
 	 * @return
 	 */
-	public List<Country> getCountrys()
-	{
+	public List<Country> getCountrys() {
 		return countryRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return countryRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param country
 	 */
-	public void save(Country country)
-	{
+	public void save(Country country) {
 		countryRepository.save(country);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Country> findById(int id) {
 		return countryRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		countryRepository.delete(countryRepository.findById(id).get());
 	}
 }

@@ -17,49 +17,50 @@ public class VehiculeRentService {
 	 */
 	@Autowired
 	private VehiculeRentRepository vehiculeRentRepository;
-	
 
 	/**
 	 * getVehiculeRents
+	 * 
 	 * @return
 	 */
-	public List<VehiculeRent> getVehiculeRents()
-	{
+	public List<VehiculeRent> getVehiculeRents() {
 		return vehiculeRentRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return vehiculeRentRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param vehiculeRent
 	 */
-	public void save(VehiculeRent vehiculeRent)
-	{
+	public void save(VehiculeRent vehiculeRent) {
 		vehiculeRentRepository.save(vehiculeRent);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<VehiculeRent> findById(int id) {
 		return vehiculeRentRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		vehiculeRentRepository.delete(vehiculeRentRepository.findById(id).get());
 	}
 }

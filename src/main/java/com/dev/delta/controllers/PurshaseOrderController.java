@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -26,22 +25,22 @@ public class PurshaseOrderController {
 	@Autowired
 	private PurshaseOrderService purshaseOrderService;
 
-	
-
 	/**
 	 * getPurshaseOrders
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/purshaseorders")
 	public String getPurshaseOrders(Model model) {
 		List<PurshaseOrder> purshaseOrders = purshaseOrderService.getPurshaseOrders();
-		model.addAttribute("purshaseOrders", purshaseOrders);	
+		model.addAttribute("purshaseOrders", purshaseOrders);
 		return "purshase_order/purshase_orders";
 	}
 
 	/**
 	 * addPurshaseOrder
+	 * 
 	 * @param purshaseOrder
 	 * @return
 	 */
@@ -54,6 +53,7 @@ public class PurshaseOrderController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -67,6 +67,7 @@ public class PurshaseOrderController {
 
 	/**
 	 * updatePurshaseOrder
+	 * 
 	 * @param id
 	 * @param purshaseOrder
 	 * @param result
@@ -74,8 +75,8 @@ public class PurshaseOrderController {
 	 * @return
 	 */
 	@PostMapping("/updatepurshaseorder/{id}")
-	public String updatePurshaseOrder(@PathVariable("id") long id, @Validated PurshaseOrder purshaseOrder, BindingResult result,
-			Model model) {
+	public String updatePurshaseOrder(@PathVariable("id") long id, @Validated PurshaseOrder purshaseOrder,
+			BindingResult result, Model model) {
 
 		purshaseOrderService.save(purshaseOrder);
 		return "redirect:/purshaseorders";
@@ -83,12 +84,13 @@ public class PurshaseOrderController {
 
 	/**
 	 * deletePurshaseOrder
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletepurshaseorder/{id}")
 	@Transactional
-	public String deletePurshaseOrder(@PathVariable("id") int id) {
+	public String deletePurshaseOrder(@PathVariable("id") Long id) {
 		purshaseOrderService.delete(id);
 		return "redirect:/purshaseorders";
 	}

@@ -63,123 +63,120 @@ public class SpringbootMegasteelThymleafCodecanyonApplication implements Command
 
 	@Autowired
 	ArticleDBService articleDBService;
-	
+
 	@Autowired
 	UserDBService userDBService;
-	
+
 	@Autowired
 	UnitDBService unitDBService;
-	
+
 	@Autowired
 	ActivityDBService activityDBService;
-	
+
 	@Autowired
 	FamilyDBService familyDBService;
-	
+
 	@Autowired
 	StorageAreaDBService areaDBService;
-	
+
 	@Autowired
 	MAchineDBService machineDBService;
-	
+
 	@Autowired
 	ClientDBService clientDBService;
-	
+
 	@Autowired
 	BreakDownDBService breakDownDBService;
-	
+
 	@Autowired
 	VATDBService vatdbService;
-	
+
 	@Autowired
-	DeliveryVoucherDBService  deliveryVoucherDBService;
-	
+	DeliveryVoucherDBService deliveryVoucherDBService;
+
 	@Autowired
-	PartDBService  partDBService;
-	
-	@Autowired 
+	PartDBService partDBService;
+
+	@Autowired
 	OrderDBService orderDBService;
-	
+
 	@Autowired
 	PreventiveMaintenanceDBService preventiveMaintenanceDBService;
-	
+
 	@Autowired
 	StorageAreaDBService storageAreaDBService;
-	
+
 	@Autowired
 	OperatorDBService operatorDBService;
-	
+
 	@Autowired
 	InterventionDBService interventionDBService;
-	
+
 	@Autowired
 	TypeLEaveDBService typeLEaveDBService;
-	
+
 	@Autowired
 	LeaveDBService leaveDBService;
-	
+
 	@Autowired
 	CustomerContractDBService customerContractDBService;
-	
+
 	@Autowired
 	ExternalProviderDBService externalProviderDBService;
-	
+
 	@Autowired
 	PoviderDBService providerDBService;
-	
+
 	@Autowired
 	EmployeeDBService employeeDBService;
-	
+
 	@Autowired
-	public InterventionStateDBService  interventionStateDBService;
-	
+	public InterventionStateDBService interventionStateDBService;
+
 	@Autowired
 	public JobDBService jobDBService;
-	
+
 	@Autowired
 	public DepartementDBService departementDBService;
-	
+
 	@Autowired
-	public PurshaseOrderDBService  purshaseOrderDBService;
+	public PurshaseOrderDBService purshaseOrderDBService;
 	@Autowired
 	public PartOrderDBService PartOrderDBService;
-	
+
 	@Autowired
 	public ProviderContractDBService providerContractDBService;
-	
+
 	@Autowired
 	public TypeTerminaisonDBService TypeTerminaisonDBService;
-	
-	
+
 	@Autowired
 	public TerminitionDBService TerminitionDBService;
-	
+
 	@Autowired
 	public BankAccountDBService bankAccountDBService;
-	
+
 	@Autowired
-	public CountryDBService countryDBService ;
-	
+	public CountryDBService countryDBService;
+
 	@Autowired
 	public CityDBService cityDBService;
-	
+
 	@Autowired
-	public EventDBService eventDBService  ;
-	
+	public EventDBService eventDBService;
+
 	@Autowired
 	public ProductionDBService productionDBService;
-	
+
 	@Autowired
 	public BankTransferSBService bankTransferSBService;
-	
+
 	@Autowired
 	public NotificationDBService notificationDBService;
-	
+
 	@Autowired
 	public MessagingDBService messagingDBService;
-	
-	
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootMegasteelThymleafCodecanyonApplication.class, args);
 	}
@@ -195,7 +192,7 @@ public class SpringbootMegasteelThymleafCodecanyonApplication implements Command
 		areaDBService.populate();
 		employeeDBService.populate();
 		unitDBService.populate();
-		articleDBService.populate();	
+		articleDBService.populate();
 		userDBService.populate();
 		familyDBService.populate();
 		activityDBService.populate();
@@ -226,7 +223,7 @@ public class SpringbootMegasteelThymleafCodecanyonApplication implements Command
 		productionDBService.populate();
 		messagingDBService.populate();
 		notificationDBService.populate();
-		
+
 	}
 
 }

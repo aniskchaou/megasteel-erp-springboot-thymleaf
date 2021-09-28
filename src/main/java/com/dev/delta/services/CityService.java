@@ -17,49 +17,50 @@ public class CityService {
 	 */
 	@Autowired
 	private CityRepository cityRepository;
-	
 
 	/**
 	 * getCitys
+	 * 
 	 * @return
 	 */
-	public List<City> getCitys()
-	{
+	public List<City> getCitys() {
 		return cityRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return cityRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param city
 	 */
-	public void save(City city)
-	{
+	public void save(City city) {
 		cityRepository.save(city);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<City> findById(int id) {
 		return cityRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		cityRepository.delete(cityRepository.findById(id).get());
 	}
 }

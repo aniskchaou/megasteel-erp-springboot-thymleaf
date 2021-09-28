@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Termination;
 import com.dev.delta.repositories.TerminationRepository;
+
 @Service
 public class TerminationService {
 	/**
@@ -15,49 +16,50 @@ public class TerminationService {
 	 */
 	@Autowired
 	private TerminationRepository terminationRepository;
-	
 
 	/**
 	 * getTerminations
+	 * 
 	 * @return
 	 */
-	public List<Termination> getTerminations()
-	{
+	public List<Termination> getTerminations() {
 		return terminationRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return terminationRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param termination
 	 */
-	public void save(Termination termination)
-	{
+	public void save(Termination termination) {
 		terminationRepository.save(termination);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Termination> findById(int id) {
 		return terminationRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		terminationRepository.delete(terminationRepository.findById(id).get());
 	}
 }

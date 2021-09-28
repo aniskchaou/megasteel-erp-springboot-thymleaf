@@ -1,51 +1,83 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-
-	
-<form th:fragment="add_bank_account_form" th:action="@{/addbankaccount}"
-		method="post">
-
-		<!-- Name  -->
-		<input name="bankName" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name"> 
-			
-			
-			
-			
-			<input name="accountNumber"
-			type="number" class="form-control" id="exampleInputEmail1"
-			aria-describedby="emailHelp" placeholder="activityNumber" /> 
-			
-			
-			<input
-			name="accountName" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-			
-			<input
-			name="description" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-			
-			
-			<input
-			name="status" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
+<div th:fragment="add_bank_account_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addbankaccount}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Bank Name</label> <input name="bankName" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="name">
 
 
 
 
-		<button type="submit" class="btn btn-primary">Create</button>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Account Number</label> <input name="accountNumber"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="activityNumber" />
 
 
-	</form>
-</body>
-</html>
+
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Description </label>
+							<textarea name="description" class="form-control"
+								id="exampleInputEmail1" aria-describedby="emailHelp"
+								placeholder="machineNumber">
+			</textarea>
+
+
+
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Status</label> <select name="status"
+								class="form-control">
+								<option value="Active">Active</option>
+								<option value="Inactive">Inactive</option>
+							</select>
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-12 col-sm-6">
+						<div class="form-group">
+							<label>Account Name</label> <input name="accountName"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="machineNumber">
+
+
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

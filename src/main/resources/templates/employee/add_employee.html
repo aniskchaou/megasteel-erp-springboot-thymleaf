@@ -1,41 +1,97 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-	
-				<form th:fragment="add_employee_form" th:action="@{/addemployee}" method="post">
-                    <input name="code" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="code">
-				<!-- Name  -->
-				 <input name="firstName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="firstName">
-						
-				 <input name="lastName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="lastName">
-						
-				 <input name="dateBirth" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dateBirth">
-						
-						 <input name="address" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="address">
-						
-						 <input name="dateRecuitement" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dateRecuitement">
-						
-						 <input name="job" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="job">
-						
-						 <input name="children" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="children">
+<div th:fragment="add_employee_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addemployee}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Code</label> <input name="code" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Code">
 
 
+
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>First Name</label> <input name="firstName" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="First Name">
+
+
+
+
+						</div>
+						<div class="form-group">
+							<label>Last Name </label> <input name="lastName" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="last Name">
+
+
+
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Date of birth</label> <input name="dateBirth" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Date Birth">
+
+
+						</div>
+
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+
+						<div class="form-group">
+							<label>Address</label> <input name="address" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Address">
+
+
+
+						</div>
+						<div class="form-group">
+							<label>Date of Receuitement</label> <input name="dateRecuitement"
+								type="date" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="dateRecuitement">
+
+
+
+
+						</div>
+						<div class="form-group">
+							<label>Job</label> <select name="job" class="form-control">
+								<option th:value="${j.id}" th:each="j:${jobs}"
+									th:text="${j.name}"></option>
+
+							</select>
+
+
+						</div>
+						<div class="form-group">
+							<label>Children</label> <input name="children" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Children">
+
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

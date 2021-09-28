@@ -1,27 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_external_provider_form" id="mymodel" class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addexternalprovider}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Name</label>
+                         <input name="name" type="text" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
 
 
-	
-				<form th:fragment="add_external_provider_form" th:action="@{/addexternalprovider}" method="post">
 
-				<!-- Name  -->
-				 <input name="name" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
+
+						</div>
+						<!-- /.form-group -->
 						
-				 <input name="mark" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mark">
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Marks </label> 
+                                   <textarea name="mark" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mark"></textarea>
+
+
+
+						</div>
+						<!-- /.form-group -->
+						
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 				
-
-
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

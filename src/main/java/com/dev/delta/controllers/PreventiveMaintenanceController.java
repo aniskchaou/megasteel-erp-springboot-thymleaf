@@ -29,17 +29,17 @@ public class PreventiveMaintenanceController {
 
 	@Autowired
 	private MachineService machineService;
-	
 
 	/**
 	 * getPreventiveMaintenances
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/preventivemaintenances")
 	public String getPreventiveMaintenances(Model model) {
 		List<PreventiveMaintenance> preventiveMaintenances = preventiveMaintenanceService.getPreventiveMaintenances();
-		List<Machine> machines=machineService.getMachines();
+		List<Machine> machines = machineService.getMachines();
 		model.addAttribute("preventiveMaintenances", preventiveMaintenances);
 		model.addAttribute("machines", machines);
 		return "preventive_maintenance/preventive_maintenances";
@@ -47,6 +47,7 @@ public class PreventiveMaintenanceController {
 
 	/**
 	 * addPreventiveMaintenance
+	 * 
 	 * @param preventiveMaintenance
 	 * @return
 	 */
@@ -59,6 +60,7 @@ public class PreventiveMaintenanceController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -72,6 +74,7 @@ public class PreventiveMaintenanceController {
 
 	/**
 	 * updatePreventiveMaintenance
+	 * 
 	 * @param id
 	 * @param preventiveMaintenance
 	 * @param result
@@ -79,8 +82,8 @@ public class PreventiveMaintenanceController {
 	 * @return
 	 */
 	@PostMapping("/updatepreventivemaintenance/{id}")
-	public String updatePreventiveMaintenance(@PathVariable("id") long id, @Validated PreventiveMaintenance preventiveMaintenance, BindingResult result,
-			Model model) {
+	public String updatePreventiveMaintenance(@PathVariable("id") long id,
+			@Validated PreventiveMaintenance preventiveMaintenance, BindingResult result, Model model) {
 
 		preventiveMaintenanceService.save(preventiveMaintenance);
 		return "redirect:/preventivemaintenances";
@@ -88,12 +91,13 @@ public class PreventiveMaintenanceController {
 
 	/**
 	 * deletePreventiveMaintenance
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletepreventivemaintenance/{id}")
 	@Transactional
-	public String deletePreventiveMaintenance(@PathVariable("id") int id) {
+	public String deletePreventiveMaintenance(@PathVariable("id") Long id) {
 		preventiveMaintenanceService.delete(id);
 		return "redirect:/preventivemaintenances";
 	}

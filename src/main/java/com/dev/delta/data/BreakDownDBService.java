@@ -6,16 +6,16 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.BreakDownRepository;
 
 @Service
-public class BreakDownDBService implements IDBService{
+public class BreakDownDBService implements IDBService {
 
 	@Autowired
-	BreakDownRepository  BreakDownRepository;
-	
+	BreakDownRepository BreakDownRepository;
+
 	@Override
 	public void populate() {
 		breakdown.setName("ERROR");
 		breakdown.setOccurance("3");
-		
+
 		BreakDownRepository.save(breakdown);
 	}
 

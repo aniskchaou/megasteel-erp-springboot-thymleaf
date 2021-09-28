@@ -10,14 +10,13 @@ import javax.persistence.Id;
 @Entity
 public class Breakdown implements Serializable {
 
-	
 	private static final long serialVersionUID = -7939640966733089292L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	String name;	
+	String name;
 	String occurance;
-	
+
 	public Breakdown() {
 		// TODO Auto-generated constructor stub
 	}
@@ -51,8 +50,5 @@ public class Breakdown implements Serializable {
 	public void setOccurance(String occurance) {
 		this.occurance = occurance;
 	}
-	
-	
-	
-	
+
 }

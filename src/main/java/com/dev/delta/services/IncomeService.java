@@ -17,49 +17,50 @@ public class IncomeService {
 	 */
 	@Autowired
 	private IncomeRepository incomeRepository;
-	
 
 	/**
 	 * getIncomes
+	 * 
 	 * @return
 	 */
-	public List<Income> getIncomes()
-	{
+	public List<Income> getIncomes() {
 		return incomeRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return incomeRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param income
 	 */
-	public void save(Income income)
-	{
+	public void save(Income income) {
 		incomeRepository.save(income);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Income> findById(int id) {
 		return incomeRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		incomeRepository.delete(incomeRepository.findById(id).get());
 	}
 }

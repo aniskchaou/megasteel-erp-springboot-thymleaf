@@ -15,9 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.VehiculeRent;
+import com.dev.delta.entities.Client;
 import com.dev.delta.entities.Family;
+import com.dev.delta.entities.VehiculeModel;
 import com.dev.delta.services.VehiculeRentService;
+import com.dev.delta.services.ClientService;
+import com.dev.delta.services.EmployeeService;
 import com.dev.delta.services.FamilyService;
+import com.dev.delta.services.VehiculeModelService;
 
 @Controller
 public class VehiculeRentController {
@@ -29,25 +34,35 @@ public class VehiculeRentController {
 
 	@Autowired
 	private FamilyService familyService;
-	
+
+	@Autowired
+	private VehiculeModelService vehiculeModelService;
+
+	@Autowired
+	private ClientService clientService;
 
 	/**
 	 * getVehiculeRents
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/vehiculerents")
 	public String getVehiculeRents(Model model) {
 		List<VehiculeRent> vehiculeRents = vehiculeRentService.getVehiculeRents();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("vehiculerents", vehiculeRents);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		List<VehiculeModel> vehiculeModels = vehiculeModelService.getVehiculeModels();
+		List<Client> clients = clientService.getClients();
+		model.addAttribute("vehiculeModels", vehiculeModels);
+		model.addAttribute("vehiculerents", vehiculeRents);
+		model.addAttribute("clients", clients);
+
 		return "vehicule_rent/vehicule_rents";
 	}
 
 	/**
 	 * addVehiculeRent
+	 * 
 	 * @param vehiculeRent
 	 * @return
 	 */
@@ -60,6 +75,7 @@ public class VehiculeRentController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -73,6 +89,7 @@ public class VehiculeRentController {
 
 	/**
 	 * updateVehiculeRent
+	 * 
 	 * @param id
 	 * @param vehiculeRent
 	 * @param result
@@ -80,8 +97,8 @@ public class VehiculeRentController {
 	 * @return
 	 */
 	@PostMapping("/updatevehiculeRent/{id}")
-	public String updateVehiculeRent(@PathVariable("id") long id, @Validated VehiculeRent vehiculeRent, BindingResult result,
-			Model model) {
+	public String updateVehiculeRent(@PathVariable("id") long id, @Validated VehiculeRent vehiculeRent,
+			BindingResult result, Model model) {
 
 		vehiculeRentService.save(vehiculeRent);
 		return "redirect:/vehiculerents";
@@ -89,12 +106,13 @@ public class VehiculeRentController {
 
 	/**
 	 * deleteVehiculeRent
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletevehiculeRent/{id}")
+	@GetMapping("/deletevehiculerent/{id}")
 	@Transactional
-	public String deleteVehiculeRent(@PathVariable("id") int id) {
+	public String deleteVehiculeRent(@PathVariable("id") Long id) {
 		vehiculeRentService.delete(id);
 		return "redirect:/vehiculerents";
 	}

@@ -6,10 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
 public class Client implements Serializable {
 
-	
 	private static final long serialVersionUID = -148902353718836564L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,6 @@ public class Client implements Serializable {
 	protected String fax;
 	protected String email;
 
-	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -95,13 +94,10 @@ public class Client implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
+
 	public Client() {
 		// TODO Auto-generated constructor stub
 	}
-
-	
 
 	public Client(String firstName, String lastName, String code, String tva, String adresse, String telephone,
 			String fax, String email) {
@@ -123,7 +119,5 @@ public class Client implements Serializable {
 				+ getTelephone() + ", getFax()=" + getFax() + ", getEmail()=" + getEmail() + ", getClass()="
 				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
-	
 
 }

@@ -16,30 +16,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.PaySlip;
 import com.dev.delta.services.PaySlipService;
+
 @Controller
-public class PaySlipController  {
+public class PaySlipController {
 	/**
 	 * paySlipService
 	 */
 	@Autowired
 	private PaySlipService paySlipService;
 
-	
-
 	/**
 	 * getPaySlips
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/payslips")
 	public String getPaySlips(Model model) {
 		List<PaySlip> paySlips = paySlipService.getPaySlips();
-		model.addAttribute("paySlips", paySlips);	
+		model.addAttribute("paySlips", paySlips);
 		return "pay_slip/pay_slips";
 	}
 
 	/**
 	 * addPaySlip
+	 * 
 	 * @param paySlip
 	 * @return
 	 */
@@ -52,6 +53,7 @@ public class PaySlipController  {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -65,6 +67,7 @@ public class PaySlipController  {
 
 	/**
 	 * updatePaySlip
+	 * 
 	 * @param id
 	 * @param paySlip
 	 * @param result
@@ -81,12 +84,13 @@ public class PaySlipController  {
 
 	/**
 	 * deletePaySlip
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletepaylip/{id}")
 	@Transactional
-	public String deletePaySlip(@PathVariable("id") int id) {
+	public String deletePaySlip(@PathVariable("id") Long id) {
 		paySlipService.delete(id);
 		return "redirect:/payslips";
 	}

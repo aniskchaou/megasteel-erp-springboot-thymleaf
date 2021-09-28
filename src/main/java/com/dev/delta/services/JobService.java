@@ -18,49 +18,50 @@ public class JobService {
 	 */
 	@Autowired
 	private JobbRepository jobRepository;
-	
 
 	/**
 	 * getJobs
+	 * 
 	 * @return
 	 */
-	public List<Job> getJobs()
-	{
+	public List<Job> getJobs() {
 		return jobRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return jobRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param job
 	 */
-	public void save(Job job)
-	{
+	public void save(Job job) {
 		jobRepository.save(job);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Job> findById(int id) {
 		return jobRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		jobRepository.delete(jobRepository.findById(id).get());
 	}
 }

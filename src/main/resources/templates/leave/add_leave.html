@@ -1,53 +1,69 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_leave_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addleave}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Employee</label> <select name="employee" class="form-control">
+								<option th:value="${employee.id}"
+									th:each="employee:${employees}" th:text="${employee.firstName}">
+								</option>
+							</select>
 
-	
-				<form th:fragment="add_leave_form" th:action="@{/addleave}" method="post">
+						</div>
+						<!-- /.form-group -->
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Start Date</label> <input name="startDate" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="startDate">
+						</div>
+						<div class="form-group">
+							<label>Type Leave</label> <input name="TypeLeave"
+								type="text" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="TypeLeave">
+						</div>
+						
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>End Date </label> <input name="endDate" type="date"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="endDate">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Requested Days</label> <input name="requestedDays"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Requested Days">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Remaining Days</label> <input name="remainingDays"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Remaining Days">
+						</div>
+						<!-- /.form-group -->
+						
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-				<!-- Name  -->
-				
-					
-					<select name="employee" >
-			 <option th:value="${employee.id}" th:each="employee:${employees}"  th:text="${employee.firstName}">
-			 </option>
-			
-			</select>
-				
-				 <input name="firstName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="firstName">
-						
-				 <input name="lastName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="lastName">
-						
-						 <input name="startDate" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="startDate">
-						
-						 <input name="endDate" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="endDate">
-						
-						 <input name="requestedDays" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="requestedDays">
-						
-						<input name="remainingDays" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="remainingDays">
-						
-						<input name="TypeLeave" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="TypeLeave">
-
-                       <select name="TypeLeave" >
-			 <option th:value="${typeLeave.id}" th:each="typeLeave:${typeLeaves}"  th:text="${typeLeave.name}">
-			 </option>
-			
-			</select>
-
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

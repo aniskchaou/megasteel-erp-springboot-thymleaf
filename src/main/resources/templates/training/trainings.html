@@ -109,11 +109,11 @@
 															<td th:text="${t.Session}"></td>
 															<td th:text="${t.fromDate}"></td>
 															<td th:text="${t.toDate}"></td>
-															<td th:text="${t.employee}"></td>
+															<td th:text="${t.employee.firstName}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletetraining/{id}(id=${training.id}) }">Delete</a></td>
+																th:href="@{/deletetraining/{id}(id=${t.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>

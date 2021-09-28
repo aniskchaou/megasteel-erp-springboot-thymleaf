@@ -30,25 +30,26 @@ public class EventController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getEvents
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/events")
 	public String getEvents(Model model) {
 		List<Event> events = eventService.getEvents();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("events", events);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("events", events);
+		model.addAttribute("families", families);
+
 		return "event/events";
 	}
 
 	/**
 	 * addEvent
+	 * 
 	 * @param event
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class EventController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class EventController {
 
 	/**
 	 * updateEvent
+	 * 
 	 * @param id
 	 * @param event
 	 * @param result
@@ -81,8 +84,7 @@ public class EventController {
 	 * @return
 	 */
 	@PostMapping("/updateevent/{id}")
-	public String updateEvent(@PathVariable("id") long id, @Validated Event event, BindingResult result,
-			Model model) {
+	public String updateEvent(@PathVariable("id") long id, @Validated Event event, BindingResult result, Model model) {
 
 		eventService.save(event);
 		return "redirect:/events";
@@ -90,12 +92,13 @@ public class EventController {
 
 	/**
 	 * deleteEvent
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteevent/{id}")
 	@Transactional
-	public String deleteEvent(@PathVariable("id") int id) {
+	public String deleteEvent(@PathVariable("id") Long id) {
 		eventService.delete(id);
 		return "redirect:/events";
 	}

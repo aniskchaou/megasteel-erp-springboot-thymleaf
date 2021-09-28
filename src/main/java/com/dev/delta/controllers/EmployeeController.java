@@ -1,6 +1,5 @@
 package com.dev.delta.controllers;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -16,7 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Employee;
+import com.dev.delta.entities.Job;
 import com.dev.delta.services.EmployeeService;
+import com.dev.delta.services.JobService;
+
 @Controller
 public class EmployeeController {
 
@@ -26,22 +28,27 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
-	
+	@Autowired
+	private JobService jobService;
 
 	/**
 	 * getEmployees
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/employees")
 	public String getEmployees(Model model) {
 		List<Employee> employees = employeeService.getEmployees();
-		model.addAttribute("employees", employees);	
+		List<Job> jobs = jobService.getJobs();
+		model.addAttribute("employees", employees);
+		model.addAttribute("jobs", jobs);
 		return "employee/employees";
 	}
 
 	/**
 	 * addEmployee
+	 * 
 	 * @param employee
 	 * @return
 	 */
@@ -54,6 +61,7 @@ public class EmployeeController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -67,6 +75,7 @@ public class EmployeeController {
 
 	/**
 	 * updateEmployee
+	 * 
 	 * @param id
 	 * @param employee
 	 * @param result
@@ -83,12 +92,13 @@ public class EmployeeController {
 
 	/**
 	 * deleteEmployee
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteemployee/{id}")
 	@Transactional
-	public String deleteEmployee(@PathVariable("id") int id) {
+	public String deleteEmployee(@PathVariable("id") Long id) {
 		employeeService.delete(id);
 		return "redirect:/employees";
 	}

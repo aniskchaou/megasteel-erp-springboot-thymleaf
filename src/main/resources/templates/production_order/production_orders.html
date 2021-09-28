@@ -110,14 +110,14 @@
 														<tr th:each="productionorder:${productionOrders}">
 															<td th:text="${productionorder.codeProduction}"></td>
 															<td th:text="${productionorder.quantiteRestant}"></td>
-															<td th:text="${productionorder.codeMachine}"></td>
-															<td th:text="${productionorder.articleSortant}"></td>
-															<td th:text="${productionorder.articleEntrant}"></td>
-															<td th:text="${productionorder.etat}"></td>
+															<td th:text="${productionorder.codeMachine.name}"></td>
+															<td th:text="${productionorder.articleSortant.code}"></td>
+															<td th:text="${productionorder.articleEntrant.code}"></td>
+															<td ><span class="badge bg-warning text-dark" th:text="${productionorder.etat}"></span></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deleteproductionorder/{id}(id=${productionorder.id}) }">Delete</a></td>
+																th:href="@{/deleteproductionorder/{id}(id=${productionorder.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>

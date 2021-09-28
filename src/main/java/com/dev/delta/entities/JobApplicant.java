@@ -13,86 +13,83 @@ public class JobApplicant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
- String lastName ;
- String FirstName ;
- String EmailFixed ;
- String phoneMobile ;
- String phoneApplied ;
- @ManyToOne
- @JoinColumn(name="job_status_id")
- JobStatus jobStatus;
- 
- public JobApplicant() {
-	// TODO Auto-generated constructor stub
-}
+	String lastName;
+	String FirstName;
+	String EmailFixed;
+	String phoneMobile;
+	String phoneApplied;
 
-public JobApplicant(String lastName, String firstName, String emailFixed, String phoneMobile, String phoneApplied,
-		JobStatus jobStatus) {
-	super();
-	this.lastName = lastName;
-	FirstName = firstName;
-	EmailFixed = emailFixed;
-	this.phoneMobile = phoneMobile;
-	this.phoneApplied = phoneApplied;
-	this.jobStatus = jobStatus;
-}
+	String jobStatus;
 
-public Long getId() {
-	return id;
-}
+	public JobApplicant() {
+		// TODO Auto-generated constructor stub
+	}
 
-public void setId(Long id) {
-	this.id = id;
-}
+	public JobApplicant(String lastName, String firstName, String emailFixed, String phoneMobile, String phoneApplied,
+			String jobStatus) {
+		super();
+		this.lastName = lastName;
+		FirstName = firstName;
+		EmailFixed = emailFixed;
+		this.phoneMobile = phoneMobile;
+		this.phoneApplied = phoneApplied;
+		this.jobStatus = jobStatus;
+	}
 
-public String getLastName() {
-	return lastName;
-}
+	public Long getId() {
+		return id;
+	}
 
-public void setLastName(String lastName) {
-	this.lastName = lastName;
-}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-public String getFirstName() {
-	return FirstName;
-}
+	public String getLastName() {
+		return lastName;
+	}
 
-public void setFirstName(String firstName) {
-	FirstName = firstName;
-}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-public String getEmailFixed() {
-	return EmailFixed;
-}
+	public String getFirstName() {
+		return FirstName;
+	}
 
-public void setEmailFixed(String emailFixed) {
-	EmailFixed = emailFixed;
-}
+	public void setFirstName(String firstName) {
+		FirstName = firstName;
+	}
 
-public String getPhoneMobile() {
-	return phoneMobile;
-}
+	public String getEmailFixed() {
+		return EmailFixed;
+	}
 
-public void setPhoneMobile(String phoneMobile) {
-	this.phoneMobile = phoneMobile;
-}
+	public void setEmailFixed(String emailFixed) {
+		EmailFixed = emailFixed;
+	}
 
-public String getPhoneApplied() {
-	return phoneApplied;
-}
+	public String getPhoneMobile() {
+		return phoneMobile;
+	}
 
-public void setPhoneApplied(String phoneApplied) {
-	this.phoneApplied = phoneApplied;
-}
+	public void setPhoneMobile(String phoneMobile) {
+		this.phoneMobile = phoneMobile;
+	}
 
-public JobStatus getJobStatus() {
-	return jobStatus;
-}
+	public String getPhoneApplied() {
+		return phoneApplied;
+	}
 
-public void setJobStatus(JobStatus jobStatus) {
-	this.jobStatus = jobStatus;
-}
- 
- 
+	public void setPhoneApplied(String phoneApplied) {
+		this.phoneApplied = phoneApplied;
+	}
+
+	public String getJobStatus() {
+		return jobStatus;
+	}
+
+	public void setJobStatus(String jobStatus) {
+		this.jobStatus = jobStatus;
+	}
 
 }

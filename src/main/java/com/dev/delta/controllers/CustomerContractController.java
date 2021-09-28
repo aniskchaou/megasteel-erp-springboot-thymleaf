@@ -18,29 +18,29 @@ import com.dev.delta.entities.CustomerContract;
 import com.dev.delta.services.CustomerContractService;
 
 @Controller
-public class CustomerContractController  {
+public class CustomerContractController {
 	/**
 	 * customerContractService
 	 */
 	@Autowired
 	private CustomerContractService customerContractService;
 
-	
-
 	/**
 	 * getCustomerContracts
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/customercontracts")
 	public String getCustomerContracts(Model model) {
 		List<CustomerContract> customerContracts = customerContractService.getCustomerContracts();
-		model.addAttribute("customerContracts", customerContracts);	
+		model.addAttribute("customerContracts", customerContracts);
 		return "customer_contract/customer_contracts";
 	}
 
 	/**
 	 * addCustomerContract
+	 * 
 	 * @param customerContract
 	 * @return
 	 */
@@ -53,6 +53,7 @@ public class CustomerContractController  {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -66,6 +67,7 @@ public class CustomerContractController  {
 
 	/**
 	 * updateCustomerContract
+	 * 
 	 * @param id
 	 * @param customerContract
 	 * @param result
@@ -73,8 +75,8 @@ public class CustomerContractController  {
 	 * @return
 	 */
 	@PostMapping("/updatecustomerContract/{id}")
-	public String updateCustomerContract(@PathVariable("id") long id, @Validated CustomerContract customerContract, BindingResult result,
-			Model model) {
+	public String updateCustomerContract(@PathVariable("id") long id, @Validated CustomerContract customerContract,
+			BindingResult result, Model model) {
 
 		customerContractService.save(customerContract);
 		return "redirect:/customer_contracts";
@@ -82,14 +84,15 @@ public class CustomerContractController  {
 
 	/**
 	 * deleteCustomerContract
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletecustomerContract/{id}")
+	@GetMapping("/deletecustomercontract/{id}")
 	@Transactional
-	public String deleteCustomerContract(@PathVariable("id") int id) {
+	public String deleteCustomerContract(@PathVariable("id") Long id) {
 		customerContractService.delete(id);
 		return "redirect:/customerContracts";
 	}
-	
+
 }

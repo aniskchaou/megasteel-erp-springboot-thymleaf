@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Part;
 import com.dev.delta.repositories.PartRepository;
+
 @Service
 public class PartService {
 	/**
@@ -15,49 +16,50 @@ public class PartService {
 	 */
 	@Autowired
 	private PartRepository partRepository;
-	
 
 	/**
 	 * getParts
+	 * 
 	 * @return
 	 */
-	public List<Part> getParts()
-	{
+	public List<Part> getParts() {
 		return partRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return partRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param part
 	 */
-	public void save(Part part)
-	{
+	public void save(Part part) {
 		partRepository.save(part);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Part> findById(int id) {
 		return partRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		partRepository.delete(partRepository.findById(id).get());
 	}
 }

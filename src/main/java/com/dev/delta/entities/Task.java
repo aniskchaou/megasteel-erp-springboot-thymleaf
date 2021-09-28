@@ -15,16 +15,16 @@ public class Task {
 	Long id;
 	String subject;
 	@ManyToOne
-	@JoinColumn(name="project_id")
+	@JoinColumn(name = "project_id")
 	Project project;
 	@ManyToOne
-	@JoinColumn(name="employee_id")
+	@JoinColumn(name = "employee_id")
 	Employee assigned;
 	String priority;
 	String date;
-    String deadline;
+	String deadline;
 	String tags;
-	
+
 	public Task() {
 		// TODO Auto-generated constructor stub
 	}
@@ -104,6 +104,5 @@ public class Task {
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
-	
-	
+
 }

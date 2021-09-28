@@ -15,9 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Task;
+import com.dev.delta.entities.Employee;
 import com.dev.delta.entities.Family;
+import com.dev.delta.entities.Project;
 import com.dev.delta.services.TaskService;
+import com.dev.delta.services.EmployeeService;
 import com.dev.delta.services.FamilyService;
+import com.dev.delta.services.ProjectService;
 
 @Controller
 public class TaskController {
@@ -29,26 +33,34 @@ public class TaskController {
 	private TaskService taskService;
 
 	@Autowired
-	private FamilyService familyService;
-	
+	private EmployeeService employeeService;
+
+	@Autowired
+	private ProjectService projectService;
 
 	/**
 	 * getTasks
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/tasks")
 	public String getTasks(Model model) {
 		List<Task> tasks = taskService.getTasks();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("tasks", tasks);	
-		model.addAttribute("families",families);
-		
+		List<Employee> employees = employeeService.getEmployees();
+
+		List<Project> projects = projectService.getProjects();
+
+		model.addAttribute("projects", projects);
+		model.addAttribute("tasks", tasks);
+		model.addAttribute("employees", employees);
+
 		return "task/tasks";
 	}
 
 	/**
 	 * addTask
+	 * 
 	 * @param task
 	 * @return
 	 */
@@ -61,6 +73,7 @@ public class TaskController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +87,7 @@ public class TaskController {
 
 	/**
 	 * updateTask
+	 * 
 	 * @param id
 	 * @param task
 	 * @param result
@@ -81,8 +95,7 @@ public class TaskController {
 	 * @return
 	 */
 	@PostMapping("/updatetask/{id}")
-	public String updateTask(@PathVariable("id") long id, @Validated Task task, BindingResult result,
-			Model model) {
+	public String updateTask(@PathVariable("id") long id, @Validated Task task, BindingResult result, Model model) {
 
 		taskService.save(task);
 		return "redirect:/tasks";
@@ -90,12 +103,13 @@ public class TaskController {
 
 	/**
 	 * deleteTask
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletetask/{id}")
 	@Transactional
-	public String deleteTask(@PathVariable("id") int id) {
+	public String deleteTask(@PathVariable("id") Long id) {
 		taskService.delete(id);
 		return "redirect:/tasks";
 	}

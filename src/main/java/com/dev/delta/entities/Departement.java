@@ -13,7 +13,7 @@ public class Departement {
 	private Long id;
 	private String name;
 	private String description;
-	
+
 	public Departement() {
 		// TODO Auto-generated constructor stub
 	}
@@ -47,6 +47,5 @@ public class Departement {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
+
 }

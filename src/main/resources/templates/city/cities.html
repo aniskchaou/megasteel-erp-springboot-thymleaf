@@ -102,11 +102,14 @@
 														</tr>
 													</thead>
 													<tbody>
-													            <tr th:each="city:${cities}">
-	          <td th:text="${city.name}"></td>
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletecity/{id}(id=${city.id}) }"><i class="fas fa-trash"></i></a></td> 
-          </tr>
+														<tr th:each="city:${cities}">
+															<td th:text="${city.name}"></td>
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletecity/{id}(id=${city.id}) }"><i
+																	class="fas fa-trash"></i></a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
@@ -129,8 +132,9 @@
 					</div>
 					<!-- /.row -->
 				</div>
-			 <div th:insert="city/add_city :: add_city_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div th:insert="city/add_city :: add_city_form" class="modal fade"
+					id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

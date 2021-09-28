@@ -105,11 +105,11 @@
 													<tbody>
 														<tr th:each="vat:${vats}">
 															<td th:text="${vat.name}"></td>
-															<td th:text="${vat.rate}"></td>
+															<td ><span  class="badge bg-info text-dark" th:text="${vat.rate}"></span></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletevat/{id}(id=${vat.id}) }">Delete</a></td>
+																th:href="@{/deletevat/{id}(id=${vat.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 													</tbody>
 													<tfoot>

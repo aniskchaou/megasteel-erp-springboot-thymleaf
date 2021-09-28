@@ -97,7 +97,12 @@
 													role="grid" aria-describedby="example1_info">
 													<thead>
 														<tr>
-
+															<th>Code</th>
+															<th>First Name</th>
+															<th>Last Name</th>
+															<th>Phone</th>
+															<th>Email</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -110,7 +115,8 @@
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deleteoperator/{id}(id=${operator.id}) }">Delete</a></td>
+																th:href="@{/deleteoperator/{id}(id=${operator.id}) }"><i
+																	class="fas fa-trash"></i> </a></td>
 														</tr>
 
 													</tbody>

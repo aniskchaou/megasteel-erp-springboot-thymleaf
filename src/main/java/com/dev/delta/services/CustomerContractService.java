@@ -8,57 +8,59 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.CustomerContract;
 import com.dev.delta.repositories.CustomerContractRepository;
+
 @Service
-public class CustomerContractService  {
+public class CustomerContractService {
 
 	/**
 	 * customerContractRepository
 	 */
 	@Autowired
 	private CustomerContractRepository customerContractRepository;
-	
 
 	/**
 	 * getCustomerContracts
+	 * 
 	 * @return
 	 */
-	public List<CustomerContract> getCustomerContracts()
-	{
+	public List<CustomerContract> getCustomerContracts() {
 		return customerContractRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return customerContractRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param customerContract
 	 */
-	public void save(CustomerContract customerContract)
-	{
+	public void save(CustomerContract customerContract) {
 		customerContractRepository.save(customerContract);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<CustomerContract> findById(int id) {
 		return customerContractRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		customerContractRepository.delete(customerContractRepository.findById(id).get());
 	}
 }

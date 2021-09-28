@@ -7,16 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class Messaging {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-    String title;
-    String message;
+	String title;
+	String message;
 	String sender;
 	String receiver;
 	String date;
-	
+
 	public Messaging() {
 		// TODO Auto-generated constructor stub
 	}
@@ -77,7 +77,5 @@ public class Messaging {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
-	
-	
+
 }

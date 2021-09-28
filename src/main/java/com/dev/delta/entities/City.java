@@ -15,9 +15,9 @@ public class City {
 	private Long id;
 	private String name;
 	@ManyToOne
-	@JoinColumn(name="country_id")
+	@JoinColumn(name = "country_id")
 	private Country country;
-	
+
 	public City() {
 		// TODO Auto-generated constructor stub
 	}
@@ -51,7 +51,5 @@ public class City {
 	public void setCountry(Country country) {
 		this.country = country;
 	}
-	
-	
-	
+
 }

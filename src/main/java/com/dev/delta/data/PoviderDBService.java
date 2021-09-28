@@ -10,19 +10,19 @@ public class PoviderDBService implements IDBService {
 
 	@Autowired
 	ProviderRepository providerRepository;
-	
+
 	@Override
 	public void populate() {
-		provider.setAddress(null);
-		provider.setCode(null);
-		provider.setFax(null);
-		provider.setName(null);
-		provider.setPhone(null);
-		provider.setResponsable(null);
+		provider.setAddress("3533 Bobcat Drive\r\n" + "Washington, MD 20005");
+		provider.setCode("87BY8Y");
+		provider.setFax("240-868-0377");
+		provider.setName("Crystal Steel");
+		provider.setPhone("240-868-0377");
+		provider.setResponsable("Emma A. Mosley");
 		provider.setVat(vat);
-		
+
 		providerRepository.save(provider);
-		
+
 	}
 
 }

@@ -1,43 +1,75 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_provider_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
 
-	private String phone;
-	private String responsable;
-	private String fax;
-	
-				<form th:fragment="add_provider_form" th:action="@{/addprovider}" method="post">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addprovider}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Name</label> <input name="name" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="name">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Address</label> <input name="address" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="address">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Code</label> <input name="code" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="code">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Fax</label> <input name="fax" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="fax">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>VAT</label> 
+								
+								<select name="vat" class="form-control">
+								<option th:value="${vat.id}" th:each="vat:${vats}"
+									th:text="${vat.name}"></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Phone</label> <input name="phone" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="phone">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Responsable</label> <input name="responsable"
+								type="text" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="responsable">
+						</div>
+						<!-- /.form-group -->
+						
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-				<!-- Name  -->
-				 <input name="name" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
-						
-				 <input name="address" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="address">
-						
-				 <input name="code" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="code">
-						
-						 <input name="vat" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="vat">
-						
-						 <input name="phone" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="phone">
-						
-						 <input name="responsable" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="responsable">
-						
-						 <input name="fax" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="fax">
-
-
+				<!-- /.row -->
 				<button type="submit" class="btn btn-primary">Create</button>
-
-
 			</form>
-</body>
-</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

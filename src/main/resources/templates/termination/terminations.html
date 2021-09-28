@@ -99,19 +99,19 @@
 														<tr>
 															<th>Name</th>
 															<th>Date</th>
-															<th>Cause</th>
+															<th>Reason</th>
 															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr th:each="termination:${terminations}">
-															<td th:text="${termination.firstName}"></td>
+															<td th:text="${termination.employee.firstName}"></td>
 															<td th:text="${termination.date}"></td>
-															<td th:text="${termination.cause}"></td>
+															<td th:text="${termination.cause.name}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletetermination/{id}(id=${termination.id}) }">Delete</a></td>
+																th:href="@{/deletetermination/{id}(id=${termination.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 													</tbody>
 													<tfoot>
@@ -119,7 +119,7 @@
 														<tr>
 															<th>Name</th>
 															<th>Date</th>
-															<th>Cause</th>
+															<th>Reason</th>
 															<th>Actions</th>
 														</tr>
 													</tfoot>

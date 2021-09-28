@@ -106,14 +106,14 @@
 													</thead>
 													<tbody>
 														<tr th:each="partOrder:${partOrders}">
-															<td th:text="${partOrder.part}"></td>
+															<td th:text="${partOrder.part.name}"></td>
 															<td th:text="${partOrder.Date}"></td>
 															<td th:text="${partOrder.quantity}"></td>
 															<td th:text="${partOrder.unit}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deletepartorder/{id}(id=${partOrder.id}) }">Delete</a></td>
+																th:href="@{/deletepartorder/{id}(id=${partOrder.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>

@@ -98,25 +98,27 @@
 													<thead>
 														<tr>
 															<th>Reference</th>
-			<th>Name</th>
-			<th>Actions</th>
+															<th>Name</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
-														 <tr th:each="part:${parts}">
-	          <td th:text="${part.reference}"></td>
-	          <td th:text="${part.name}"></td>
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletepart/{id}(id=${part.id}) }">Delete</a></td> 
-          </tr>
+														<tr th:each="part:${parts}">
+															<td th:text="${part.reference}"></td>
+															<td th:text="${part.name}"></td>
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletepart/{id}(id=${part.id}) }">Delete</a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
 
 														<tr>
 															<th>Reference</th>
-			<th>Name</th>
-			<th>Actions</th>
+															<th>Name</th>
+															<th>Actions</th>
 														</tr>
 													</tfoot>
 												</table>
@@ -132,8 +134,9 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				 <div th:insert="part/add_part :: add_part_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div th:insert="part/add_part :: add_part_form" class="modal fade"
+					id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

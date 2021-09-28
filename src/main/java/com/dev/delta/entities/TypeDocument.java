@@ -14,7 +14,7 @@ public class TypeDocument {
 	String name;
 	String extension;
 	String description;
-	
+
 	public TypeDocument() {
 		// TODO Auto-generated constructor stub
 	}
@@ -57,6 +57,5 @@ public class TypeDocument {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
+
 }

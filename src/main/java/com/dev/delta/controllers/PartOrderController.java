@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Part;
 import com.dev.delta.entities.PartOrder;
+import com.dev.delta.entities.Unit;
+import com.dev.delta.entities.VAT;
 import com.dev.delta.services.PartOrderService;
 import com.dev.delta.services.PartService;
+import com.dev.delta.services.UnitService;
+import com.dev.delta.services.VATService;
 
 @Controller
 public class PartOrderController {
@@ -29,10 +33,16 @@ public class PartOrderController {
 
 	@Autowired
 	private PartService partService;
-	
+
+	@Autowired
+	private UnitService unitService;
+
+	@Autowired
+	private VATService vatService;
 
 	/**
 	 * getPartOrders
+	 * 
 	 * @param model
 	 * @return
 	 */
@@ -40,13 +50,18 @@ public class PartOrderController {
 	public String getPartOrders(Model model) {
 		List<PartOrder> partOrders = partOrderService.getPartOrders();
 		List<Part> parts = partService.getParts();
-		model.addAttribute("partOrders", partOrders);	
-		model.addAttribute("parts", parts);	
+		List<Unit> units = unitService.getUnits();
+		List<VAT> vats = vatService.getVats();
+		model.addAttribute("partOrders", partOrders);
+		model.addAttribute("parts", parts);
+		model.addAttribute("units", units);
+		model.addAttribute("vat", vats);
 		return "part_order/part_orders";
 	}
 
 	/**
 	 * addPartOrder
+	 * 
 	 * @param partOrder
 	 * @return
 	 */
@@ -59,6 +74,7 @@ public class PartOrderController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -72,6 +88,7 @@ public class PartOrderController {
 
 	/**
 	 * updatePartOrder
+	 * 
 	 * @param id
 	 * @param partOrder
 	 * @param result
@@ -88,12 +105,13 @@ public class PartOrderController {
 
 	/**
 	 * deletePartOrder
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletepartorder/{id}")
 	@Transactional
-	public String deletePartOrder(@PathVariable("id") int id) {
+	public String deletePartOrder(@PathVariable("id") Long id) {
 		partOrderService.delete(id);
 		return "redirect:/partorders";
 	}

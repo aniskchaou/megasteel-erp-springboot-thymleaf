@@ -14,22 +14,20 @@ public class VehiculeRent {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	@ManyToOne
-	@JoinColumn(name="customer_id")
+	@JoinColumn(name = "customer_id")
 	Client Customer;
 	@ManyToOne
-	@JoinColumn(name="model_id")
+	@JoinColumn(name = "model_id")
 	VehiculeModel Model;
 	String plateNumber;
 	String contractNumber;
 	String rentStart;
 	String rentEnd;
 	String Mileage;
-	
+
 	public VehiculeRent() {
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public VehiculeRent(Client customer, VehiculeModel model, String plateNumber, String contractNumber,
 			String rentStart, String rentEnd, String mileage) {
@@ -42,8 +40,6 @@ public class VehiculeRent {
 		this.rentEnd = rentEnd;
 		Mileage = mileage;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -108,7 +104,5 @@ public class VehiculeRent {
 	public void setMileage(String mileage) {
 		Mileage = mileage;
 	}
-	
-	
-	
+
 }

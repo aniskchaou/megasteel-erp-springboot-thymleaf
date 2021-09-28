@@ -21,8 +21,9 @@ import com.dev.delta.entities.Family;
 import com.dev.delta.services.ArticleService;
 import com.dev.delta.services.ClientService;
 import com.dev.delta.services.DeliveryVoucherService;
+
 @Controller
-public class DeliveryVoucherController{
+public class DeliveryVoucherController {
 	/**
 	 * deliveryVoucherService
 	 */
@@ -31,21 +32,22 @@ public class DeliveryVoucherController{
 
 	@Autowired
 	private ClientService clientService;
-	
+
 	@Autowired
 	private ArticleService articleService;
 
 	/**
 	 * getDeliveryVouchers
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/deliveryvouchers")
 	public String getDeliveryVouchers(Model model) {
 		List<DeliveryVoucher> deliveryVouchers = deliveryVoucherService.getDeliveryVouchers();
-		List<Client> clients=clientService.getClients();
-		List<Article> articles=articleService.getArticles();
-		model.addAttribute("deliveryVouchers", deliveryVouchers);	
+		List<Client> clients = clientService.getClients();
+		List<Article> articles = articleService.getArticles();
+		model.addAttribute("deliveryVouchers", deliveryVouchers);
 		model.addAttribute("clients", clients);
 		model.addAttribute("articles", articles);
 		return "delivery_voucher/delivery_vouchers";
@@ -53,6 +55,7 @@ public class DeliveryVoucherController{
 
 	/**
 	 * addDeliveryVoucher
+	 * 
 	 * @param deliveryVoucher
 	 * @return
 	 */
@@ -65,6 +68,7 @@ public class DeliveryVoucherController{
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -78,6 +82,7 @@ public class DeliveryVoucherController{
 
 	/**
 	 * updateDeliveryVoucher
+	 * 
 	 * @param id
 	 * @param deliveryVoucher
 	 * @param result
@@ -85,8 +90,8 @@ public class DeliveryVoucherController{
 	 * @return
 	 */
 	@PostMapping("/updatedeliveryvoucher/{id}")
-	public String updateDeliveryVoucher(@PathVariable("id") long id, @Validated DeliveryVoucher deliveryVoucher, BindingResult result,
-			Model model) {
+	public String updateDeliveryVoucher(@PathVariable("id") long id, @Validated DeliveryVoucher deliveryVoucher,
+			BindingResult result, Model model) {
 
 		deliveryVoucherService.save(deliveryVoucher);
 		return "redirect:/deliveryvouchers";
@@ -94,15 +99,15 @@ public class DeliveryVoucherController{
 
 	/**
 	 * deleteDeliveryVoucher
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletedeliveryvoucher/{id}")
 	@Transactional
-	public String deleteDeliveryVoucher(@PathVariable("id") int id) {
+	public String deleteDeliveryVoucher(@PathVariable("id") Long id) {
 		deliveryVoucherService.delete(id);
 		return "redirect:/deliveryvouchers";
 	}
-	
-	
+
 }

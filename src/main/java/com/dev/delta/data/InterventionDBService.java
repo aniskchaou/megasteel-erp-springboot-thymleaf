@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.InterventionRepository;
 
 @Service
-public class InterventionDBService implements IDBService{
+public class InterventionDBService implements IDBService {
 
 	@Autowired
 	InterventionRepository InterventionRepository;
-	
+
 	@Override
 	public void populate() {
-		intervention.setCost("4200");
+		intervention.setCost("42.000 $");
 		intervention.setDate("1/8/2020");
 		intervention.setDuration("8 hours");
 		intervention.setMachine(machine);

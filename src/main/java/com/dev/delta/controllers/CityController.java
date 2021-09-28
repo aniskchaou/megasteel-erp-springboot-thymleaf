@@ -30,25 +30,26 @@ public class CityController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getCitys
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/cities")
 	public String getCitys(Model model) {
 		List<City> citys = cityService.getCitys();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("cities", citys);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("cities", citys);
+		model.addAttribute("families", families);
+
 		return "city/cities";
 	}
 
 	/**
 	 * addCity
+	 * 
 	 * @param city
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class CityController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class CityController {
 
 	/**
 	 * updateCity
+	 * 
 	 * @param id
 	 * @param city
 	 * @param result
@@ -81,8 +84,7 @@ public class CityController {
 	 * @return
 	 */
 	@PostMapping("/updatecity/{id}")
-	public String updateCity(@PathVariable("id") long id, @Validated City city, BindingResult result,
-			Model model) {
+	public String updateCity(@PathVariable("id") long id, @Validated City city, BindingResult result, Model model) {
 
 		cityService.save(city);
 		return "redirect:/cities";
@@ -90,12 +92,13 @@ public class CityController {
 
 	/**
 	 * deleteCity
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletecity/{id}")
 	@Transactional
-	public String deleteCity(@PathVariable("id") int id) {
+	public String deleteCity(@PathVariable("id") Long id) {
 		cityService.delete(id);
 		return "redirect:/cities";
 	}

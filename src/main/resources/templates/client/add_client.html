@@ -1,48 +1,85 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-	
-	
-				<form th:fragment="add_client_form" th:action="@{/addclient}" method="post">
 
-				<!-- Name  -->
-				 <input name="firstName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="firstName">
-						
-				 <input name="code" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="code">
-						
-				 <input name="lastName" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="lastName">
-						
-						<select name="tva" >
-			 <option th:value="${vat.id}" th:each="vat:${vats}"  th:text="${vat.name}">
-			 </option>
+<div th:fragment="add_client_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addclient}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>First Name</label> <input name="firstName" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="First Name">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Code</label> <input name="code" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Code">
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Address </label> <input name="adresse" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Address">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Phone</label> <input name="telephone" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Phone">
+						</div>
+
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+				<div class="row">
+
+					<!-- /.col -->
+					<div class="col-12 col-sm-6">
+						<div class="form-group">
+							<label>Email</label> <input name="email" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Email">
+						</div>
+					</div>
+						<div class="col-12 col-sm-6">
+							<div class="form-group">
+								<label>Last Name</label> <input name="lastName" type="text"
+									class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" placeholder="last Name">
+							</div>
+						</div>
+						<div class="col-12 col-sm-6">
+							<div class="form-group">
+								<label>VAT</label> <select name="tva">
+									<option th:value="${vat.id}" th:each="vat:${vats}"
+										th:text="${vat.name}"></option>
+								</select>
+							</div>
+						</div>
+
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<button type="submit" class="btn btn-primary">Create</button>
+					</form>
+				</div>
+				<!-- /.row -->
+				
 			
-			</select>
-						
-						
-						 <input name="adresse" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="adresse">
-						
-						 <input name="telephone" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="telephone">
-						
-							 <input name="telephone" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="telephone">
-						
-							 <input name="email" type="text" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
-
-
-				<button type="submit" class="btn btn-primary">Create</button>
-
-
-			</form>
-</body>
-</html>
+		
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

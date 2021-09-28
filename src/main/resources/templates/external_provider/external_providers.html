@@ -105,10 +105,11 @@
 													<tbody>
 														<tr th:each="externalProvider:${externalProviders}">
 															<td th:text="${externalProvider.name}"></td>
+															<td th:text="${externalProvider.mark}"></td>
 															<td><a type="button"
 																onclick="return confirm('Are you sure?') ? true : false;"
 																class="btn btn-danger"
-																th:href="@{/deleteexternalProvider/{id}(id=${externalProvider.id}) }">Delete</a></td>
+																th:href="@{/deleteexternalProvider/{id}(id=${externalProvider.id}) }"><i class="fas fa-trash"></i></a></td>
 														</tr>
 
 													</tbody>

@@ -98,37 +98,39 @@
 													role="grid" aria-describedby="example1_info">
 													<thead>
 														<tr>
-														<th>Customer</th>
-			<th>Model</th>
-			<th>plate Number</th>
-			<th>Contract Number</th>
-			<th>Rent Start</th>
-			<th>Eent End</th>
-			<th>Actions</th>
+															<th>Customer</th>
+															<th>Model</th>
+															<th>plate Number</th>
+															<th>Contract Number</th>
+															<th>Rent Start</th>
+															<th>Eent End</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
-														 <tr th:each="vehicule_rent:${vehicule_rents}">
-	          <td th:text="${vehicule_rent.Customer}"></td>
-	          <td th:text="${vehicule_rent.Model}"></td>
-	          <td th:text="${vehicule_rent.plateNumber}"></td>
-	          <td th:text="${vehicule_rent.contractNumber}"></td>
-	          <td th:text="${vehicule_rent.rentStart}"></td>
-	          <td th:text="${vehicule_rent.rentEnd}"></td> 
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletevehicule_rent/{id}(id=${vehicule_rent.id}) }">Delete</a></td> 
-          </tr>
+														<tr th:each="vehicule_rent:${vehiculerents}">
+															<td th:text="${vehicule_rent.Customer.firstName}"></td>
+															<td th:text="${vehicule_rent.Model.brand}"></td>
+															<td th:text="${vehicule_rent.plateNumber}"></td>
+															<td th:text="${vehicule_rent.contractNumber}"></td>
+															<td th:text="${vehicule_rent.rentStart}"></td>
+															<td th:text="${vehicule_rent.rentEnd}"></td>
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletevehiculerent/{id}(id=${vehicule_rent.id}) }"><i class="fas fa-trash"></i></a></td>
+														</tr>
 													</tbody>
 													<tfoot>
 
 														<tr>
 															<th>Customer</th>
-			<th>Model</th>
-			<th>plate Number</th>
-			<th>Contract Number</th>
-			<th>Rent Start</th>
-			<th>Eent End</th>
-			<th>Actions</th>
+															<th>Model</th>
+															<th>plate Number</th>
+															<th>Contract Number</th>
+															<th>Rent Start</th>
+															<th>Eent End</th>
+															<th>Actions</th>
 														</tr>
 													</tfoot>
 												</table>
@@ -144,9 +146,11 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				
-	 <div th:insert="vehicule_rent/add_vehicule_rent :: add_vehicule_rent_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+
+				<div
+					th:insert="vehicule_rent/add_vehicule_rent :: add_vehicule_rent_form"
+					class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

@@ -26,22 +26,22 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 
-	
-
 	/**
 	 * getOrders
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/orders")
 	public String getOrders(Model model) {
 		List<Order> orders = orderService.getOrders();
-		model.addAttribute("orders", orders);	
+		model.addAttribute("orders", orders);
 		return "order/orders";
 	}
 
 	/**
 	 * addOrder
+	 * 
 	 * @param order
 	 * @return
 	 */
@@ -54,6 +54,7 @@ public class OrderController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -67,6 +68,7 @@ public class OrderController {
 
 	/**
 	 * updateOrder
+	 * 
 	 * @param id
 	 * @param order
 	 * @param result
@@ -74,8 +76,7 @@ public class OrderController {
 	 * @return
 	 */
 	@PostMapping("/updateorder/{id}")
-	public String updateOrder(@PathVariable("id") long id, @Validated Order order, BindingResult result,
-			Model model) {
+	public String updateOrder(@PathVariable("id") long id, @Validated Order order, BindingResult result, Model model) {
 
 		orderService.save(order);
 		return "redirect:/orders";
@@ -83,12 +84,13 @@ public class OrderController {
 
 	/**
 	 * deleteOrder
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteorder/{id}")
 	@Transactional
-	public String deleteOrder(@PathVariable("id") int id) {
+	public String deleteOrder(@PathVariable("id") Long id) {
 		orderService.delete(id);
 		return "redirect:/orders";
 	}

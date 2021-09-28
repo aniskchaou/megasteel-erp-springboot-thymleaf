@@ -12,7 +12,7 @@ public class TypeTermination {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String name;
-	
+
 	public TypeTermination() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,6 +37,5 @@ public class TypeTermination {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
 }

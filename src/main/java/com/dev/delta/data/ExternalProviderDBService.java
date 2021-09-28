@@ -10,9 +10,10 @@ public class ExternalProviderDBService implements IDBService {
 
 	@Autowired
 	ExternalProviderRepository externalProviderRepository;
+
 	@Override
 	public void populate() {
-		
+
 		externalProvider.setMark("19");
 		externalProvider.setName("ZSZZ");
 		externalProviderRepository.save(externalProvider);

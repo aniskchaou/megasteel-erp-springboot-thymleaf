@@ -30,25 +30,26 @@ public class IncomeController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getIncomes
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/incomes")
 	public String getIncomes(Model model) {
 		List<Income> incomes = incomeService.getIncomes();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("incomes", incomes);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("incomes", incomes);
+		model.addAttribute("families", families);
+
 		return "income/incomes";
 	}
 
 	/**
 	 * addIncome
+	 * 
 	 * @param income
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class IncomeController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class IncomeController {
 
 	/**
 	 * updateIncome
+	 * 
 	 * @param id
 	 * @param income
 	 * @param result
@@ -90,12 +93,13 @@ public class IncomeController {
 
 	/**
 	 * deleteIncome
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deleteincome/{id}")
 	@Transactional
-	public String deleteIncome(@PathVariable("id") int id) {
+	public String deleteIncome(@PathVariable("id") Long id) {
 		incomeService.delete(id);
 		return "redirect:/incomes";
 	}

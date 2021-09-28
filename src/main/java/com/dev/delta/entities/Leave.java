@@ -14,13 +14,12 @@ import javax.persistence.Table;
 @Table(name = "leaves")
 public class Leave implements Serializable {
 
-	
 	private static final long serialVersionUID = 7062244464670450228L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	@ManyToOne
-	@JoinColumn(name="employee_id")
+	@JoinColumn(name = "employee_id")
 	Employee employee;
 	String firstName;
 	String lastName;
@@ -29,7 +28,7 @@ public class Leave implements Serializable {
 	String requestedDays;
 	String remainingDays;
 	@ManyToOne
-	@JoinColumn(name="type_leave_id")
+	@JoinColumn(name = "type_leave_id")
 	TypeLeave TypeLeave;
 
 	public Leave() {

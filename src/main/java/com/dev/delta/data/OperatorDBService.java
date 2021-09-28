@@ -9,8 +9,8 @@ import com.dev.delta.repositories.OperatorRepository;
 public class OperatorDBService implements IDBService {
 
 	@Autowired
-	OperatorRepository  OperatorRepository;
-	
+	OperatorRepository OperatorRepository;
+
 	@Override
 	public void populate() {
 		operator.setCode("HO8G878");

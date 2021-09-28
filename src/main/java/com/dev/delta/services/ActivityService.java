@@ -10,57 +10,58 @@ import com.dev.delta.entities.Activity;
 import com.dev.delta.repositories.ActivityRepository;
 
 @Service
-public class ActivityService  {
+public class ActivityService {
 
 	/**
 	 * activityRepository
 	 */
 	@Autowired
 	private ActivityRepository activityRepository;
-	
 
 	/**
 	 * getActivitys
+	 * 
 	 * @return
 	 */
-	public List<Activity> getActivitys()
-	{
+	public List<Activity> getActivitys() {
 		return activityRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return activityRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param activity
 	 */
-	public void save(Activity activity)
-	{
+	public void save(Activity activity) {
 		activityRepository.save(activity);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Activity> findById(int id) {
 		return activityRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		activityRepository.delete(activityRepository.findById(id).get());
 	}
-    
+
 }

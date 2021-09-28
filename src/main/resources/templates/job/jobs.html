@@ -98,17 +98,20 @@
 													<thead>
 														<tr>
 															<th>Name</th>
-															
+
 															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr th:each="job:${jobs}">
-	          <td th:text="${job.name}"></td>
-	         
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletejob/{id}(id=${job.id}) }">Delete</a></td> 
-          </tr>
+															<td th:text="${job.name}"></td>
+
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletejob/{id}(id=${job.id}) }"><i
+																	class="fas fa-trash"></i></a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
@@ -131,8 +134,9 @@
 					</div>
 					<!-- /.row -->
 				</div>
-			<div th:insert="job/add_job :: add_job_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+				<div th:insert="job/add_job :: add_job_form" class="modal fade"
+					id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

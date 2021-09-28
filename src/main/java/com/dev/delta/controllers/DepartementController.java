@@ -30,25 +30,26 @@ public class DepartementController {
 
 	@Autowired
 	private FamilyService familyService;
-	
 
 	/**
 	 * getDepartements
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/departements")
 	public String getDepartements(Model model) {
 		List<Departement> departements = departementService.getDepartements();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("departements", departements);	
-		model.addAttribute("families",families);
-		
+		List<Family> families = familyService.getFamilys();
+		model.addAttribute("departements", departements);
+		model.addAttribute("families", families);
+
 		return "departement/departements";
 	}
 
 	/**
 	 * addDepartement
+	 * 
 	 * @param departement
 	 * @return
 	 */
@@ -61,6 +62,7 @@ public class DepartementController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +76,7 @@ public class DepartementController {
 
 	/**
 	 * updateDepartement
+	 * 
 	 * @param id
 	 * @param departement
 	 * @param result
@@ -81,8 +84,8 @@ public class DepartementController {
 	 * @return
 	 */
 	@PostMapping("/updatedepartement/{id}")
-	public String updateDepartement(@PathVariable("id") long id, @Validated Departement departement, BindingResult result,
-			Model model) {
+	public String updateDepartement(@PathVariable("id") long id, @Validated Departement departement,
+			BindingResult result, Model model) {
 
 		departementService.save(departement);
 		return "redirect:/departements";
@@ -90,12 +93,13 @@ public class DepartementController {
 
 	/**
 	 * deleteDepartement
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@GetMapping("/deletedepartement/{id}")
 	@Transactional
-	public String deleteDepartement(@PathVariable("id") int id) {
+	public String deleteDepartement(@PathVariable("id") Long id) {
 		departementService.delete(id);
 		return "redirect:/departements";
 	}

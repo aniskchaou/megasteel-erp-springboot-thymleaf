@@ -17,49 +17,50 @@ public class TaskService {
 	 */
 	@Autowired
 	private TaskRepository taskRepository;
-	
 
 	/**
 	 * getTasks
+	 * 
 	 * @return
 	 */
-	public List<Task> getTasks()
-	{
+	public List<Task> getTasks() {
 		return taskRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return taskRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param task
 	 */
-	public void save(Task task)
-	{
+	public void save(Task task) {
 		taskRepository.save(task);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Task> findById(int id) {
 		return taskRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		taskRepository.delete(taskRepository.findById(id).get());
 	}
 }

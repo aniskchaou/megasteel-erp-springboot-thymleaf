@@ -98,37 +98,39 @@
 													<thead>
 														<tr>
 															<th>Subject</th>
-			<th>Project</th>
-			<th>Assigned</th>
-			<th>Priority</th>
-			<th>Date</th>
-			<th>Deadline</th>
-			<th>Actions</th>
+															<th>Project</th>
+															<th>Assigned</th>
+															<th>Priority</th>
+															<th>Date</th>
+															<th>Deadline</th>
+															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr th:each="task:${tasks}">
-	          <td th:text="${task.code}"></td>
-	          <td th:text="${task.unity}"></td>
-	          <td th:text="${task.height}"></td>
-	          <td th:text="${task.width}"></td>
-	          <td th:text="${task.dimension}"></td>
-	          <td th:text="${task.weight}"></td> 
-	          <td ><a type="button" onclick="return confirm('Are you sure?') ? true : false;" class="btn btn-danger"
-                    th:href="@{/deletetask/{id}(id=${task.id}) }">Delete</a></td> 
-          </tr>
+															<td th:text="${task.subject}"></td>
+															<td th:text="${task.project.name}"></td>
+															<td th:text="${task.assigned.firstName}"></td>
+															<td th:text="${task.priority}"></td>
+															<td th:text="${task.date}"></td>
+															<td th:text="${task.deadline}"></td>
+															<td><a type="button"
+																onclick="return confirm('Are you sure?') ? true : false;"
+																class="btn btn-danger"
+																th:href="@{/deletetask/{id}(id=${task.id}) }"><i class="fas fa-trash"></i></a></td>
+														</tr>
 
 													</tbody>
 													<tfoot>
 
 														<tr>
 															<th>Subject</th>
-			<th>Project</th>
-			<th>Assigned</th>
-			<th>Priority</th>
-			<th>Date</th>
-			<th>Deadline</th>
-			<th>Actions</th>
+															<th>Project</th>
+															<th>Assigned</th>
+															<th>Priority</th>
+															<th>Date</th>
+															<th>Deadline</th>
+															<th>Actions</th>
 														</tr>
 													</tfoot>
 												</table>
@@ -144,9 +146,10 @@
 					</div>
 					<!-- /.row -->
 				</div>
-				
-	 <div th:insert="task/add_task :: add_task_form" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+
+				<div th:insert="task/add_task :: add_task_form" class="modal fade"
+					id="exampleModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 			</div>
 			<!-- /.content -->
 		</div>

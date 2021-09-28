@@ -13,11 +13,10 @@ public class VehiculeModel {
 	Long id;
 	String name;
 	String brand;
-	
+
 	public VehiculeModel() {
 		// TODO Auto-generated constructor stub
 	}
-
 
 	public VehiculeModel(String name, String brand) {
 		super();
@@ -25,16 +24,13 @@ public class VehiculeModel {
 		this.brand = brand;
 	}
 
-
 	public String getBrand() {
 		return brand;
 	}
 
-
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -51,7 +47,5 @@ public class VehiculeModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }

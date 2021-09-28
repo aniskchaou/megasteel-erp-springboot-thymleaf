@@ -15,9 +15,9 @@ public class Job {
 	Long id;
 	String name;
 	@ManyToOne
-	@JoinColumn(name="departement_id")
+	@JoinColumn(name = "departement_id")
 	Departement departement;
-	
+
 	public Job() {
 		// TODO Auto-generated constructor stub
 	}
@@ -51,7 +51,5 @@ public class Job {
 	public void setDepartement(Departement departement) {
 		this.departement = departement;
 	}
-	
-	
-	
+
 }

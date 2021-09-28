@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Article  implements Serializable{
+public class Article implements Serializable {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class Article  implements Serializable{
 	private Long id;
 	private String code;
 	@ManyToOne
-	@JoinColumn(name="unit_id")
+	@JoinColumn(name = "unit_id")
 	private Unit unity;
 	private String height;
 	private String width;

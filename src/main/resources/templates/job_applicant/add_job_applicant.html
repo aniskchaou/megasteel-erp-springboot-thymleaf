@@ -1,60 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:fragment="add_job_applicant_form" id="mymodel"
+	class="modal-dialog modal-xl" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New</h5>
+		</div>
+		<div class="modal-body">
+			<form th:action="@{/addjobapplicant}" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" style="z-index: 999999;">
+							<label>Last Name</label> <input name="lastName" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Last Name">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Job Status</label> <select name="jobStatus">
+								<option value="Accepted">Accepted</option>
+								<option value="Pending">Pending</option>
+								<option value="Rejected">Rejected</option>
+								<option></option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Phone</label> <input name="phoneApplied" type="number"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Phone">
+						</div>
+						<!-- /.form-group -->
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>First Name </label> <input name="FirstName" type="text"
+								class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="First Name" />
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Email</label> <input name="EmailFixed"
+								type="text" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Email">
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Mobile</label> <input name="phoneMobile"
+								type="number" class="form-control" id="exampleInputEmail1"
+								aria-describedby="emailHelp" placeholder="Mobile">
+						</div>
+						<!-- /.form-group -->
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
 
-
-
-<form th:fragment="add_job_applicant_form" th:action="@{/addjob_applicant}"
-		method="post">
-
-		<!-- Name  -->
-		<input name="lastName" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="name">
-			
-			 
-			<select name="jobStatus" >
-			 <option th:value="${j.id}" th:each="j:${jobStatus}"  th:text="${j.name}">
-			 </option>
-			
-			</select>
-			
-	
-			
-			
-			
-			<input name="FirstName"
-			type="number" class="form-control" id="exampleInputEmail1"
-			aria-describedby="emailHelp" placeholder="job_applicantNumber" /> 
-			
-			
-			<input
-			name="EmailFixed" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-			
-			
-			<input
-			name="phoneMobile" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-			
-			
-			<input
-			name="phoneApplied" type="number" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			placeholder="machineNumber">
-
-
-
-
-		<button type="submit" class="btn btn-primary">Create</button>
-
-
-	</form>
-</body>
-</html>
+				<!-- /.row -->
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

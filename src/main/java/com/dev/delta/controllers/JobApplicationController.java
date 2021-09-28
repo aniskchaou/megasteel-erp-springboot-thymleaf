@@ -15,8 +15,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.JobApplication;
+import com.dev.delta.entities.City;
+import com.dev.delta.entities.Country;
+import com.dev.delta.entities.Departement;
+import com.dev.delta.entities.Employee;
 import com.dev.delta.entities.Family;
 import com.dev.delta.services.JobApplicationService;
+import com.dev.delta.services.CityService;
+import com.dev.delta.services.CountryService;
+import com.dev.delta.services.DepartementService;
+import com.dev.delta.services.EmployeeService;
 import com.dev.delta.services.FamilyService;
 
 @Controller
@@ -29,30 +37,46 @@ public class JobApplicationController {
 	private JobApplicationService jobApplicationService;
 
 	@Autowired
-	private FamilyService familyService;
-	
+	private DepartementService departementService;
+
+	@Autowired
+	private CityService cityService;
+
+	@Autowired
+	private CountryService countryService;
+
+	@Autowired
+	private EmployeeService employeeService;
 
 	/**
 	 * getJobApplications
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/jobapplications")
 	public String getJobApplications(Model model) {
 		List<JobApplication> jobApplications = jobApplicationService.getJobApplications();
-		List<Family> families=familyService.getFamilys();
-		model.addAttribute("jobapplication", jobApplications);	
-		model.addAttribute("families",families);
-		
+		List<Employee> employees = employeeService.getEmployees();
+		List<City> cities = cityService.getCitys();
+		List<Country> countries = countryService.getCountrys();
+		List<Departement> departements = departementService.getDepartements();
+		model.addAttribute("jobapplication", jobApplications);
+		model.addAttribute("cities", cities);
+		model.addAttribute("countries", countries);
+		model.addAttribute("departements", departements);
+		model.addAttribute("employees", employees);
+
 		return "job_application/job_applications";
 	}
 
 	/**
 	 * addJobApplication
+	 * 
 	 * @param jobApplication
 	 * @return
 	 */
-	@PostMapping("/addjobApplication")
+	@PostMapping("/addjobapplication")
 
 	public String addJobApplication(JobApplication jobApplication) {
 		jobApplicationService.save(jobApplication);
@@ -61,6 +85,7 @@ public class JobApplicationController {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -74,6 +99,7 @@ public class JobApplicationController {
 
 	/**
 	 * updateJobApplication
+	 * 
 	 * @param id
 	 * @param jobApplication
 	 * @param result
@@ -81,8 +107,8 @@ public class JobApplicationController {
 	 * @return
 	 */
 	@PostMapping("/updatejobApplication/{id}")
-	public String updateJobApplication(@PathVariable("id") long id, @Validated JobApplication jobApplication, BindingResult result,
-			Model model) {
+	public String updateJobApplication(@PathVariable("id") long id, @Validated JobApplication jobApplication,
+			BindingResult result, Model model) {
 
 		jobApplicationService.save(jobApplication);
 		return "redirect:/jobapplication";
@@ -90,12 +116,13 @@ public class JobApplicationController {
 
 	/**
 	 * deleteJobApplication
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletejobApplication/{id}")
+	@GetMapping("/deletejobapplication/{id}")
 	@Transactional
-	public String deleteJobApplication(@PathVariable("id") int id) {
+	public String deleteJobApplication(@PathVariable("id") Long id) {
 		jobApplicationService.delete(id);
 		return "redirect:/jobapplication";
 	}

@@ -16,49 +16,50 @@ public class EventService {
 	 */
 	@Autowired
 	private EventRepository eventRepository;
-	
 
 	/**
 	 * getEvents
+	 * 
 	 * @return
 	 */
-	public List<Event> getEvents()
-	{
+	public List<Event> getEvents() {
 		return eventRepository.findAll();
 	}
-	
+
 	/**
 	 * getCount
+	 * 
 	 * @return
 	 */
-	public long getCount()
-	{
+	public long getCount() {
 		return eventRepository.count();
 	}
 
 	/**
 	 * save
+	 * 
 	 * @param event
 	 */
-	public void save(Event event)
-	{
+	public void save(Event event) {
 		eventRepository.save(event);
 	}
 
-    /**
-     * findById
-     * @param id
-     * @return
-     */
+	/**
+	 * findById
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Optional<Event> findById(int id) {
 		return eventRepository.findById(id);
 	}
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
-	public void delete(int id) {
+	public void delete(Long id) {
 		eventRepository.delete(eventRepository.findById(id).get());
 	}
 }

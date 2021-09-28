@@ -10,20 +10,19 @@ import javax.persistence.Id;
 @Entity
 public class ProductionEntryVoucher implements Serializable {
 
-
 	private static final long serialVersionUID = -6422688175398528003L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String code;
-    private String codeProductionOrder;
-    private String quantity;
-    private String duration;
-    private String date;
-    private String unit;
-    private String remaningQuantity;
-    
-    public ProductionEntryVoucher() {
+	private String codeProductionOrder;
+	private String quantity;
+	private String duration;
+	private String date;
+	private String unit;
+	private String remaningQuantity;
+
+	public ProductionEntryVoucher() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -102,6 +101,5 @@ public class ProductionEntryVoucher implements Serializable {
 	public void setRemaningQuantity(String remaningQuantity) {
 		this.remaningQuantity = remaningQuantity;
 	}
-    
-    
+
 }
